@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import axios from 'axios'
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -7,14 +7,17 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth'
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { BASE_URL } from '../configs/url'
+import { IUserDTO } from '../types'
 
 interface IAuthProvider {
   children: ReactNode
 }
 
 type IAUthContext = {
-  token: string | null
-  signUpWithEmail: (email: string, password: string) => Promise<boolean>
+  user: IUserDTO | null
+  signUpWithEmail: (email: string, password: string) => Promise<void>
   signInWithGoogle: () => Promise<void>
   signOutAuth: () => Promise<void>
 }
@@ -28,15 +31,20 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-  const [token, setToken] = useState<string | null>(null)
   const auth = getAuth()
+  const [user, setUser] = useState<IUserDTO | null>(null)
 
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        setToken(await user.getIdToken())
+    auth.onAuthStateChanged(async (userCredential) => {
+      if (userCredential) {
+        const token = await userCredential.getIdToken()
+        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        const userData = result.data
+        setUser(userData)
       } else {
-        setToken(null)
+        setUser(null)
       }
     })
   }, [auth])
@@ -44,38 +52,28 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman)+\.[A-Z]{2,}$/i
 
-    if (typeof email !== 'string') {
+    if (!email || typeof email !== 'string') {
       alert('please enter an email')
-      return false
+      return
     }
-    if (typeof password !== 'string') {
+    if (!password || typeof password !== 'string') {
       alert('please enter an password')
-      return false
-    }
-    if (!email) {
-      alert('please enter an email')
-      return false
-    }
-    if (!password) {
-      alert('please enter an password')
-      return false
+      return
     }
     if (!expression.test(email)) {
       alert('Please enter correct email.')
-      return false
+      return
     }
     if (password.length < 8) {
       alert('Please enter correct password.')
-      return false
-    } else {
-      signInWithEmailAndPassword(auth, email, password).catch(() => {
-        createUserWithEmailAndPassword(auth, email, password).catch((error) => {
-          if (error instanceof Error) alert('Email already in use')
-        })
-      })
-
-      return true
+      return
     }
+
+    signInWithEmailAndPassword(auth, email, password).catch(() => {
+      createUserWithEmailAndPassword(auth, email, password).catch((error) => {
+        if (error instanceof Error) alert('Email already in use')
+      })
+    })
   }
 
   const signInWithGoogle = async () => {
@@ -88,7 +86,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   const store: IAUthContext = {
-    token,
+    user,
     signUpWithEmail,
     signInWithGoogle,
     signOutAuth,
