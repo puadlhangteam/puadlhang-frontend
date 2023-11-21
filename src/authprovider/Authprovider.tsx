@@ -1,5 +1,12 @@
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
-import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth'
 
 interface IAuthProvider {
   children: ReactNode
@@ -35,7 +42,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }, [auth])
 
   const signUpWithEmail = async (email: string, password: string) => {
-    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+    const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman)+\.[A-Z]{2,}$/i
+
     if (typeof email !== 'string') {
       alert('please enter an email')
       return false
@@ -60,9 +68,12 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       alert('Please enter correct password.')
       return false
     } else {
-      signInWithEmailAndPassword(auth, email, password).catch((error) => {
-        if (error instanceof Error) alert('Failed to log in')
+      signInWithEmailAndPassword(auth, email, password).catch(() => {
+        createUserWithEmailAndPassword(auth, email, password).catch((error) => {
+          if (error instanceof Error) alert('Email already in use')
+        })
       })
+
       return true
     }
   }
