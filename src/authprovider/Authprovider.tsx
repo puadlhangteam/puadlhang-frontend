@@ -7,7 +7,7 @@ interface IAuthProvider {
 
 type IAUthContext = {
   token: string | null
-  signUpWithEmail: (email: string | null, password: string | null) => Promise<boolean>
+  signUpWithEmail: (email: string, password: string) => Promise<boolean>
   signInWithGoogle: () => Promise<void>
   signOutAuth: () => Promise<void>
 }
@@ -16,7 +16,7 @@ const AuthContext = createContext<IAUthContext | null>(null)
 
 export const useAuth = () => {
   const context = useContext(AuthContext)
-  if (!context) throw new Error()
+  if (!context) throw new Error('can not use useAuth outside AuthProvider')
   return context
 }
 
@@ -34,38 +34,43 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     })
   }, [auth])
 
-  const signUpWithEmail = async (email: string | null, password: string | null) => {
-    if (
-      typeof email !== 'string' ||
-      typeof password !== 'string' ||
-      !email ||
-      !password ||
-      email.length < 5 ||
-      password.length < 8
-    ) {
-      alert('..')
+  const signUpWithEmail = async (email: string, password: string) => {
+    const expression: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+    if (typeof email !== 'string') {
+      alert('please enter an email')
+      return false
+    }
+    if (typeof password !== 'string') {
+      alert('please enter an password')
+      return false
+    }
+    if (!email) {
+      alert('please enter an email')
+      return false
+    }
+    if (!password) {
+      alert('please enter an password')
+      return false
+    }
+    if (!expression.test(email)) {
+      alert('Please enter correct email.')
+      return false
+    }
+    if (password.length < 8) {
+      alert('Please enter correct password.')
       return false
     } else {
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          console.log(userCredential.user)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+      signInWithEmailAndPassword(auth, email, password).catch((error) => {
+        if (error instanceof Error) alert('Failed to log in')
+      })
       return true
     }
   }
 
   const signInWithGoogle = async () => {
-    signInWithPopup(auth, new GoogleAuthProvider())
-      .then((userCredential) => {
-        console.log(userCredential)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
+      if (error instanceof Error) alert('Failed to log in')
+    })
   }
   const signOutAuth = async () => {
     signOut(auth)
