@@ -1,4 +1,35 @@
+import { useAuth } from '../authprovider/Authprovider'
+import { FormEvent, useEffect, useState } from 'react'
+
+export interface ILoginPageProps {}
+
 function Login() {
+  const { token, signInWithGoogle, signUpWithEmail } = useAuth()
+
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  useEffect(() => {
+    if (token) console.log(token)
+  }, [token])
+
+  const handleSubmitemail = async (e: FormEvent) => {
+    e.preventDefault()
+    try {
+      await signUpWithEmail(email, password)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleSubmitgmail = async (e: FormEvent) => {
+    e.preventDefault()
+    try {
+      await signInWithGoogle()
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   return (
     <div className="flex w-full h-screen relative bg-[url('../src/assets/icons/bg.svg')]">
       <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center">
@@ -21,6 +52,8 @@ function Login() {
               <label>Email or Username</label>
               <input
                 type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-10 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
                 placeholder="Enter your email..."
               />
@@ -28,6 +61,8 @@ function Login() {
             <div className="my-5">
               <label>Password</label>
               <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-10 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
                 placeholder="Enter your password..."
@@ -45,7 +80,10 @@ function Login() {
               </button>
             </div>
             <div className="mt-8 text-center">
-              <button className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
+              <button
+                onClick={handleSubmitemail}
+                className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+              >
                 Sign in
               </button>
             </div>
@@ -60,7 +98,10 @@ function Login() {
           </div>
           <div className="mt-8 flex justify-center items-center text-gray-400 font-medium">———————— OR ————————</div>
           <div className="mt-8 flex justify-center items-center gap-3">
-            <button className="flex rounded-xl px-3 py-3 border-2 border-gray-500 items-center justify-center gap-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
+            <button
+              onClick={handleSubmitgmail}
+              className="flex rounded-xl px-3 py-3 border-2 border-gray-500 items-center justify-center gap-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+            >
               <img src="src/assets/icons/Google.svg" alt="Google" className="w-10 h-10" />
               Continue with Google
             </button>
