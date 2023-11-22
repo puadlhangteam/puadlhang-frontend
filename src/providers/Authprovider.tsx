@@ -20,6 +20,7 @@ type IAUthContext = {
   signUpWithEmail: (email: string, password: string) => Promise<void>
   signInWithGoogle: () => Promise<void>
   signOutAuth: () => Promise<void>
+  token: string | null
 }
 
 const AuthContext = createContext<IAUthContext | null>(null)
@@ -33,11 +34,12 @@ export const useAuth = () => {
 const AuthProvider = ({ children }: IAuthProvider) => {
   const auth = getAuth()
   const [user, setUser] = useState<IUserDTO | null>(null)
+  const [token, setToken] = useState<string | null>(null)
 
   useEffect(() => {
     auth.onAuthStateChanged(async (userCredential) => {
       if (userCredential) {
-        const token = await userCredential.getIdToken()
+        setToken(await userCredential.getIdToken())
         const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -50,7 +52,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }, [auth])
 
   const signUpWithEmail = async (email: string, password: string) => {
-    const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman)+\.[A-Z]{2,}$/i
+    const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman|hotmail)+\.[A-Z]{2,}$/i
 
     if (!email || typeof email !== 'string') {
       alert('please enter an email')
@@ -90,6 +92,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     signUpWithEmail,
     signInWithGoogle,
     signOutAuth,
+    token,
   }
 
   return <AuthContext.Provider value={store}>{children}</AuthContext.Provider>

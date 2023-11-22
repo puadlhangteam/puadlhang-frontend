@@ -1,10 +1,11 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { useAuth } from '../providers/Authprovider'
+import axios from 'axios'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { user, signInWithGoogle, signUpWithEmail } = useAuth()
+  const { token, user, signInWithGoogle, signUpWithEmail } = useAuth()
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -16,6 +17,7 @@ function Login() {
     e.preventDefault()
     try {
       await signUpWithEmail(email, password)
+      await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
     } catch (err) {
       console.log(err)
     }
@@ -25,6 +27,7 @@ function Login() {
     e.preventDefault()
     try {
       await signInWithGoogle()
+      await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
     } catch (err) {
       console.log(err)
     }
