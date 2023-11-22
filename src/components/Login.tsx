@@ -1,16 +1,16 @@
-import { useAuth } from '../authprovider/Authprovider'
 import { FormEvent, useEffect, useState } from 'react'
+import { useAuth } from '../providers/Authprovider'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { token, signInWithGoogle, signUpWithEmail } = useAuth()
+  const { user, signInWithGoogle, signUpWithEmail } = useAuth()
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   useEffect(() => {
-    if (token) console.log(token)
-  }, [token])
+    if (user) console.log(user)
+  }, [user])
 
   const handleSubmitemail = async (e: FormEvent) => {
     e.preventDefault()
