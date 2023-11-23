@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<FullPage />}>
         <Route path="login" element={<Login />} />
-        <Route path="home" element={<Home />} />
+        <Route index element={<Home />} />
 
         <Route element={<GuardRoute />}>{/* Login Required Section */}</Route>
       </Route>
