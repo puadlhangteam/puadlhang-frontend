@@ -4,6 +4,7 @@ import GuardRoute from './Routes/GuardRoute'
 import Login from './components/Login'
 import { firebaseConfig } from './configs/firebase.config'
 import FullPage from './layouts/FullPage'
+import Home from './feat/Home'
 
 initializeApp(firebaseConfig)
 function App() {
@@ -11,6 +12,8 @@ function App() {
     <Routes>
       <Route path="/" element={<FullPage />}>
         <Route path="login" element={<Login />} />
+        <Route index element={<Home />} />
+
         <Route element={<GuardRoute />}>{/* Login Required Section */}</Route>
       </Route>
     </Routes>
