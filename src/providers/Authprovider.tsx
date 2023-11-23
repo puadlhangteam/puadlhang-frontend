@@ -76,12 +76,15 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         if (error instanceof Error) alert('Email already in use')
       })
     })
+
+    await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
   }
 
   const signInWithGoogle = async () => {
     signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
       if (error instanceof Error) alert('Failed to log in')
     })
+    await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
   }
   const signOutAuth = async () => {
     signOut(auth)

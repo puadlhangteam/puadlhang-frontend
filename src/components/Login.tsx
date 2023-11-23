@@ -17,7 +17,6 @@ function Login() {
     e.preventDefault()
     try {
       await signUpWithEmail(email, password)
-      await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
     } catch (err) {
       console.log(err)
     }
@@ -27,7 +26,6 @@ function Login() {
     e.preventDefault()
     try {
       await signInWithGoogle()
-      await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
     } catch (err) {
       console.log(err)
     }
