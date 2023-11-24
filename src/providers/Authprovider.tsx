@@ -46,7 +46,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setUser(null)
       }
     })
-  }, [auth])
+  }, [])
 
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman)+\.[A-Z]{2,}$/i
