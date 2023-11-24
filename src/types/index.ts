@@ -1,39 +1,63 @@
-// UserData
+export type IAllowGender = 'male' | 'female'
+export type TAllowLevel = 'ง่าย' | 'กลาง' | 'ยาก'
+export type pathURL = string
+// user request a specialist status
+export type IReqSpecialistFormDTO = {
+  certificate: pathURL
+  description?: string
+}
+
+// user data
 export type IUserDTO = {
   username: string
   uid: string
   email: string
-  picture?: string
-  gender?: 'male' | 'female'
+  picture?: pathURL
+  gender?: IAllowGender
   age?: number
-  isSpecialist?: boolean
+  isSpecialist?: string
 }
 
-export type IUpdateUserDTO = IUserDTO
+// update user data
+export type IReqUpdateUserDTO = Partial<IUserDTO>
 
-// Form data to apply specialist role
-export type ISpecialistFormDTO = {
-  certificate: string
-  description?: string
-}
-
-// Response Message include Error Message
+// general response
 export type IMessageDTO = { message: string }
 
-// Solution data DTO
-export type ISolutionDTO = {
+// all solutions
+export type IResSolutionsDTO = {
+  solutionId: string
   name: string
   type: string
   muscle: string
   items?: string[]
-  level: string
+  level: TAllowLevel
   solutions: string[]
-  pictures: string[]
-  videoUrl?: string
+  pictures: pathURL[]
+  videoUrl?: pathURL
+}
+
+// post comment
+export type IReqComment = {
+  text: string
+  rating: number
+}
+
+//single solution
+export type IResSolutionDTO = {
+  solutionId: string
+  name: string
+  type: string
+  muscle: string
+  items?: string[]
+  level: TAllowLevel
+  solutions: string[]
+  pictures: pathURL[]
+  videoUrl?: pathURL
   comments: {
-    OwnerUid: string
+    OwnerUid: IUserDTO
     text: string
     rating: number
-    createdAt: Date
+    createdAt: number
   }[]
 }
