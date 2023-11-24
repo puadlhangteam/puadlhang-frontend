@@ -2,12 +2,12 @@ import axios from 'axios'
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from 'firebase/auth'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { auth } from '../configs/firebase'
 import { BASE_URL } from '../configs/url'
 import { IUserDTO } from '../types'
 
@@ -31,14 +31,13 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-  const auth = getAuth()
   const [user, setUser] = useState<IUserDTO | null>(null)
 
   useEffect(() => {
     auth.onAuthStateChanged(async (userCredential) => {
       if (userCredential) {
         const token = await userCredential.getIdToken()
-        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
+        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/data`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         const userData = result.data
@@ -47,7 +46,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setUser(null)
       }
     })
-  }, [auth])
+  }, [])
 
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman)+\.[A-Z]{2,}$/i

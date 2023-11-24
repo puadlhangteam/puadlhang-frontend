@@ -1,6 +1,7 @@
 export type IAllowGender = 'male' | 'female'
 export type TAllowLevel = 'ง่าย' | 'กลาง' | 'ยาก'
 export type pathURL = string
+export type ObjectId = string
 // user request a specialist status
 export type IReqSpecialistFormDTO = {
   certificate: pathURL
@@ -10,7 +11,7 @@ export type IReqSpecialistFormDTO = {
 // user data
 export type IUserDTO = {
   username: string
-  uid: string
+  uid: ObjectId
   email: string
   picture?: pathURL
   gender?: IAllowGender
@@ -26,7 +27,7 @@ export type IMessageDTO = { message: string }
 
 // all solutions
 export type IResSolutionsDTO = {
-  solutionId: string
+  solutionId: ObjectId
   name: string
   type: string
   muscle: string
@@ -45,7 +46,7 @@ export type IReqComment = {
 
 //single solution
 export type IResSolutionDTO = {
-  solutionId: string
+  solutionId: ObjectId
   name: string
   type: string
   muscle: string
