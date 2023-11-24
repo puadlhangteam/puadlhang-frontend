@@ -1,8 +1,8 @@
 import axios from 'axios'
 import {
+  Auth,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  getAuth,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -10,6 +10,7 @@ import {
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { BASE_URL } from '../configs/url'
 import { IUserDTO } from '../types'
+import { auth } from '../configs/firebase.config'
 
 interface IAuthProvider {
   children: ReactNode
@@ -17,10 +18,12 @@ interface IAuthProvider {
 
 type IAUthContext = {
   user: IUserDTO | null
-  signUpWithEmail: (email: string, password: string) => Promise<void>
-  signInWithGoogle: () => Promise<void>
+  signUpWithEmail: (email: string, password: string) => Promise<IUserDTO | undefined>
+  signInWithGoogle: () => Promise<IUserDTO | undefined>
   signOutAuth: () => Promise<void>
   token: string | null
+  auth: Auth
+  setToken: (value: string | null) => void
 }
 
 const AuthContext = createContext<IAUthContext | null>(null)
@@ -32,7 +35,6 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-  const auth = getAuth()
   const [user, setUser] = useState<IUserDTO | null>(null)
   const [token, setToken] = useState<string | null>(null)
 
@@ -77,14 +79,22 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       })
     })
 
-    await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
+    const result = await axios.get<IUserDTO>('http://localhost:8080/user/me', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    setUser(result.data)
+    return result.data
   }
 
   const signInWithGoogle = async () => {
-    signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
+    await signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
       if (error instanceof Error) alert('Failed to log in')
     })
-    await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
+
+    const result = await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
+    setUser(result.data)
+    console.log(result.data)
+    return result.data
   }
   const signOutAuth = async () => {
     signOut(auth)
@@ -96,6 +106,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     signInWithGoogle,
     signOutAuth,
     token,
+    auth,
+    setToken,
   }
 
   return <AuthContext.Provider value={store}>{children}</AuthContext.Provider>
