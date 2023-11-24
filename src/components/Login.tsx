@@ -1,11 +1,10 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { useAuth } from '../providers/Authprovider'
-import axios from 'axios'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { token, user, signInWithGoogle, signUpWithEmail } = useAuth()
+  const { user, signInWithGoogle, signUpWithEmail } = useAuth()
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -16,7 +15,10 @@ function Login() {
   const handleSubmitemail = async (e: FormEvent) => {
     e.preventDefault()
     try {
-      await signUpWithEmail(email, password)
+      const result = await signUpWithEmail(email, password)
+      if (result?.gender || result?.age) {
+        console.log(result.gender, result.age)
+      }
     } catch (err) {
       console.log(err)
     }
@@ -25,7 +27,10 @@ function Login() {
   const handleSubmitgmail = async (e: FormEvent) => {
     e.preventDefault()
     try {
-      await signInWithGoogle()
+      const result = await signInWithGoogle()
+      if (result?.gender || result?.age) {
+        console.log(result.gender, result.age)
+      }
     } catch (err) {
       console.log(err)
     }
