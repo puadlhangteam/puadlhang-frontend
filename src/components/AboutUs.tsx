@@ -1,52 +1,47 @@
-import classes from './AboutUs.module.css'
+import Logofooter from '../assets/icons/home/Logofooter.svg'
+import Graphics from '../assets/icons/home/BlogGraphic.svg'
 import facebook from '../assets/icons/home/facebook.svg'
 import instagram from '../assets/icons/home/instagram.svg'
 import dribbble from '../assets/icons/home/dribbble.svg'
 import behance from '../assets/icons/home/behance.svg'
-import logoabout from '../assets/icons/home/logoAboutUs.svg'
-import aboutusBg from '../assets/icons/home/AboutUsBG.svg'
 
 const AboutUs = () => {
   return (
-    <section className={classes.container}>
-      <div className={classes.formcontainer}>
-        <div>
-          <div>
-            <div className={classes.containertitle}>
-              <p className={classes.title}>About us</p>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src={logoabout} alt="behance" />
-              </a>
-            </div>
-
-            <p className={classes.description}>
-              พวกเราจัดทำเว็บไซต์ขึ้นเพราะอยากเห็นคนไทยสุขภาพดี <br></br> พร้อมทำงานหาเงินต่อไป
-              หวังว่าเราจะช่วยให้คุณหาวิธี <br></br>บรรเทาอาการความปวดกายได้สะดวกขึ้นหากอาการไม่ดีขึ้น <br></br>
-              เราแนะนำให้คุณหาหมอด่วน
-            </p>
-          </div>
-          <div>
-            <div className={classes.containersocial}>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src={facebook} alt="facebook" />
-              </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src={instagram} alt="instagram" />
-              </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src={dribbble} alt="dribbble" />
-              </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-                <img src={behance} alt="behance" />
-              </a>
-            </div>
-          </div>
+    <footer className="bg-primary-100 py-16">
+      <div className="justify-content mx-auto w-5/6 gap-16 md:flex">
+        <div className="mt-16 basis-1/2 md:mt-0">
+          <img alt="logo" src={Logofooter} />
+          <p className="my-8">
+            พวกเราจัดทำเว็บไซต์ขึ้นเพราะอยากเห็นคนไทยสุขภาพดี <br></br> พร้อมทำงานหาเงินต่อไป
+            หวังว่าเราจะช่วยให้คุณหาวิธี <br></br>บรรเทาอาการความปวดกายได้สะดวกขึ้นหากอาการไม่ดีขึ้น <br></br>
+            เราแนะนำให้คุณหาหมอด่วน
+          </p>
+          <p>©Puadlhang</p>
         </div>
+
+        <div className="mt-16 basis-1/4 md:mt-0">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <img src={facebook} alt="facebook" />
+          </a>
+
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <img src={instagram} alt="instagram" />
+          </a>
+
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <img src={dribbble} alt="dribbble" />
+          </a>
+
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+            <img src={behance} alt="behance" />
+          </a>
+        </div>
+
         <div>
-          <img src={aboutusBg} alt="aboutusBg" />
+          <img alt="graphic" src={Graphics} />
         </div>
       </div>
-    </section>
+    </footer>
   )
 }
 

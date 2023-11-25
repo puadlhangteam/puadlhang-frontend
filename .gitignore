@@ -28,3 +28,5 @@ config.ts
 *.json
 !package.json
 
+
+firebase-config.json
