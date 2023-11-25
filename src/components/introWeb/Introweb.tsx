@@ -1,9 +1,9 @@
-import { SelectedPageDTO } from '../types/home'
-import ActionButton from '../action/ActionButton'
-import Texthome from '../assets/icons/home/Texthome.svg'
-import Humanhome from '../assets/icons/home/Humanhome.svg'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { motion } from 'framer-motion'
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { SelectedPageDTO } from '../../types/home'
+import ActionButton from '../action/ActionButton'
+import Humanhome from '../assets/icons/home/Humanhome.svg'
+import Texthome from '../assets/icons/home/Texthome.svg'
 
 type Props = {
   setSelectedPage: (value: SelectedPageDTO) => void
