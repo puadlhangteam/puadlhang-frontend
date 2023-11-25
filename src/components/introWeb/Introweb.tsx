@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Humanhome from '../../assets/icons/home/Humanhome.svg'
+import Texthome from '../../assets/icons/home/Texthome.svg'
 import { SelectedPageDTO } from '../../types/home'
 import ActionButton from '../action/ActionButton'
-import Humanhome from '../assets/icons/home/Humanhome.svg'
-import Texthome from '../assets/icons/home/Texthome.svg'
 
 type Props = {
   setSelectedPage: (value: SelectedPageDTO) => void
@@ -11,7 +11,7 @@ type Props = {
 
 const IntroWeb = ({ setSelectedPage }: Props) => {
   return (
-    <section id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
+    <section id="home" className="gap-16 bg-gray-20 py-10 md:h-[100dvh] md:pb-0">
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
@@ -55,7 +55,7 @@ const IntroWeb = ({ setSelectedPage }: Props) => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ActionButton setSelectedPage={setSelectedPage}>START</ActionButton>
+            <ActionButton location={'body'}>START</ActionButton>
             <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
               onClick={() => setSelectedPage(SelectedPageDTO.AboutUs)}
