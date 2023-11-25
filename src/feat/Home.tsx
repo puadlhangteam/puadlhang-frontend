@@ -1,19 +1,30 @@
+import { useEffect, useState } from 'react'
+import { SelectedPageDTO } from '../types/home'
 import IntroWeb from '../components/Introweb'
 import Body from '../components/Body'
-import classes from './Home.module.css'
-import AboutUs from '../components/AboutUs'
-import Reviews from '../components/Reviews'
 import BlogSpecialist from '../components/BlogSpecialist'
+import Reviews from '../components/Reviews'
+import AboutUs from '../components/AboutUs'
 
-const Home = () => {
-  //   const { isLoading } = usePosts()
-  //   if (isLoading) return <h1 style={{ textDecoration: 'none', color: ' #6666dc' }}>Loading...</h1>
+function Home() {
+  const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
+  const [, setIsTopOfPage] = useState<boolean>(true)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true)
+        setSelectedPage(SelectedPageDTO.IntroWeb)
+      }
+      if (window.scrollY !== 0) setIsTopOfPage(false)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div className={classes.container}>
-      <div>
-        <IntroWeb />
-      </div>
+    <div className="app bg-gray-20">
+      <IntroWeb setSelectedPage={setSelectedPage} />
       <Body />
       <BlogSpecialist />
       <Reviews />
