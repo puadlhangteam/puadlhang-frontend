@@ -27,3 +27,5 @@ config.ts
 
 *.json
 !package.json
+!tsconfig.json
+!tsconfig.node.json
