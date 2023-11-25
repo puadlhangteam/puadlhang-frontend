@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { SelectedPageDTO } from '../../types/home'
-import useReview from '../hooks/useReview'
 import Content from '../components/community/content/Content'
 import classes from '../pages/Community.module.css'
+import useReview from '../../hooks/useReview'
 
 const OurClasses = () => {
   const { contents, isLoading } = useReview()

@@ -20,22 +20,7 @@ const blogspecialists: Array<BlogSpecialistDTO> = [
   {
     picture: <HomeModernIcon className="h-6 w-6" />,
     username: 'Dr. Jojosu',
-    text: 'ไม่อยากปวดหลัง ต้องอ่านนน !! อาการปวดหลังบอกอะไรบ้าง',
-  },
-  {
-    picture: <HomeModernIcon className="h-6 w-6" />,
-    username: 'Dr. Kong',
-    text: 'กล้ามเนื้อหัวใจมีเลือดไปเลี้ยงลดลงหรือไม่มีเลย เป็นผลให้การทำงานของกล้ามเนื้อหัวใจผิดปกติ',
-  },
-  {
-    picture: <HomeModernIcon className="h-6 w-6" />,
-    username: 'Vvkot',
-    text: 'ไม่อยากปวดหลัง ต้องอ่านนน !! อาการปวดหลังบอกอะไรบ้าง',
-  },
-  {
-    picture: <HomeModernIcon className="h-6 w-6" />,
-    username: 'Peerachi',
-    text: 'กล้ามเนื้อหัวใจมีเลือดไปเลี้ยงลดลงหรือไม่มีเลย เป็นผลให้การทำงานของกล้ามเนื้อหัวใจผิดปกติ',
+    text: 'ไม่อยากปวดหลัง ต้องอ่านนน !! อาการปวดหลังบอกอะไรบ้าง หมออยากให้คุณรู้',
   },
 ]
 
@@ -71,7 +56,7 @@ const BlogSpecialists = () => {
           </p>
         </motion.div>
 
-        {/* BENEFITS */}
+        {/* BLOG */}
         <motion.div
           className="mt-5 items-center justify-between gap-8 md:flex"
           initial="hidden"
@@ -89,12 +74,12 @@ const BlogSpecialists = () => {
           ))}
         </motion.div>
 
-        {/* GRAPHICS AND DESCRIPTION */}
+        {/* GRAPHICS AND TEXT */}
         <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
           {/* GRAPHIC */}
           <img className="mx-auto" alt="benefits-page-graphic" src={Graphic} />
 
-          {/* DESCRIPTION */}
+          {/* TEXT */}
           <div>
             {/* TITLE */}
             <div className="relative">
