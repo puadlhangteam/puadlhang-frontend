@@ -4,16 +4,15 @@ import { IUserDTO } from '.'
 export enum SelectedPageDTO {
   IntroWeb = 'introweb',
   Body = 'body',
-  BlogSpecialist = 'blogspecialist',
+  BlogSpecialists = 'blogspecialists',
   Reviews = 'reviwes',
   AboutUs = 'aboutus',
 }
 
 export interface BlogSpecialistDTO {
-  username: JSX.Element
-  picture?: pathURL
+  username: string
+  picture: JSX.Element
   text: string
-  isSpecialist?: string
 }
 
 export interface ReviewsDTO {
