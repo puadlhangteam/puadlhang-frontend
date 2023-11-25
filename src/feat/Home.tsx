@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { SelectedPageDTO } from '../types/home'
 import IntroWeb from '../components/Introweb'
 import Body from '../components/Body'
-import Reviews from '../components/Reviews'
 import AboutUs from '../components/AboutUs'
 import BlogSpecialists from '../components/blogspecialists'
+import OurClasses from '../components/ourClasses'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
@@ -27,7 +27,8 @@ function Home() {
       <IntroWeb setSelectedPage={setSelectedPage} />
       <Body />
       <BlogSpecialists setSelectedPage={setSelectedPage} />
-      <Reviews />
+      <OurClasses setSelectedPage={setSelectedPage} />
+
       <AboutUs />
     </div>
   )
