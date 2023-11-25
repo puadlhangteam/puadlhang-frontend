@@ -1,9 +1,9 @@
+import MuscledataFront from '../../assets/icons/home/bodymian.svg'
 import classes from './Body.module.css'
-import MuscledataFront from '../assets/icons/home/bodymian.svg'
 
 const Body = () => {
   return (
-    <section className={classes.container}>
+    <section id="body" className={classes.container}>
       <div className={classes.formcontainer}>
         <div>
           <p className={classes.title}>เลือกบริเวณที่คุณปวด</p>
