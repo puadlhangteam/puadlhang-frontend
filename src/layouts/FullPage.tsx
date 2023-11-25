@@ -5,6 +5,7 @@ const FullPage = () => {
     <div className="flex">
       {/* <Navbar/> */}
       <Outlet />
+      {/* <Footer/> */}
     </div>
   )
 }

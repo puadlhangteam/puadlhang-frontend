@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import GuardRoute from './Routes/GuardRoute'
 import Login from './components/Login'
-import Home from './feat/Home'
 import FullPage from './layouts/FullPage'
+import Home from './pages/HomePage/Home'
 
 function App() {
   return (

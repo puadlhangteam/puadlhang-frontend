@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { SelectedPageDTO } from '../types/home'
-import IntroWeb from '../components/Introweb'
-import Body from '../components/Body'
-import BlogSpecialist from '../components/BlogSpecialist'
-import Reviews from '../components/Reviews'
-import AboutUs from '../components/AboutUs'
+import AboutUs from '../../components/aboutUs/AboutUs'
+import BlogSpecialist from '../../components/blogSpecilaist/BlogSpecialist'
+import Body from '../../components/body/Body'
+import IntroWeb from '../../components/introWeb/Introweb'
+import Reviews from '../../components/reviews/Reviews'
+import { SelectedPageDTO } from '../../types/home'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)

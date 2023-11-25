@@ -1,10 +1,10 @@
+import aboutusBg from '../../assets/icons/home/AboutUsBG.svg'
+import behance from '../../assets/icons/home/behance.svg'
+import dribbble from '../../assets/icons/home/dribbble.svg'
+import facebook from '../../assets/icons/home/facebook.svg'
+import instagram from '../../assets/icons/home/instagram.svg'
+import logoabout from '../../assets/icons/home/logoAboutUs.svg'
 import classes from './AboutUs.module.css'
-import facebook from '../assets/icons/home/facebook.svg'
-import instagram from '../assets/icons/home/instagram.svg'
-import dribbble from '../assets/icons/home/dribbble.svg'
-import behance from '../assets/icons/home/behance.svg'
-import logoabout from '../assets/icons/home/logoAboutUs.svg'
-import aboutusBg from '../assets/icons/home/AboutUsBG.svg'
 
 const AboutUs = () => {
   return (
