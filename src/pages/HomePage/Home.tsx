@@ -25,10 +25,10 @@ function Home() {
 
   return (
     <div className="app bg-gray-20">
-      <IntroWeb setSelectedPage={setSelectedPage} />
+      <IntroWeb />
       <Body />
-      <BlogSpecialists setSelectedPage={setSelectedPage} />
-      <OurClasses setSelectedPage={setSelectedPage} />
+      <BlogSpecialists />
+      <OurClasses />
 
       <AboutUs />
     </div>

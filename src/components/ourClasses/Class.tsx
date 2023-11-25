@@ -1,24 +1,23 @@
-type Props = {
-  name: string
-  description?: string
-  image: string
+import { ContentDTO } from '../../../types/dto'
+import classes from './Content.module.css'
+import { Link } from 'react-router-dom'
+
+interface IContentProps {
+  content: ContentDTO
 }
 
-const Class = ({ name, description, image }: Props) => {
-  const overlayStyles = `p-5 absolute z-30 flex
-  h-[380px] w-[450px] flex-col items-center justify-center
-  whitespace-normal bg-primary-500 text-center text-white
-  opacity-0 transition duration-500 hover:opacity-90`
-
+const Content = ({ content }: IContentProps) => {
   return (
-    <li className="relative mx-5 inline-block h-[380px] w-[450px]">
-      <div className={overlayStyles}>
-        <p className="text-2xl">{name}</p>
-        <p className="mt-5">{description}</p>
-      </div>
-      <img alt={`${image}`} src={image} />
-    </li>
+    <div className={classes.post}>
+      <Link to={`/post/${content.id}`} style={{ textDecoration: 'none', color: 'white' }}>
+        <img className={classes.thumbnailurl} src={content.thumbnailUrl}></img>
+        <p>title: {content.videoTitle}</p>
+        <h4>{content.comment}</h4>
+        <p>{content.postedBy.username}</p>
+        <p>{content.rating}</p>
+      </Link>
+    </div>
   )
 }
 
-export default Class
+export default Content

@@ -5,17 +5,13 @@ import Texthome from '../../assets/icons/home/Texthome.svg'
 import { SelectedPageDTO } from '../../types/home'
 import ActionButton from '../action/ActionButton'
 
-type Props = {
-  setSelectedPage: (value: SelectedPageDTO) => void
-}
-
-const IntroWeb = ({ setSelectedPage }: Props) => {
+const IntroWeb = () => {
   return (
     <section id="home" className="gap-16 bg-gray-20 py-10 md:h-[100dvh] md:pb-0">
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
-        onViewportEnter={() => setSelectedPage(SelectedPageDTO.IntroWeb)}
+        onViewportEnter={() => SelectedPageDTO.IntroWeb}
       >
         {/* MAIN HEADER */}
         <div className="z-10 mt-32 md:basis-3/5">
@@ -58,7 +54,7 @@ const IntroWeb = ({ setSelectedPage }: Props) => {
             <ActionButton location={'body'}>START</ActionButton>
             <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
-              onClick={() => setSelectedPage(SelectedPageDTO.AboutUs)}
+              onClick={() => SelectedPageDTO.AboutUs}
               href={`#${SelectedPageDTO.AboutUs}`}
             >
               <p>Learn More</p>

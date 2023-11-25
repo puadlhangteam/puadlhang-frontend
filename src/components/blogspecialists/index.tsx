@@ -1,11 +1,10 @@
-import ActionButton from '../../action/ActionButton'
-import HText from '../../action/ActionButton'
 import { motion } from 'framer-motion'
 import { HomeModernIcon } from '@heroicons/react/24/solid'
 import { BlogSpecialistDTO, SelectedPageDTO } from '../../types/home'
 import Graphic from '../../assets/icons/home/BlogGraphic.svg'
 
 import BlogSpecialist from './BlogSpecialist'
+import ActionButton from '../action/ActionButton'
 
 const blogspecialists: Array<BlogSpecialistDTO> = [
   {
@@ -47,18 +46,10 @@ const container = {
   },
 }
 
-type Props = {
-  username: string
-  picture: JSX.Element
-  text: string
-
-  setSelectedPage: (value: SelectedPageDTO) => void
-}
-
-const BlogSpecialists = ({ setSelectedPage }: Props) => {
+const BlogSpecialists = () => {
   return (
     <section id="blogspecialists" className="mx-auto min-h-full w-5/6 py-20">
-      <motion.div onViewportEnter={() => setSelectedPage(SelectedPageDTO.BlogSpecialists)}>
+      <motion.div onViewportEnter={() => SelectedPageDTO.BlogSpecialists}>
         {/* HEADER */}
         <motion.div
           className="md:my-5 md:w-3/5"
@@ -71,9 +62,9 @@ const BlogSpecialists = ({ setSelectedPage }: Props) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <HText setSelectedPage={setSelectedPage}>
+          <ActionButton location="body">
             อ่านเรื่องน่ารู้เกี่ยวกับกล้ามเนื้อ เพิ่มเติมได้<span className="text-primary-500">ที่นี้</span>
-          </HText>
+          </ActionButton>
           <p className="my-5 text-sm">
             We provide world class fitness equipment, trainers and classes to get you to your ultimate fitness goals
             with ease. We provide true care into each and every member.
@@ -94,7 +85,6 @@ const BlogSpecialists = ({ setSelectedPage }: Props) => {
               picture={blogspecialists.picture}
               username={blogspecialists.username}
               text={blogspecialists.text}
-              setSelectedPage={setSelectedPage}
             />
           ))}
         </motion.div>
@@ -143,7 +133,7 @@ const BlogSpecialists = ({ setSelectedPage }: Props) => {
             {/* BUTTON */}
             <div className="relative mt-16">
               <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-                <ActionButton setSelectedPage={setSelectedPage}>Join Now</ActionButton>
+                <ActionButton location="body">Join Now</ActionButton>
               </div>
             </div>
           </div>

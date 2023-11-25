@@ -1,5 +1,4 @@
 export type pathURL = string
-import { IUserDTO } from '.'
 
 export enum SelectedPageDTO {
   IntroWeb = 'introweb',
@@ -16,8 +15,9 @@ export interface BlogSpecialistDTO {
 }
 
 export interface ReviewsDTO {
-  OwnerUid: IUserDTO
+  username: string
   text: string
   rating: number
   createdAt: number
+  picture: string
 }
