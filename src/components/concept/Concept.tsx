@@ -6,7 +6,7 @@ import ActionButton from '../action/ActionButton'
 const Concept = () => {
   return (
     <section id="content" className={classes.container}>
-      <motion.div className="mx-auto w-3/6  md:h-5/6">
+      <motion.div className="mx-auto md:h-5/6">
         {/* GRAPHICS AND TEXT */}
         <div className="mt-6 items-center justify-between gap-20 md:mt-38 md:flex">
           <img className="mx-auto" alt="benefits-page-graphic" src={Joynow} />
