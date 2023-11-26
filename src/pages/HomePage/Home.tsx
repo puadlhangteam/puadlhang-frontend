@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import AboutUs from '../../components/aboutUs/AboutUs'
 
-import Body from '../../components/body/Body'
+import Body from '../../components/body/Bodymain'
 import IntroWeb from '../../components/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
 

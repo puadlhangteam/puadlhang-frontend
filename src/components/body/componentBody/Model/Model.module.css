@@ -1,0 +1,21 @@
+.Bodyboard {
+  display: flex;
+  padding: 50px;
+  width: 150%;
+  opacity: 200%;
+  justify-content: center;
+  gap: 10%;
+  align-items: center;
+  flex-direction: row;
+}
+
+.selected {
+  transition: fill 1s;
+  stroke-width: 2px;
+}
+
+.selected:hover {
+  transition: fill 1s;
+  fill: rgb(255, 255, 255);
+  stroke-width: 3px;
+}
