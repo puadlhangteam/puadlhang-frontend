@@ -9,7 +9,8 @@ export enum SelectedPageDTO {
 }
 
 export interface BlogSpecialistDTO {
-  username: string
   thumbnailUrl: string
-  text: string
+  description: string
+  user: string
+  date: string
 }

@@ -5,14 +5,14 @@ export default {
     extend: {
       colors: {
         'gray-20': '#F8F4EB',
-        'gray-50': '#FF8139',
-        'gray-100': '#FF8139',
-        'gray-500': '#FF8139',
-        'primary-100': '#FF8139',
-        'primary-300': '#FF8139',
-        'primary-500': '#FF8139',
-        'secondary-400': '#FF8139',
-        'secondary-500': '#FF8139',
+        'gray-50': '#FFA76D',
+        'gray-100': '#FFA76D',
+        'gray-500': '#FFA76D',
+        'primary-100': '#FFA76D',
+        'primary-300': '#FFA76D',
+        'primary-500': '#FFA76D',
+        'secondary-400': '#FFA76D',
+        'secondary-500': '#FFA76D',
       },
       backgroundImage: () => ({
         'gradient-yellowred': 'linear-gradient(90deg, #FF616A 0%, #FFC837 100%)',

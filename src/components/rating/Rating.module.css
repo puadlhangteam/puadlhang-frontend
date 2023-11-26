@@ -1,15 +1,14 @@
 .container {
   display: flex;
-  padding: 30px 30px;
+  padding: 90px 90px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 300px;
-  background-color: #ff8139;
+  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #f8f4eb 87.2%);
   padding-left: 200px;
   padding-right: 200px;
-  color: rgb(255, 255, 255);
+  color: #ff8738;
   text-align: center;
   font-size: 40px;
   font-weight: 400;

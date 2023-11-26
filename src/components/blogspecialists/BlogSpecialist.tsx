@@ -1,27 +1,55 @@
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 
-const childVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1 },
+// const childVariant = {
+//   hidden: { opacity: 0, scale: 0.9 },
+//   visible: { opacity: 1, scale: 1 },
+// }
+
+// type Props = {
+//   username: string
+//   thumbnailUrl: string
+//   text: string
+// }
+
+// const BlogSpecialist = ({ thumbnailUrl, username, text }: Props) => {
+//   return (
+//     <motion.div variants={childVariant} className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center">
+//       <div className="mb-4 flex justify-center">
+//         <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">{thumbnailUrl}</div>
+//       </div>
+
+//       <h4 className="font-bold">{text}</h4>
+//       <p className="my-3">{username}</p>
+//     </motion.div>
+//   )
+// }
+
+// export default BlogSpecialist
+
+import { BlogSpecialistDTO } from '../../types/home'
+import classes from './InterviweDetail.module.css'
+
+interface IBlogSpecialistProps {
+  specialist: BlogSpecialistDTO
 }
 
-type Props = {
-  username: string
-  thumbnailUrl: string
-  text: string
-}
-
-const BlogSpecialist = ({ thumbnailUrl, username, text }: Props) => {
+const BlogSpecialist = ({ specialist }: IBlogSpecialistProps) => {
   return (
-    <motion.div variants={childVariant} className="mt-5 rounded-md border-2 border-gray-100 px-5 py-16 text-center">
-      <div className="mb-4 flex justify-center">
-        <div className="rounded-full border-2 border-gray-100 bg-primary-100 p-4">{thumbnailUrl}</div>
-      </div>
+    <div className={classes.container}>
+      <div className={classes.containercardimg}>
+        <div className={classes.containercard}>
+          <div className={classes.cardimg}>
+            <img className={classes.img} src={specialist.thumbnailUrl} />
+          </div>
+        </div>
 
-      <h4 className="font-bold">{text}</h4>
-      <p className="my-3">{username}</p>
-    </motion.div>
+        <div className={classes.cardcontent}>
+          <p className={classes.author}>{specialist.user}</p>
+          <p className={classes.dateAndTime}>{specialist.date}</p>
+          <p className={classes.description}>{specialist.description}</p>
+        </div>
+      </div>
+    </div>
   )
 }
-
 export default BlogSpecialist

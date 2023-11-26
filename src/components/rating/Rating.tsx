@@ -17,7 +17,7 @@ const Rating = () => {
       >
         <div className={classes.container}>
           <div>
-            <h1>Join in on something big</h1>
+            <h1>เพื่อนร่วมทางของเรา</h1>
           </div>
           <div className={classes.text}>
             <h1>1K</h1>
