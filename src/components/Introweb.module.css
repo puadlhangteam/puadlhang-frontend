@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,200&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+.container {
+  position: relative;
+  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #dfe6f9 87.2%);
+  background-size: cover;
+  align-items: center;
+  width: 2160px;
+  height: 1350px;
+}
+
+.title {
+  color: #353535;
+  text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.25);
+  font-size: 120px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.description {
+  color: #353535;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100px;
+  padding-bottom: 200px;
+}
+
+.buttonforCreated {
+  width: 300px;
+  height: 100px;
+  border-radius: 50px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: linear-gradient(180deg, #f00 0%, #ffa800 100%);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 60px; /* 120% */
+  font-family: 'Poppins';
+}
+.buttonforCreated:hover {
+  width: 300px;
+  height: 100px;
+  border-radius: 50px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: linear-gradient(180deg, #f00 0%, rgb(255, 106, 0) 100%);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 60px; /* 120% */
+  font-family: 'Poppins';
+}
+
+.formcontainer {
+  position: absolute;
+  top: 340px; /* จัดตำแหน่งของ form ให้อยู่ที่กลางด้านบนของภาพ */
+  left: 484px; /* จัดตำแหน่งของ form ให้อยู่ที่กลางด้านซ้ายของภาพ */
+}

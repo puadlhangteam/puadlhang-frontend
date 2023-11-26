@@ -1,12 +1,12 @@
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { v4 } from 'uuid'
-import { storage } from '../configs/firebase.config'
+import { storage } from '../configs/firebase.ts'
 import { useState } from 'react'
-import { ISpecialistFormDTO } from '../types'
+import { IReqSpecialistFormDTO } from '../types'
 
 const useUpload = () => {
   const [imageUpload, setImageUpload] = useState<File | null>(null)
-  const [form, setForm] = useState<ISpecialistFormDTO>({
+  const [form, setForm] = useState<IReqSpecialistFormDTO>({
     certificate: '',
     description: '',
   })
@@ -18,7 +18,8 @@ const useUpload = () => {
         setForm({ ...form, certificate: url })
       })
     })
-    return form
+    console.log(form.certificate)
+    return form.certificate
   }
 
   return { setImageUpload, setForm, form, uploadFile }

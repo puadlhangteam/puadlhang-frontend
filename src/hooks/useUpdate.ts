@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { ISpecialistFormDTO, IUpdateUserDTO, IUserDTO } from '../types'
+import { IReqSpecialistFormDTO, IReqUpdateUserDTO, IUserDTO } from '../types'
 import { useAuth } from '../providers/Authprovider'
 import { BASE_URL } from '../configs/url'
 
 const useUpdate = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [user, setUser] = useState<IUserDTO | null>(null)
-  const [update, setUpdate] = useState<IUpdateUserDTO | null>(null)
-  const [special, setSpecial] = useState<ISpecialistFormDTO | null>(null)
+  const [update, setUpdate] = useState<IReqUpdateUserDTO | null>(null)
+  const [special, setSpecial] = useState<IReqSpecialistFormDTO | null>(null)
   const { token, auth, setToken } = useAuth()
 
   useEffect(() => {
@@ -27,13 +27,14 @@ const useUpdate = () => {
   }, [auth])
 
   const updateUserform = async (Newgender: 'male' | 'female', Newage: number) => {
-    const newData: IUpdateUserDTO = { gender: Newgender, age: Newage }
+    const newData: IReqUpdateUserDTO = { gender: Newgender, age: Newage }
     setIsSubmitting(true)
     try {
-      const res = await axios.patch<IUpdateUserDTO>('http://localhost:8080/user/', newData, {
+      const res = await axios.patch<IReqUpdateUserDTO>(`${BASE_URL}/user/data`, newData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       setUpdate(res.data)
+      return res.data
     } catch (error) {
       console.log(error)
     } finally {
@@ -42,14 +43,16 @@ const useUpdate = () => {
   }
 
   const createSpecialistForm = async (Newcertificate: string, Newdescription: string) => {
-    const newData: ISpecialistFormDTO = { certificate: Newcertificate, description: Newdescription }
+    if (Newdescription == undefined) return
+    const newData: IReqSpecialistFormDTO = { certificate: Newcertificate, description: Newdescription }
     setIsSubmitting(true)
     try {
-      const res = await axios.post<ISpecialistFormDTO>('http://localhost:8080/user/role/specialist', newData, {
+      const res = await axios.post<IReqSpecialistFormDTO>(`${BASE_URL}/user/role/specialist`, newData, {
         headers: { Authorization: `Bearer ${token}` },
       })
       setSpecial(res.data)
       console.log(res.data)
+      return res.data
     } catch (error) {
       console.log(error)
     } finally {

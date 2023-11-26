@@ -1,4 +1,28 @@
+import { FormEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 const Specialistform = () => {
+  const navigate = useNavigate()
+  const [selectedRole, setSelectedRole] = useState<string>()
+
+  const handleGeneral = (e: FormEvent) => {
+    e.preventDefault()
+    setSelectedRole('general')
+  }
+
+  const handleSpecialist = (e: FormEvent) => {
+    e.preventDefault()
+    setSelectedRole('specialist')
+  }
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    if (selectedRole === 'general') {
+      navigate('/')
+    } else if (selectedRole === 'specialist') {
+      navigate('/certificated')
+    }
+  }
   return (
     <div className="flex w-full h-screen relative bg-[url('../src/assets/icons/bg.svg')]">
       <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center">
@@ -27,15 +51,24 @@ const Specialistform = () => {
                 </svg>
               </div>
               <div className="my-10 mx-12 flex items-center gap-10">
-                <button className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500">
+                <button
+                  onClick={handleGeneral}
+                  className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500"
+                >
                   General
                 </button>
-                <button className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']   rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500">
+                <button
+                  onClick={handleSpecialist}
+                  className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']   rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500"
+                >
                   Specialist
                 </button>
               </div>
               <div className="mt-[100px] text-center">
-                <button className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
+                <button
+                  onClick={handleSubmit}
+                  className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+                >
                   CONFRIM
                 </button>
               </div>

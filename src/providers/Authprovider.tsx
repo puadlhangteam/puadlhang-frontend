@@ -10,7 +10,7 @@ import {
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import { BASE_URL } from '../configs/url'
 import { IUserDTO } from '../types'
-import { auth } from '../configs/firebase.config'
+import { auth } from '../configs/firebase'
 
 interface IAuthProvider {
   children: ReactNode
@@ -41,8 +41,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   useEffect(() => {
     auth.onAuthStateChanged(async (userCredential) => {
       if (userCredential) {
-        setToken(await userCredential.getIdToken())
-        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
+        const token = await userCredential.getIdToken()
+        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/data`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         const userData = result.data
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         setUser(null)
       }
     })
-  }, [auth])
+  }, [])
 
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman|hotmail)+\.[A-Z]{2,}$/i
@@ -79,7 +79,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       })
     })
 
-    const result = await axios.get<IUserDTO>('http://localhost:8080/user/me', {
+    const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
     setUser(result.data)
@@ -91,9 +91,8 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       if (error instanceof Error) alert('Failed to log in')
     })
 
-    const result = await axios.get('http://localhost:8080/user/me', { headers: { Authorization: `Bearer ${token}` } })
+    const result = await axios.get(`${BASE_URL}/user/me`, { headers: { Authorization: `Bearer ${token}` } })
     setUser(result.data)
-    console.log(result.data)
     return result.data
   }
   const signOutAuth = async () => {

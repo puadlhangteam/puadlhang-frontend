@@ -1,4 +1,37 @@
+import { FormEvent, useEffect, useState } from 'react'
+import useUpdate from '../hooks/useUpdate'
+import { IReqUpdateUserDTO } from '../types'
+import { useAuth } from '../providers/Authprovider'
+import { useNavigate } from 'react-router-dom'
+
 const Userform = () => {
+  const { isSubmitting, updateUserform } = useUpdate()
+  const [form, setForm] = useState<IReqUpdateUserDTO>({})
+  const { user } = useAuth()
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (user) console.log(user)
+  }, [user])
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    if (!form.gender || !form.age) {
+      alert('Please select gender and age')
+      return
+    }
+
+    try {
+      const result = await updateUserform(form.gender, form.age)
+      console.log(result)
+      if (result?.age || result?.gender) {
+        return
+      } else {
+        navigate('/specialist')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   return (
     <div className="flex w-full h-screen relative bg-[url('../src/assets/icons/bg.svg')]">
       <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center">
@@ -14,7 +47,7 @@ const Userform = () => {
           </div>
 
           <div className="mt-12">
-            <form action="" className="mt-6 mx-12">
+            <form action="" onSubmit={handleSubmit} className="mt-6 mx-12">
               <div className="my-5 mx-12 flex items-center gap-2">
                 <label>Please select your gender identity</label>
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,10 +60,18 @@ const Userform = () => {
                 </svg>
               </div>
               <div className="my-10 mx-12 flex items-center gap-10">
-                <button className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500">
+                <button
+                  onClick={() => setForm((f) => ({ ...f, gender: 'female' }))}
+                  className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500"
+                  aria-required
+                >
                   Female
                 </button>
-                <button className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']   rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500">
+                <button
+                  onClick={() => setForm((f) => ({ ...f, gender: 'male' }))}
+                  className="w-48 bg-white text-black text-[30px] font-bold font-['Epilogue']   rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all hover:bg-orange-500"
+                  aria-required
+                >
                   Male
                 </button>
               </div>
@@ -49,15 +90,21 @@ const Userform = () => {
               <div className="mt-8 mx-12 flex justify-between items-center">
                 <div>
                   <input
-                    type="text"
+                    onChange={(e) => setForm((f) => ({ ...f, age: parseInt(e.target.value) }))}
+                    value={form.age || ''}
+                    required
                     className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-700 dark:focus:border-orange-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-10 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
                     placeholder="Enter your age"
                   />
                 </div>
               </div>
               <div className="mt-12 text-center">
-                <button className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-                  CONFRIM
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+                >
+                  {isSubmitting ? 'confriming...' : 'confrim'}
                 </button>
               </div>
             </form>
