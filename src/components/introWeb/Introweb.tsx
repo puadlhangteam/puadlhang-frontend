@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import Humanhome from '../../assets/icons/home/Humanhome.svg'
-import Texthome from '../../assets/icons/home/Texthome.svg'
+import Humanhome from '../../assets/home/Humanhome.svg'
+import Texthome from '../../assets/home/Texthome.svg'
 import { SelectedPageDTO } from '../../types/home'
 import ActionButton from '../action/ActionButton'
 
 const IntroWeb = () => {
   return (
-    <section id="home" className="gap-16 bg-gray-20 py-10 md:h-[100dvh] md:pb-0">
+    <section id="home" className="gap-16 bg-gray-20 py-10 md:h-[90dvh] md:pb-0">
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"

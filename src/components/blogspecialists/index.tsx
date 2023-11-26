@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { HomeModernIcon } from '@heroicons/react/24/solid'
 import { BlogSpecialistDTO, SelectedPageDTO } from '../../types/home'
-import Graphic from '../../assets/icons/home/BlogGraphic.svg'
+import Graphic from '../../assets/home/BlogGraphic.svg'
 
 import BlogSpecialist from './BlogSpecialist'
 import ActionButton from '../action/ActionButton'

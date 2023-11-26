@@ -1,4 +1,4 @@
-import MuscledataFront from '../../assets/icons/home/bodymian.svg'
+import MuscledataFront from '../../assets/home/bodymian.svg'
 import classes from './Body.module.css'
 
 const Body = () => {

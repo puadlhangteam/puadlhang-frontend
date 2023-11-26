@@ -1,18 +1,17 @@
 import { motion } from 'framer-motion'
 import { SelectedPageDTO } from '../../types/home'
-import Content from '../components/community/content/Content'
-import classes from '../pages/Community.module.css'
 import useReview from '../../hooks/useReview'
+import Review from './Review'
 
-const OurClasses = () => {
-  const { contents, isLoading } = useReview()
+const Reviews = () => {
+  const { reviews, isLoading } = useReview()
 
   if (isLoading) return <h1>Loading...</h1>
 
-  console.log(contents)
+  console.log(reviews)
   return (
     <section id="ourclasses" className="w-full bg-primary-100 py-40">
-      <motion.div onViewportEnter={() => SelectedPageDTO.AboutUs}>
+      <motion.div onViewportEnter={() => SelectedPageDTO.Reviews}>
         <motion.div
           className="mx-auto w-5/6"
           initial="hidden"
@@ -24,15 +23,15 @@ const OurClasses = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <div className={classes.containerIntro}>
-            <p className={classes.fontmian}>Reviwe</p>
+          <div className="md:w-3/5">
+            <p className="py-5">Reviwe</p>
           </div>
         </motion.div>
-        <div className={classes.containerContent}>
-          <div className={classes.cardContent}>
-            {contents &&
-              contents.data.map((content) => {
-                return <Content key={content.id} content={content} />
+        <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
+          <div className="w-[2800px] whitespace-nowrap">
+            {reviews &&
+              reviews.data.map((review) => {
+                return <Review key={review.uid} review={review} />
               })}
           </div>
         </div>
@@ -41,4 +40,4 @@ const OurClasses = () => {
   )
 }
 
-export default OurClasses
+export default Reviews

@@ -13,11 +13,3 @@ export interface BlogSpecialistDTO {
   picture: JSX.Element
   text: string
 }
-
-export interface ReviewsDTO {
-  username: string
-  text: string
-  rating: number
-  createdAt: number
-  picture: string
-}

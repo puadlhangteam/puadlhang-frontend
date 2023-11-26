@@ -1,9 +1,9 @@
-import Logofooter from '../../assets/icons/home/Logofooter.svg'
-import Graphics from '../../assets/icons/home/BlogGraphic.svg'
-import behance from '../../assets/icons/home/behance.svg'
-import dribbble from '../../assets/icons/home/dribbble.svg'
-import facebook from '../../assets/icons/home/facebook.svg'
-import instagram from '../../assets/icons/home/instagram.svg'
+import Logofooter from '../../assets/home/Logofooter.svg'
+import Graphics from '../../assets/home/BlogGraphic.svg'
+import behance from '../../assets/home/behance.svg'
+import dribbble from '../../assets/home/dribbble.svg'
+import facebook from '../../assets/home/facebook.svg'
+import instagram from '../../assets/home/instagram.svg'
 
 const AboutUs = () => {
   return (

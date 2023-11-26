@@ -4,8 +4,9 @@ import AboutUs from '../../components/aboutUs/AboutUs'
 import Body from '../../components/body/Body'
 import IntroWeb from '../../components/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
-import OurClasses from '../../components/ourClasses'
+
 import BlogSpecialists from '../../components/blogspecialists'
+import Reviews from '../../components/reviews'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
@@ -28,7 +29,7 @@ function Home() {
       <IntroWeb />
       <Body />
       <BlogSpecialists />
-      <OurClasses />
+      <Reviews />
 
       <AboutUs />
     </div>
