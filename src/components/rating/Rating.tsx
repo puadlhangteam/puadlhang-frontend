@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const Rating = () => {
   return (
-    <section id="blogspecialists" className="mx-auto min-h-full w-5/6 py-20">
+    <section id="rating" className="mx-auto min-h-full w-5/6 py-20">
       {/* Rating */}
       <motion.div
         className="md:my-5 md:w-3/5"
