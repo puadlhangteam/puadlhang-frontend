@@ -2,6 +2,29 @@
   position: relative;
   align-items: center;
   width: 100%;
-  padding: 140px 300px;
+  padding: 140px 280px;
   justify-content: space-between;
+}
+
+.buttonforCreated {
+  border-radius: 40px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(255, 92, 0, 1);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  padding: 10px 20px;
+}
+.buttonforCreated:hover {
+  border-radius: 40px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(255, 92, 0, 1);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  padding: 20px 20px;
 }

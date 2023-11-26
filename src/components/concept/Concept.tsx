@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Joynow from '../../assets/home/joynow.svg'
 import classes from './Concept.module.css'
-import ActionButton from '../action/ActionButton'
+import { Link } from 'react-router-dom'
 
 const Concept = () => {
   return (
@@ -34,7 +34,9 @@ const Concept = () => {
             {/* BUTTON */}
             <div className="relative mt-16">
               <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-                <ActionButton location="body">Join Now</ActionButton>
+                <Link to="/login" className={classes.buttonforCreated}>
+                  Join Now
+                </Link>
               </div>
             </div>
           </div>
