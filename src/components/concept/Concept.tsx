@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import Joynow from '../../assets/home/joynow.svg'
-
+import classes from './Concept.module.css'
 import ActionButton from '../action/ActionButton'
 
-const Content = () => {
+const Concept = () => {
   return (
-    <section id="content" className="gap-12 md:pb-0">
+    <section id="content" className={classes.container}>
       <motion.div className="mx-auto w-3/6  md:h-5/6">
         {/* GRAPHICS AND TEXT */}
         <div className="mt-6 items-center justify-between gap-20 md:mt-38 md:flex">
@@ -44,4 +44,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default Concept

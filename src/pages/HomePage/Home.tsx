@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import AboutUs from '../../components/aboutUs/AboutUs'
-import Concept from '../../components/concept/concept'
+import Concept from '../../components/concept/Concept'
 import IntroWeb from '../../components/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
 
