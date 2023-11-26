@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import AboutUs from '../../components/aboutUs/AboutUs'
-
+import Concept from '../../components/concept/concept'
 import IntroWeb from '../../components/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
 
@@ -32,7 +32,7 @@ function Home() {
       <BlogSpecialists />
       <Rating />
       <Reviews />
-
+      <Concept />
       <AboutUs />
     </div>
   )

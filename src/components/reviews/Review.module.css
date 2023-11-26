@@ -4,7 +4,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.42);
+  background: linear-gradient(27deg, rgba(255, 226, 167, 0.8) 19.04%, rgba(249, 124, 89, 0) 48.22%),
+    linear-gradient(57deg, #83ebfd 30.89%, rgba(185, 91, 229, 0) 69.76%),
+    linear-gradient(301deg, rgba(252, 178, 91, 0.91) 23.42%, rgba(252, 178, 91, 0) 63.39%),
+    linear-gradient(142deg, rgba(78, 173, 235, 0.85) 16.95%, rgba(78, 173, 235, 0) 96.59%), #d3e4ff;
+  padding: 20px 20px;
   background-color: #00000000;
   border-radius: 50px;
 }
