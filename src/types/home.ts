@@ -10,6 +10,6 @@ export enum SelectedPageDTO {
 
 export interface BlogSpecialistDTO {
   username: string
-  picture: JSX.Element
+  thumbnailUrl: string
   text: string
 }

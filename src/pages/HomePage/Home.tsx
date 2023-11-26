@@ -30,8 +30,9 @@ function Home() {
       <IntroWeb />
       <Bodymain />
       <BlogSpecialists />
-      <Reviews />
       <Rating />
+      <Reviews />
+
       <AboutUs />
     </div>
   )

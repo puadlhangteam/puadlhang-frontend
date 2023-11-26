@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
+import classes from './Rating.module.css'
 
 const Rating = () => {
   return (
-    <section id="rating" className="mx-auto min-h-full w-5/6 py-20">
+    <section id="rating">
       {/* Rating */}
       <motion.div
-        className="md:my-5 md:w-3/5"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
@@ -15,19 +15,19 @@ const Rating = () => {
           visible: { opacity: 1, x: 0 },
         }}
       >
-        <div className="flex justify-between items-center h-400 bg-rgba-orange-300 px-20 text-white text-3xl">
+        <div className={classes.container}>
           <div>
             <h1>Join in on something big</h1>
           </div>
-          <div>
+          <div className={classes.text}>
             <h1>1K</h1>
             <p>ผู้เข้าชม</p>
           </div>
-          <div>
+          <div className={classes.text}>
             <h1>200+</h1>
             <p>สมาชิก</p>
           </div>
-          <div>
+          <div className={classes.text}>
             <h1>100</h1>
             <h1>ผู้เชี่ยวชาญ</h1>
           </div>

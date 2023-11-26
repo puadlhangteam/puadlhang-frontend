@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { SelectedPageDTO } from '../../types/home'
 import useReview from '../../hooks/useReview'
 import Review from './Review'
 
@@ -10,10 +9,10 @@ const Reviews = () => {
 
   console.log(reviews)
   return (
-    <section id="ourclasses" className="w-full bg-primary-100 py-40">
-      <motion.div onViewportEnter={() => SelectedPageDTO.Reviews}>
+    <section id="ourclasses" className="gap-16 bg-gray-20 py-10 md:h-[90dvh] md:pb-0">
+      <motion.div className="mx-auto w-3/6 items-center justify-center md:flex md:h-5/6">
         <motion.div
-          className="mx-auto w-5/6"
+          className="mt-10 flex items-center gap-8 "
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -23,12 +22,15 @@ const Reviews = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <div className="md:w-3/5">
+          <div className="relative">
             <p className="py-5">Reviwe</p>
           </div>
         </motion.div>
-        <div className="mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden">
-          <div className="w-[2800px] whitespace-nowrap">
+        <div
+          className="flex basis-5/6 justify-center md:z-10
+              md:ml-40 md:mt-16 md:justify-items-end mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden"
+        >
+          <div className="whitespace-nowrap">
             {reviews &&
               reviews.data.map((review) => {
                 return <Review key={review.uid} review={review} />

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { HomeModernIcon } from '@heroicons/react/24/solid'
-import { BlogSpecialistDTO, SelectedPageDTO } from '../../types/home'
+import { BlogSpecialistDTO } from '../../types/home'
 import Graphic from '../../assets/home/BlogGraphic.svg'
 
 import BlogSpecialist from './BlogSpecialist'
@@ -8,17 +7,20 @@ import ActionButton from '../action/ActionButton'
 
 const blogspecialists: Array<BlogSpecialistDTO> = [
   {
-    picture: <HomeModernIcon className="h-6 w-6" />,
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     username: 'Dr. Bunny',
     text: 'กล้ามเนื้อหัวใจมีเลือดไปเลี้ยงลดลงหรือไม่มีเลย เป็นผลให้การทำงานของกล้ามเนื้อหัวใจผิดปกติ ',
   },
   {
-    picture: <HomeModernIcon className="h-6 w-6" />,
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     username: 'Dr. Tontan',
     text: 'ภาวะกล้ามเนื้อหัวใจขาดเลือดเฉียบพลันพบได้กับผู้ป่วยที่สูบบุหรี่ไฟฟ้ามาเป็นเวลานาน',
   },
   {
-    picture: <HomeModernIcon className="h-6 w-6" />,
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     username: 'Dr. Jojosu',
     text: 'ไม่อยากปวดหลัง ต้องอ่านนน !! อาการปวดหลังบอกอะไรบ้าง หมออยากให้คุณรู้',
   },
@@ -33,11 +35,10 @@ const container = {
 
 const BlogSpecialists = () => {
   return (
-    <section id="blogspecialists" className="mx-auto min-h-full w-5/6 py-20">
-      <motion.div onViewportEnter={() => SelectedPageDTO.BlogSpecialists}>
+    <section id="blogspecialists">
+      <motion.div className="mx-auto w-3/6  md:h-5/6">
         {/* HEADER */}
         <motion.div
-          className="md:my-5 md:w-3/5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -46,57 +47,32 @@ const BlogSpecialists = () => {
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
-        >
-          <ActionButton location="body">
-            อ่านเรื่องน่ารู้เกี่ยวกับกล้ามเนื้อ เพิ่มเติมได้<span className="text-primary-500">ที่นี้</span>
-          </ActionButton>
-          <p className="my-5 text-sm">
-            We provide world class fitness equipment, trainers and classes to get you to your ultimate fitness goals
-            with ease. We provide true care into each and every member.
-          </p>
-        </motion.div>
+        ></motion.div>
 
         {/* BLOG */}
-        <motion.div
-          className="mt-5 items-center justify-between gap-8 md:flex"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={container}
-        >
-          {blogspecialists.map((blogspecialists: BlogSpecialistDTO) => (
-            <BlogSpecialist
-              key={blogspecialists.text}
-              picture={blogspecialists.picture}
-              username={blogspecialists.username}
-              text={blogspecialists.text}
-            />
-          ))}
-        </motion.div>
+        <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={container}
+          >
+            {blogspecialists.map((blogspecialists: BlogSpecialistDTO) => (
+              <BlogSpecialist
+                key={blogspecialists.text}
+                thumbnailUrl={blogspecialists.thumbnailUrl}
+                username={blogspecialists.username}
+                text={blogspecialists.text}
+              />
+            ))}
+          </motion.div>
+        </div>
 
         {/* GRAPHICS AND TEXT */}
-        <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
-          {/* GRAPHIC */}
+        <div className="mt-6 items-center justify-between gap-20 md:mt-28 md:flex">
           <img className="mx-auto" alt="benefits-page-graphic" src={Graphic} />
 
-          {/* TEXT */}
           <div>
-            {/* TITLE */}
-            <div className="relative">
-              <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.5 }}
-                  variants={{
-                    hidden: { opacity: 0, x: 50 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                ></motion.div>
-              </div>
-            </div>
-
             {/* DESCRIPT */}
             <motion.div
               initial="hidden"
