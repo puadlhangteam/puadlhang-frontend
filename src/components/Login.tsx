@@ -4,8 +4,8 @@ import { useAuth } from '../providers/Authprovider'
 export interface ILoginPageProps {}
 
 function Login() {
-  const { user, signInWithGoogle, signUpWithEmail } = useAuth()
-
+  const { user, signInWithGoogle, signUpWithEmail, signOutAuth } = useAuth()
+  // const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   useEffect(() => {
@@ -16,6 +16,12 @@ function Login() {
     e.preventDefault()
     try {
       await signUpWithEmail(email, password)
+
+      // if (user?.gender || user?.age) {
+      //   navigate('/')
+      // } else {
+      //   navigate('/userform')
+      // }
     } catch (err) {
       console.log(err)
     }
@@ -25,9 +31,19 @@ function Login() {
     e.preventDefault()
     try {
       await signInWithGoogle()
+
+      // if (user?.age || user?.gender) {
+      //   navigate('/')
+      // } else {
+      //   navigate('/userform')
+      // }
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const handleSignout = () => {
+    signOutAuth()
   }
 
   return (
@@ -85,6 +101,12 @@ function Login() {
                 className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
               >
                 Sign in
+              </button>
+              <button
+                onClick={handleSignout}
+                className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+              >
+                Sign out
               </button>
             </div>
           </form>

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
 *.local
 
 # Editor directories and files
@@ -23,7 +24,9 @@ dist-ssr
 *.sln
 *.sw?
 .env
+!.envtemplate
 config.ts
+src/configs/url.ts
 
 *.json
 !package.json
