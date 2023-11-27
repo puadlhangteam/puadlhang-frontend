@@ -11,7 +11,7 @@ const Reviews = () => {
   console.log(reviews)
   return (
     <section id="ourclasses" className={classes.container}>
-      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6">
+      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 w-full">
         <motion.div
           className="mx-auto md:h-5/6"
           initial="hidden"
