@@ -1,28 +1,25 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useAuth } from '../providers/Authprovider'
-import { useNavigate } from 'react-router-dom'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { user, signInWithGoogle, signUpWithEmail, signOutAuth } = useAuth()
-  const navigate = useNavigate()
+  const { signInWithGoogle, signUpWithEmail, signOutAuth } = useAuth()
+  // const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-  useEffect(() => {
-    if (user) console.log(user)
-  }, [user])
 
   const handleSubmitemail = async (e: FormEvent) => {
     e.preventDefault()
+    if (!email || !password) return
     try {
       const result = await signUpWithEmail(email, password)
-
-      if (result?.age || result?.gender) {
-        navigate('/userform')
-      } else {
-        navigate('/')
-      }
+      console.log(result)
+      // if (result?.age || result?.gender) {
+      //   navigate('/')
+      // } else {
+      //   navigate('/userform')
+      // }
     } catch (err) {
       console.log(err)
     }
@@ -32,12 +29,12 @@ function Login() {
     e.preventDefault()
     try {
       const result = await signInWithGoogle()
-
-      if (result?.age || result?.gender) {
-        navigate('/userform')
-      } else {
-        navigate('/')
-      }
+      console.log(result)
+      // if (result?.age || result?.gender) {
+      //   navigate('/userform')
+      // } else {
+      //   navigate('/')
+      // }
     } catch (err) {
       console.log(err)
     }
