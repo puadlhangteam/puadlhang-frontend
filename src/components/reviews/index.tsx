@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import useReview from '../../hooks/useReview'
 import Review from './Review'
+import classes from './Review.module.css'
 
 const Reviews = () => {
   const { reviews, isLoading } = useReview()
@@ -9,10 +10,10 @@ const Reviews = () => {
 
   console.log(reviews)
   return (
-    <section id="ourclasses" className="gap-16 bg-gray-20 py-10 md:h-[90dvh] md:pb-0">
-      <motion.div className="mx-auto w-3/6 items-center justify-center md:flex md:h-5/6">
+    <section id="ourclasses" className={classes.container}>
+      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6">
         <motion.div
-          className="mt-10 flex items-center gap-8 "
+          className="mx-auto md:h-5/6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
