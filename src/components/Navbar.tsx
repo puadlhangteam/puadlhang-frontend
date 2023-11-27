@@ -77,7 +77,7 @@ const Navbar = () => {
   }
 
   return (
-    <section className="sticky top-0 left-0 right-0 z-50 bg-orange-300">
+    <section className="sticky top-0 left-0 right-0 z-50 bg-orange-300 w-full">
       <header className="container mx-auto px-5 flex justify-between py-4 items-center">
         <div>
           <img className="w-48" src={images.Logo} alt="logo" />
