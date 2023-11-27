@@ -13,58 +13,41 @@
 
 .container {
   position: relative;
-  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #dfe6f9 87.2%);
-  background-size: cover;
   align-items: center;
-  width: 2160px;
-  height: 1350px;
-}
-
-.title {
-  color: #353535;
-  text-shadow: 1px 5px 10px rgba(0, 0, 0, 0.25);
-  font-size: 120px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.description {
-  color: #353535;
-  font-size: 80px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 100px;
-  padding-bottom: 200px;
+  width: 100%;
+  padding: 140px 280px;
+  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #f8f4eb 87.2%);
 }
 
 .buttonforCreated {
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 80px;
   border-radius: 50px;
   border: 1px solid rgba(8, 8, 8, 0);
-  background: linear-gradient(180deg, #f00 0%, #ffa800 100%);
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 92, 0, 1);
   color: #fff;
   text-align: center;
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 60px; /* 120% */
-  font-family: 'Poppins';
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20%;
+  font-family: 'Kanit';
+  line-height: 75px; /* 120% */
 }
 .buttonforCreated:hover {
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 80px;
   border-radius: 50px;
   border: 1px solid rgba(8, 8, 8, 0);
-  background: linear-gradient(180deg, #f00 0%, rgb(255, 106, 0) 100%);
+  background: rgba(255, 92, 0, 1);
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
   color: #fff;
   text-align: center;
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 60px; /* 120% */
-  font-family: 'Poppins';
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20%;
+  font-family: 'Kanit';
+  line-height: 75px; /* 120% */
 }
 
 .formcontainer {
