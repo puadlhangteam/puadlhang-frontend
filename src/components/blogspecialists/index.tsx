@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const BlogSpecialists = () => {
   return (
-    <section id="home" className="gap-12 md:pb-0">
+    <section id="home" className="gap-12 md:pb-0 w-full">
       <div className={classes.box}>
         <div className={classes.container}>
           {/* IMAGE AND MAIN HEADER */}

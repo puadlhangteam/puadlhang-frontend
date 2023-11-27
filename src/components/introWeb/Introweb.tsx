@@ -11,7 +11,7 @@ const IntroWeb = () => {
       {/* IMAGE AND MAIN HEADER */}
 
       <motion.div
-        className="mx-auto items-center justify-center md:flex md:h-5/6"
+        className="mx-auto items-center justify-center md:flex md:h-5/6 w-full"
         onViewportEnter={() => SelectedPageDTO.IntroWeb}
       >
         {/* MAIN HEADER */}
