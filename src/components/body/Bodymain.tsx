@@ -6,7 +6,7 @@ const Bodymain = () => {
   return (
     <section id="body" className={classes.container}>
       {/*HEADER */}
-      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 w-full">
+      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 ">
         {/* MAIN BODY */}
         <div className="z-10 mt-20 md:basis-5/6">
           {/* BODY */}

@@ -11,7 +11,7 @@ const Reviews = () => {
 
   console.log(reviews)
   return (
-    <section id="ourclasses" className="gap-12 md:pb-0 w-full">
+    <section id="ourclasses" className="gap-12 md:pb-0">
       <div className={classes.box}>
         <div className={classes.container}>
           <div className="mx-auto w-3/6 items-center justify-center md:flex md:h-5/6">
