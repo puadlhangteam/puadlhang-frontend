@@ -30,16 +30,19 @@ const Reviews = () => {
                 <div className={classes.sectionTitle}>
                   <h1>หลายเรื่องสุขภาพน่ารู้ ที่หมออยากบอก</h1>
                 </div>
-
-                <div className="whitespace-nowrap">
-                  <div className={classes.blogContainer}>
-                    {REVIEWS.map((review) => {
-                      return <Review key={review.thumbnailUrl} review={review} />
-                    })}
-                  </div>
-                </div>
               </div>
             </motion.div>
+
+            <div
+              className="flex basis-5/6 justify-center md:z-10
+              md:ml-40 md:mt-16 md:justify-items-end mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden"
+            >
+              <div className="whitespace-nowrap">
+                {REVIEWS.map((review) => {
+                  return <Review key={review.thumbnailUrl} review={review} />
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
