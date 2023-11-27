@@ -2,9 +2,12 @@ import { ChangeEvent, FormEvent } from 'react'
 import useUpdate from '../hooks/useUpdate'
 import { useNavigate } from 'react-router-dom'
 import useUpload from '../hooks/useUpload'
+import { FileUploader } from 'react-drag-drop-files'
+import subtract from '../assets/icons/Subtract.svg'
+import iconlogin from '../assets/icons/login/Userform.svg'
 
 const Certificatedform = () => {
-  const { uploadFile, form, setForm, setImageUpload } = useUpload()
+  const { uploadFile, setImageUpload, form, setForm } = useUpload()
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -24,20 +27,14 @@ const Certificatedform = () => {
     e.preventDefault()
 
     try {
-      // if (!form.certificate) {
-      //   alert('Please select certigicate ')
-      //   return
-      // }
-      if (!form.description) {
+      if (!(typeof form.description === 'string')) {
         alert('Please select description')
         return
       }
-      uploadFile()
-      const result = await createSpecialistForm(form.certificate, form.description)
+      await uploadFile()
+      const result = await createSpecialistForm(form.certificate, form?.description)
       console.log(result)
-      if (form.certificate && form.description) {
-        navigate('/')
-      }
+      navigate('/')
     } catch (err) {
       console.log(err)
     }
@@ -48,7 +45,7 @@ const Certificatedform = () => {
       <div className="hidden relative lg:flex h-full w-1/2 items-center justify-center">
         <div className="absolute backdrop-blur-lg" />
         <div className="flex">
-          <img src="src/assets/icons/Userform.svg" alt="group" className="lg:p-8 lg:mt-8" />
+          <img src={iconlogin} alt="group" className="lg:p-8 lg:mt-8" />
         </div>
       </div>
       <div className="lg:w-8/12 w-full bg-white bg-opacity-50 rounded-3xl border-2 border-gray-100 flex justify-center items-center ">
@@ -61,47 +58,14 @@ const Certificatedform = () => {
             <form action="" onSubmit={handleSubmit} className="mt-6 mx-12">
               <div className="my-5 mx-12 flex items-center gap-2">
                 <label>Please put your certificated identity</label>
-                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12.5 25C19.4036 25 25 19.4036 25 12.5C25 5.59644 19.4036 0 12.5 0C5.59644 0 0 5.59644 0 12.5C0 19.4036 5.59644 25 12.5 25ZM10.5839 9.85257V10.377L11.9264 10.5868L10.458 17.3624C10.3881 17.684 10.3322 17.9777 10.2902 18.2434C10.2482 18.5091 10.2273 18.7818 10.2273 19.0615C10.2273 19.2993 10.3112 19.509 10.479 19.6908C10.6608 19.8726 10.9545 19.9635 11.36 19.9635C11.7376 19.9635 12.1222 19.8936 12.5138 19.7538C12.9053 19.6139 13.248 19.4321 13.5417 19.2084V18.663H11.9893L13.9612 9.34912L13.5836 9.09739C13.3878 9.09739 13.1641 9.12536 12.9123 9.1813C12.6606 9.22325 12.3949 9.27919 12.1152 9.34912C11.8355 9.41904 11.5628 9.50295 11.2971 9.60084C11.0314 9.68475 10.7936 9.76866 10.5839 9.85257ZM12.6187 4.86001C12.3949 5.06978 12.283 5.35647 12.283 5.72007C12.283 6.06969 12.3949 6.3424 12.6187 6.53818C12.8424 6.73397 13.1361 6.83186 13.4997 6.83186C13.8913 6.83186 14.1989 6.73397 14.4227 6.53818C14.6464 6.3424 14.7583 6.06969 14.7583 5.72007C14.7583 5.35647 14.6464 5.06978 14.4227 4.86001C14.1989 4.65024 13.8913 4.54536 13.4997 4.54536C13.1361 4.54536 12.8424 4.65024 12.6187 4.86001Z"
-                    fill="#3DA5DF"
-                  />
-                </svg>
+                <img src={subtract} />
               </div>
               <div className="my-10 mx-12 flex items-center gap-10">
-                <div className="mx-auto w-[600px] h-[283.26px] rounded-lg border-2 border-gray-300 border-dashed cursor-pointer">
-                  <div className="flex justify-center pt-5 ">
-                    <input type="file" onChange={handleFileChange} />
-                    <svg
-                      className="w-10 h-10 text-gray-400 group-hover:text-gray-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                      />
-                    </svg>
-                  </div>
-
-                  <p className="flex justify-center text-gray-400 group-hover:text-blue-600 pt-1">Drag files here</p>
-                </div>
+                <FileUploader type="file" handleChange={handleFileChange} />
               </div>
               <div className="my-10 mx-12 flex items-center gap-2">
                 <label>Please select your description</label>
-                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12.5 25C19.4036 25 25 19.4036 25 12.5C25 5.59644 19.4036 0 12.5 0C5.59644 0 0 5.59644 0 12.5C0 19.4036 5.59644 25 12.5 25ZM10.5839 9.85257V10.377L11.9264 10.5868L10.458 17.3624C10.3881 17.684 10.3322 17.9777 10.2902 18.2434C10.2482 18.5091 10.2273 18.7818 10.2273 19.0615C10.2273 19.2993 10.3112 19.509 10.479 19.6908C10.6608 19.8726 10.9545 19.9635 11.36 19.9635C11.7376 19.9635 12.1222 19.8936 12.5138 19.7538C12.9053 19.6139 13.248 19.4321 13.5417 19.2084V18.663H11.9893L13.9612 9.34912L13.5836 9.09739C13.3878 9.09739 13.1641 9.12536 12.9123 9.1813C12.6606 9.22325 12.3949 9.27919 12.1152 9.34912C11.8355 9.41904 11.5628 9.50295 11.2971 9.60084C11.0314 9.68475 10.7936 9.76866 10.5839 9.85257ZM12.6187 4.86001C12.3949 5.06978 12.283 5.35647 12.283 5.72007C12.283 6.06969 12.3949 6.3424 12.6187 6.53818C12.8424 6.73397 13.1361 6.83186 13.4997 6.83186C13.8913 6.83186 14.1989 6.73397 14.4227 6.53818C14.6464 6.3424 14.7583 6.06969 14.7583 5.72007C14.7583 5.35647 14.6464 5.06978 14.4227 4.86001C14.1989 4.65024 13.8913 4.54536 13.4997 4.54536C13.1361 4.54536 12.8424 4.65024 12.6187 4.86001Z"
-                    fill="#3DA5DF"
-                  />
-                </svg>
+                <img src={subtract} />
               </div>
               <div className="mt-8 mx-12 flex justify-between items-center">
                 <div>

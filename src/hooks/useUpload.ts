@@ -10,16 +10,14 @@ const useUpload = () => {
     certificate: '',
     description: '',
   })
-  const uploadFile = () => {
+  const uploadFile = async () => {
     if (!imageUpload) return
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`)
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+    await uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setForm({ ...form, certificate: url })
       })
     })
-
-    return form.certificate
   }
 
   return { setImageUpload, setForm, form, uploadFile }
