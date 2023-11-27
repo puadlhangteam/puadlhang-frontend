@@ -1,6 +1,5 @@
 import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import classes from '../introWeb/Introweb.module.css'
 
 type Props = {
   children: React.ReactNode
@@ -9,7 +8,7 @@ type Props = {
 
 const ActionButton = ({ children, location }: Props) => {
   return (
-    <div className={classes.buttonforCreated}>
+    <div>
       <AnchorLink href={`#${location}`}>{children}</AnchorLink>
     </div>
   )

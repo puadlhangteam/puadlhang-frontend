@@ -5,13 +5,18 @@ import dribbble from '../../assets/home/dribbble.svg'
 import facebook from '../../assets/home/facebook.svg'
 import instagram from '../../assets/home/instagram.svg'
 import classes from './AboutUs.module.css'
+import ActionButton from '../action/ActionButton'
 
 const AboutUs = () => {
   return (
     <footer id="aboutus" className={classes.container}>
       <div className={classes.formcontainer}>
         <div className={classes.containertitle}>
+          <div className={classes.button}>
+            <ActionButton location={'body'}>^</ActionButton>
+          </div>
           <img alt="logo" src={Logofooter} />
+
           <div className={classes.description}>
             <p>
               พวกเราจัดทำเว็บไซต์ขึ้นเพราะอยากเห็นคนไทยสุขภาพดี <br></br> พร้อมทำงานหาเงินต่อไป

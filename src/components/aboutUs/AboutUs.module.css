@@ -42,7 +42,6 @@
 }
 
 .description {
-  color: #343434;
   font-size: 20px;
   font-weight: 300;
   justify-content: space-between;
@@ -58,4 +57,34 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  box-shadow: 0px 8px 10px 0px rgba(252, 85, 85, 0.25);
+  background: rgb(255, 167, 116);
+  color: #fff;
+  text-decoration: rgb(237, 148, 70) 353;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  font-family: 'Kanit';
+  line-height: 75px; /* 120% */
+}
+.button:hover {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(255, 92, 0, 1);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  font-family: 'Kanit';
+  line-height: 75px; /* 120% */
 }

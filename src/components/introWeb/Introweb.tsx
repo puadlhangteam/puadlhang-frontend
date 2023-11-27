@@ -35,7 +35,7 @@ const IntroWeb = () => {
             </div>
 
             <p className="text-lg mt-40 kanit">
-              อาการของคุณเป็นยังไงบอกเราได้เลย ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนกับคุณ
+              อาการของคุณเป็นยังไงบอกเราได้เลย ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนกันกับคุณ
             </p>
           </motion.div>
 
@@ -51,7 +51,9 @@ const IntroWeb = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ActionButton location={'body'}>เริ่ม</ActionButton>
+            <div className={classes.buttonforCreated}>
+              <ActionButton location={'body'}>เริ่ม</ActionButton>
+            </div>
           </motion.div>
         </div>
 
