@@ -1,21 +1,25 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useAuth } from '../providers/Authprovider'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { user, signInWithGoogle, signUpWithEmail } = useAuth()
-
+  const { signInWithGoogle, signUpWithEmail, signOutAuth } = useAuth()
+  // const navigate = useNavigate()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-  useEffect(() => {
-    if (user) console.log(user)
-  }, [user])
 
   const handleSubmitemail = async (e: FormEvent) => {
     e.preventDefault()
+    if (!email || !password) return
     try {
-      await signUpWithEmail(email, password)
+      const result = await signUpWithEmail(email, password)
+      console.log(result)
+      // if (result?.age || result?.gender) {
+      //   navigate('/')
+      // } else {
+      //   navigate('/userform')
+      // }
     } catch (err) {
       console.log(err)
     }
@@ -24,10 +28,20 @@ function Login() {
   const handleSubmitgmail = async (e: FormEvent) => {
     e.preventDefault()
     try {
-      await signInWithGoogle()
+      const result = await signInWithGoogle()
+      console.log(result)
+      // if (result?.age || result?.gender) {
+      //   navigate('/userform')
+      // } else {
+      //   navigate('/')
+      // }
     } catch (err) {
       console.log(err)
     }
+  }
+
+  const handleSignout = () => {
+    signOutAuth()
   }
 
   return (
@@ -85,6 +99,12 @@ function Login() {
                 className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
               >
                 Sign in
+              </button>
+              <button
+                onClick={handleSignout}
+                className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+              >
+                Sign out
               </button>
             </div>
           </form>

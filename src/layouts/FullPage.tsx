@@ -1,12 +1,16 @@
 import { Outlet } from 'react-router-dom'
+import Navbar from '../components/Navbar'
 
 const FullPage = () => {
   return (
-    <div className="flex">
-      {/* <Navbar/> */}
+    <>
+      <Navbar />
+      <div className="flex">
       <Outlet />
       {/* <Footer/> */}
     </div>
+    </>
+
   )
 }
 export default FullPage
