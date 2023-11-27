@@ -44,7 +44,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
     <div className={classes.Bodyboard}>
       {Front && (
         <svg viewBox="0 0 424 770" width="50%" fill="none">
-          {anteriorData.map(({ components, muscle }) =>
+          {anteriorData.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
                 return (
@@ -53,7 +53,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
                     key={C.d}
                     name={muscle}
                     d={C.d}
-                    fill={C.fill}
+                    fill={selected ? 'white' : C.fill}
                     stroke={C.stroke}
                     onClick={onClickBodyPart}
                   ></path>
@@ -68,7 +68,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
                     cy={C.cy}
                     rx={C.rx}
                     ry={C.ry}
-                    fill={C.fill}
+                    fill={selected ? 'white' : C.fill}
                     stroke={C.stroke}
                     onClick={onClickBodyPart}
                   ></ellipse>
@@ -80,7 +80,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
 
       {Back && (
         <svg viewBox="0 0 424 770" width="50%" fill="none">
-          {posteriorData.map(({ components, muscle }) =>
+          {posteriorData.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
                 return (
@@ -89,7 +89,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
                     key={C.d}
                     name={muscle}
                     d={C.d}
-                    fill={C.fill}
+                    fill={selected ? 'white' : C.fill}
                     stroke={C.stroke}
                     onClick={onClickBodyPart}
                   ></path>
@@ -104,7 +104,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
                     cy={C.cy}
                     rx={C.rx}
                     ry={C.ry}
-                    fill={C.fill}
+                    fill={selected ? 'white' : C.fill}
                     stroke={C.stroke}
                     onClick={onClickBodyPart}
                   ></ellipse>
