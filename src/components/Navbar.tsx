@@ -63,19 +63,27 @@ const Navbar = () => {
           </ul>
           <div>
             {isLoggedIn ? (
-              <button
-                onClick={handleSignOut}
-                className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
-              >
-                Sign out
-              </button>
+              <>
+                <div>
+                  {user && user.picture && user.username && <img src={user.picture} alt={user.username} />}
+                  {user && user.picture && user.username && <p>{user.username}</p>}
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
+                >
+                  Sign out
+                </button>
+              </>
             ) : (
-              <button
-                onClick={handleSignIn}
-                className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
-              >
-                Sign in
-              </button>
+              <>
+                <button
+                  onClick={handleSignIn}
+                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
+                >
+                  Sign in
+                </button>
+              </>
             )}
           </div>
         </div>
