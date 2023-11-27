@@ -11,14 +11,14 @@ const useUpload = () => {
     description: '',
   })
   const uploadFile = () => {
-    if (imageUpload == null) return
+    if (!imageUpload) return
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`)
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setForm({ ...form, certificate: url })
       })
     })
-    console.log(form.certificate)
+
     return form.certificate
   }
 
