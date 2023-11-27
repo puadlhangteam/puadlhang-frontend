@@ -18,12 +18,12 @@ interface IAuthProvider {
 
 type IAUthContext = {
   user: IUserDTO | null
-  signUpWithEmail: (email: string, password: string) => Promise<IUserDTO | undefined>
-  signInWithGoogle: () => Promise<IUserDTO | undefined>
+  signUpWithEmail: (email: string, password: string) => Promise<void>
+  signInWithGoogle: () => Promise<void>
   signOutAuth: () => Promise<void>
-  token: string | null
   auth: Auth
-  setToken: (value: string | null) => void
+  getUserToken: () => Promise<string | undefined>
+  isLoggedIn: boolean
 }
 
 const AuthContext = createContext<IAUthContext | null>(null)
@@ -37,21 +37,33 @@ export const useAuth = () => {
 const AuthProvider = ({ children }: IAuthProvider) => {
   const [user, setUser] = useState<IUserDTO | null>(null)
   const [token, setToken] = useState<string | null>(null)
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
   useEffect(() => {
     auth.onAuthStateChanged(async (userCredential) => {
       if (userCredential) {
         const token = await userCredential.getIdToken()
-        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/data`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        const userData = result.data
-        setUser(userData)
+        setToken(token)
       } else {
-        setUser(null)
+        setToken(null)
       }
     })
   }, [])
+
+  useEffect(() => {
+    if (!token) {
+      setUser(null)
+      return
+    }
+    axios
+      .get<IUserDTO>(`${BASE_URL}/user/data`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => res.data)
+      .then((userData) => {
+        setUser(userData)
+      })
+  }, [token])
 
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman|hotmail)+\.[A-Z]{2,}$/i
@@ -78,35 +90,32 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         if (error instanceof Error) alert('Email already in use')
       })
     })
-
-    const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-    setUser(result.data)
-    return result.data
+    setIsLoggedIn(true)
   }
 
   const signInWithGoogle = async () => {
     await signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
       if (error instanceof Error) alert('Failed to log in')
     })
-
-    const result = await axios.get(`${BASE_URL}/user/me`, { headers: { Authorization: `Bearer ${token}` } })
-    setUser(result.data)
-    return result.data
+    setIsLoggedIn(true)
   }
   const signOutAuth = async () => {
+    setIsLoggedIn(false)
     signOut(auth)
   }
-
+  const getUserToken = async () => {
+    const token = await auth.currentUser?.getIdToken(true)
+    setToken(token || null)
+    return token
+  }
   const store: IAUthContext = {
     user,
     signUpWithEmail,
     signInWithGoogle,
     signOutAuth,
-    token,
     auth,
-    setToken,
+    getUserToken,
+    isLoggedIn,
   }
 
   return <AuthContext.Provider value={store}>{children}</AuthContext.Provider>
