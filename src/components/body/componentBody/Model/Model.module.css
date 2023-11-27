@@ -1,9 +1,25 @@
 .Bodyboard {
   display: flex;
-  margin-top: 10%;
   gap: 10%;
   width: 100%;
   flex-direction: row;
+  align-items: center;
+}
+
+.board {
+  display: flex;
+  gap: 10%;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+}
+
+.boardtext {
+  display: flex;
+  gap: 10%;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .selected {
@@ -19,13 +35,65 @@
 
 .Created {
   padding: 20px;
-  width: 30%;
-  height: 100%;
+  width: 100%;
+  height: auto;
   border-radius: 30px;
   border: 1px solid rgba(8, 8, 8, 0);
   background: rgb(255, 152, 93);
   color: #fff;
   text-align: center;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 300;
+  margin-bottom: 20%;
+}
+
+.buttonforCreated {
+  width: 100%;
+  height: 78px;
+  border-radius: 40px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(255, 92, 0, 1);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20%;
+}
+.buttonforCreated:hover {
+  width: 100%;
+  height: 78px;
+  border-radius: 40px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(255, 92, 0, 1);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.buttonforskip {
+  width: 100%;
+  height: 78px;
+  border-radius: 40px;
+  border: 1px solid rgba(8, 8, 8, 0);
+  background: rgba(160, 215, 255, 0.94);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
+}
+.buttonforskip:hover {
+  width: 100%;
+  height: 78px;
+  border-radius: 40px;
+  border: 1px solid rgba(77, 77, 77, 0);
+  background: rgba(160, 215, 255, 0.94);
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.25) inset;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 400;
 }

@@ -51,7 +51,7 @@ const IntroWeb = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-            <ActionButton location={'body'}>START</ActionButton>
+            <ActionButton location={'body'}>เริ่ม</ActionButton>
           </motion.div>
         </div>
 
