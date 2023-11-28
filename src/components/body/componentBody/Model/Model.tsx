@@ -1,18 +1,25 @@
 import { useEffect, useState } from 'react'
+import classes from './Model.module.css'
 import { Muscle } from './Model.type'
 import { ISVGModelData, anteriorData, posteriorData } from './svg.data'
-import classes from './Model.module.css'
 
 interface IModelProp {
+  data: Muscle[]
   setData?: (data: Muscle[]) => void
   Front?: boolean
   Back?: boolean
 }
 
-export default function Model({ setData, Front = true, Back = true }: IModelProp) {
-  const [MuscledataFront, setMuscledataFront] = useState<ISVGModelData[]>(anteriorData)
+export default function Model({ data = [], setData, Front = true, Back = true }: IModelProp) {
+  const anterior = anteriorData.map(({ muscle, components }) => {
+    return { components, selected: data.includes(muscle), muscle }
+  })
+  const posterior = posteriorData.map(({ muscle, components }) => {
+    return { components, selected: data.includes(muscle), muscle }
+  })
+  const [MuscledataFront, setMuscledataFront] = useState<ISVGModelData[]>(anterior)
 
-  const [MuscledataBack, setMuscledataBack] = useState<ISVGModelData[]>(posteriorData)
+  const [MuscledataBack, setMuscledataBack] = useState<ISVGModelData[]>(posterior)
 
   const toggle = (components: ISVGModelData) => {
     components.selected = !components.selected
@@ -44,7 +51,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
     <div className={classes.Bodyboard}>
       {Front && (
         <svg viewBox="0 0 424 770" width="50%" fill="none">
-          {anteriorData.map(({ components, muscle, selected }) =>
+          {anterior.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
                 return (
@@ -80,7 +87,7 @@ export default function Model({ setData, Front = true, Back = true }: IModelProp
 
       {Back && (
         <svg viewBox="0 0 424 770" width="50%" fill="none">
-          {posteriorData.map(({ components, muscle, selected }) =>
+          {posterior.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
                 return (
