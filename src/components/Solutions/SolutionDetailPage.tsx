@@ -1,4 +1,5 @@
 import { IResSolutionsDTO } from '../../types'
+import ReactPlayer from 'react-player/youtube'
 
 interface IContentprops {
   content: IResSolutionsDTO
@@ -49,6 +50,7 @@ function SolutionDetailPage({ content }: IContentprops) {
               })}
           </ul>
         </div>
+        <ReactPlayer url={content.videoUrl} />
       </div>
     </article>
   )
