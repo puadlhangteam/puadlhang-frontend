@@ -39,7 +39,7 @@ const Navbar = () => {
   }
 
   return (
-    <section className="sticky top-0 left-0 right-0 z-50 bg-orange-300 w-full">
+    <section className="sticky top-0 left-0 right-0 z-50 bg-orange-100 w-full">
       <header className="container mx-auto px-5 flex justify-between py-4 items-center">
         <div>
           <img className="w-48" src={images.Logo} alt="logo" />
@@ -56,7 +56,7 @@ const Navbar = () => {
             navIsVisible ? 'right-0' : '-right-full'
           } transition-all duration-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center`}
         >
-          <ul className="text-white items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
+          <ul className="orange-300 items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
             {navItemsInfo.map((item, index) => (
               <NavItem key={index} item={item} />
             ))}

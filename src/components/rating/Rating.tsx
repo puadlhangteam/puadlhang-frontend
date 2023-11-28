@@ -20,15 +20,11 @@ const Rating = () => {
             <h1>เพื่อนร่วมทางของเรา</h1>
           </div>
           <div className={classes.text}>
-            <h1>1K</h1>
-            <p>ผู้เข้าชม</p>
+            <h1>50</h1>
+            <p>วิธีการกายภาพ</p>
           </div>
           <div className={classes.text}>
-            <h1>200+</h1>
-            <p>สมาชิก</p>
-          </div>
-          <div className={classes.text}>
-            <h1>100</h1>
+            <h1>50</h1>
             <h1>ผู้เชี่ยวชาญ</h1>
           </div>
         </div>

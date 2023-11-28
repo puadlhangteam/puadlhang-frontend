@@ -25,7 +25,7 @@ export default {
     screens: {
       xs: '480px',
       sm: '768px',
-      md: '2060px',
+      md: '1020px',
     },
     primary: '#1565D8',
     dark: {

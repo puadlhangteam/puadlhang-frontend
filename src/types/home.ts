@@ -14,3 +14,10 @@ export interface BlogSpecialistDTO {
   user: string
   date: string
 }
+
+export interface ReviewsDTO {
+  thumbnailUrl: string
+  description: string
+  username: string
+  rating: number
+}
