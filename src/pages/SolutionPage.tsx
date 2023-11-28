@@ -29,11 +29,6 @@ const muscles: string[] = [
   'handback',
 ]
 
-interface IMuscleprops {
-  muscles: string[]
-  muscle: string
-}
-
 function SolutionPage() {
   return (
     <section className="flex flex-col container mx-auto px-5 py-10">
