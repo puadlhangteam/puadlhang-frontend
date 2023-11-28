@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import axios, { AxiosError } from 'axios'
+import { useState } from 'react'
+import { BASE_URL } from '../configs/url'
 import { IReqComment } from '../types'
 
 const useComments = () => {
@@ -15,16 +16,12 @@ const useComments = () => {
 
     setIsSubmitting(true)
     try {
-      const res = await axios.post<IReqComment>(
-        'http://52.63.27.28:8080/solutions/solution/:solutionId/comments',
-        newContentBody,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
+      const res = await axios.post<IReqComment>(`${BASE_URL}/solutions/solution/:solutionId/comments`, newContentBody, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-      )
+      })
 
       console.log(res.data)
     } catch (err) {
