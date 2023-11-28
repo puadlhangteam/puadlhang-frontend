@@ -6,6 +6,8 @@ import FullPage from './layouts/FullPage'
 import Userform from './components/Userform'
 import Specialistform from './components/Specialistform'
 import Certificatedform from './components/Certificatedform'
+import SolutionPage from './pages/SolutionPage'
+import SolutionDetail from './pages/SolutionDetail'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/userform" element={<Userform />} />
         <Route path="/specialist" element={<Specialistform />} />
         <Route path="/certificated" element={<Certificatedform />} />
+        <Route path='/solution' element={<SolutionPage />} />
+        <Route path='/solutiondetail/' element={<SolutionDetail />} />
         <Route index element={<Home />} />
 
         <Route element={<GuardRoute />}>{/* Login Required Section */}</Route>

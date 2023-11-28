@@ -5920,7 +5920,6 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-<<<<<<< HEAD
   /react-drag-drop-files@2.3.10(@babel/core@7.23.3)(react-dom@18.2.0)(react-is@16.13.1)(react@18.2.0):
     resolution: {integrity: sha512-Fv614W9+OtXFB5O+gjompTxQZLYGO7wJeT4paETGiXtiADB9yPOMGYD4A3PMCTY9Be874/wcpl+2dm3MvCIRzg==}
     peerDependencies:
@@ -5934,14 +5933,14 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - react-is
-=======
+    dev: false
+
   /react-icons@4.12.0(react@18.2.0):
     resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
     peerDependencies:
       react: '*'
     dependencies:
       react: 18.2.0
->>>>>>> 83a6c2f435c83552bec48ce3e7a0cbf72a56e2f4
     dev: false
 
   /react-is@16.13.1:
