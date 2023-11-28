@@ -50,7 +50,7 @@ function SolutionDetailPage({ content }: IContentprops) {
               })}
           </ul>
         </div>
-        <ReactPlayer url={content.videoUrl} />
+        {content.videoUrl && <ReactPlayer url={content.videoUrl} />}
       </div>
     </article>
   )
