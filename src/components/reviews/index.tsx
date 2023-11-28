@@ -7,8 +7,6 @@ const Reviews = () => {
   const { reviews, isLoading } = useReview()
 
   if (isLoading) return <h1>Loading...</h1>
-
-  console.log(reviews)
   return (
     <section id="ourclasses" className={classes.container}>
       <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6">

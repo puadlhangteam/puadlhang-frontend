@@ -5,7 +5,6 @@ import IntroWeb from '../../components/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
 
 import BlogSpecialists from '../../components/blogspecialists'
-import Reviews from '../../components/reviews'
 import Bodymain from '../../components/body/Bodymain'
 import Rating from '../../components/rating/Rating'
 
@@ -31,7 +30,7 @@ function Home() {
       <Bodymain />
       <BlogSpecialists />
       <Rating />
-      <Reviews />
+      {/* <Reviews /> */}
       <Concept />
       <AboutUs />
     </div>
