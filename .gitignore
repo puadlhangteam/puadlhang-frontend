@@ -28,7 +28,4 @@ dist-ssr
 config.ts
 src/configs/url.ts
 
-*.json
-!package.json
-!tsconfig.json
-!tsconfig.node.json
+
