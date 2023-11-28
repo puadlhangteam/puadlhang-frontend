@@ -14,7 +14,7 @@ function BannerSolution({ muscles }: IBannerSolutionProps) {
           <a
             key={muscle + 'Banner'}
             className="flex items-center gap-x-2 mt-5 font-bold text-amber border-2 border-amber px-6 py-3 rounded-full hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]"
-            href={`#${muscle}`}
+            href={`#${muscle}section`}
           >
             <span>{muscle}</span>
             <FaArrowRight className="w-3 h-3" />
