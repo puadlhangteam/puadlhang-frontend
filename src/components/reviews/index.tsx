@@ -8,8 +8,6 @@ const Reviews = () => {
   const { reviews, isLoading } = useReview()
 
   if (isLoading) return <h1>Loading...</h1>
-
-  console.log(reviews)
   return (
     <section id="ourclasses" className="gap-12 md:pb-0">
       <div className={classes.box}>
