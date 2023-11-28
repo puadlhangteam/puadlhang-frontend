@@ -1,66 +1,45 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { IReqSpecialistFormDTO, IReqUpdateUserDTO, IUserDTO } from '../types'
-import { useAuth } from '../providers/Authprovider'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
+import { useState } from 'react'
+import { v4 } from 'uuid'
+import { storage } from '../configs/firebase'
 import { BASE_URL } from '../configs/url'
+import { useAuth } from '../providers/Authprovider'
+import { IReqSpecialistFormDTO, IReqUpdateUserDTO } from '../types'
 
 const useUpdate = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
-  const [user, setUser] = useState<IUserDTO | null>(null)
-  const [update, setUpdate] = useState<IReqUpdateUserDTO | null>(null)
-  const [special, setSpecial] = useState<IReqSpecialistFormDTO | null>(null)
-  const { token, auth, setToken } = useAuth()
+  const { getBearerToken } = useAuth()
 
-  useEffect(() => {
-    auth.onAuthStateChanged(async (userCredential) => {
-      if (userCredential) {
-        setToken(await userCredential.getIdToken())
-        const result = await axios.get<IUserDTO>(`${BASE_URL}/user/me`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        const userData = result.data
-        setUser(userData)
-      } else {
-        setUser(null)
-      }
-    })
-  }, [auth])
-
-  const updateUserform = async (Newgender: 'male' | 'female', Newage: number) => {
+  const updateUser = async (Newgender: 'male' | 'female', Newage: number) => {
     const newData: IReqUpdateUserDTO = { gender: Newgender, age: Newage }
     setIsSubmitting(true)
-    try {
-      const res = await axios.patch<IReqUpdateUserDTO>(`${BASE_URL}/user/data`, newData, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      setUpdate(res.data)
-      return res.data
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setIsSubmitting(false)
-    }
+    const token = await getBearerToken()
+    if (!token) return
+    await axios.patch(`${BASE_URL}/user/data`, newData, {
+      headers: { Authorization: token },
+    })
+    setIsSubmitting(false)
+    return
   }
 
-  const createSpecialistForm = async (Newcertificate: string, Newdescription: string) => {
+  const sendSpecialist = async (Newcertificate: string, Newdescription: string) => {
     if (Newdescription == undefined) return
     const newData: IReqSpecialistFormDTO = { certificate: Newcertificate, description: Newdescription }
     setIsSubmitting(true)
-    try {
-      const res = await axios.post<IReqSpecialistFormDTO>(`${BASE_URL}/user/role/specialist`, newData, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      setSpecial(res.data)
-      console.log(res.data)
-      return res.data
-    } catch (error) {
-      console.log(error)
-    } finally {
-      setIsSubmitting(false)
-    }
+    await axios.post<IReqSpecialistFormDTO>(`${BASE_URL}/user/role/specialist`, newData, {
+      headers: { Authorization: await getBearerToken() },
+    })
+    setIsSubmitting(false)
   }
-
-  return { isSubmitting, updateUserform, update, user, createSpecialistForm, special }
+  const uploadFile = async (image: File | null) => {
+    if (!image) return
+    const imageRef = ref(storage, `images/${image.name + v4()}`)
+    const snapshot = await uploadBytes(imageRef, image)
+    const url = await getDownloadURL(snapshot.ref)
+    return url
+  }
+  return { isSubmitting, updateUser, sendSpecialist, uploadFile }
 }
 
 export default useUpdate

@@ -7,6 +7,7 @@ const FullPage = () => {
       <Navbar />
       <div className="flex">
       <Outlet />
+      {/* <Footer/> */}
     </div>
     </div>
 

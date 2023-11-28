@@ -1,27 +1,16 @@
-import { images } from '../constants/index'
-import { useEffect, useState } from 'react'
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
-import { navItemsInfo } from '../configs/naviteminfo'
-import NavItem from './NavItem'
+import { useState } from 'react'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
+import { navItemsInfo } from '../configs/naviteminfo'
+import { images } from '../constants/index'
 import { useAuth } from '../providers/Authprovider'
+import NavItem from './NavItem'
 
 const Navbar = () => {
   const [navIsVisible, setNavIsVisible] = useState(false)
-  const { auth, isLoggedIn, user, signOutAuth } = useAuth()
+  const { user, signOutAuth } = useAuth()
 
   const navigate = useNavigate()
-  useEffect(() => {
-    if (user) console.log(user)
-  }, [user])
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) console.log(user)
-    })
-
-    return unsubscribe
-  }, [auth])
 
   const navVisibilityHandler = () => {
     setNavIsVisible((curState) => {
@@ -56,17 +45,17 @@ const Navbar = () => {
             navIsVisible ? 'right-0' : '-right-full'
           } transition-all duration-300 mt-[56px] lg:mt-0 bg-dark-hard lg:bg-transparent z-[49] flex flex-col w-full lg:w-auto justify-center lg:justify-end lg:flex-row fixed top-0 bottom-0 lg:static gap-x-9 items-center`}
         >
-          <ul className="text-white items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
+          <ul className="orange-300 items-center gap-y-5 lg:text-dark-soft flex flex-col lg:flex-row gap-x-2 font-semibold">
             {navItemsInfo.map((item, index) => (
               <NavItem key={index} item={item} />
             ))}
           </ul>
           <div>
-            {isLoggedIn ? (
+            {user ? (
               <>
                 <div>
                   {user && user.picture && user.username && <img src={user.picture} alt={user.username} />}
-                  {user && user.picture && user.username && <p>{user.username}</p>}
+                  {user && user.username && <p>{user.username}</p>}
                 </div>
                 <button
                   onClick={handleSignOut}

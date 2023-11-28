@@ -1,0 +1,119 @@
+.container {
+  width: 100%;
+  height: auto;
+  padding: 140px 280px;
+  box-sizing: border-box;
+  background: linear-gradient(27deg, rgba(255, 226, 167, 0.8) 19.04%, rgba(249, 124, 89, 0) 48.22%),
+    linear-gradient(57deg, #83ebfd 30.89%, rgba(185, 91, 229, 0) 69.76%),
+    linear-gradient(301deg, rgba(252, 178, 91, 0.91) 23.42%, rgba(252, 178, 91, 0) 63.39%),
+    linear-gradient(142deg, rgba(78, 173, 235, 0.85) 16.95%, rgba(78, 173, 235, 0) 96.59%), #d3e4ff;
+  padding: 20px 20px;
+}
+
+.thumbnailurl {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 25px 25px 0 0;
+}
+
+/* {INDEX} */
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  margin: 200px 100px;
+  padding: 150px 80px;
+  border-radius: 60px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.blogContainer {
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  gap: 38px;
+}
+
+.sectionTitle {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 38px;
+  color: rgba(229, 113, 19, 0.878);
+  font-weight: 400;
+}
+
+.viewAll {
+  color: #b90101;
+  font-size: 20px;
+}
+
+.box {
+  background: linear-gradient(27deg, rgba(255, 226, 167, 0.8) 19.04%, rgba(249, 124, 89, 0) 48.22%),
+    linear-gradient(57deg, #83ebfd 30.89%, rgba(185, 91, 229, 0) 69.76%),
+    linear-gradient(301deg, rgba(252, 178, 91, 0.91) 23.42%, rgba(252, 178, 91, 0) 63.39%),
+    linear-gradient(142deg, rgba(78, 173, 235, 0.85) 16.95%, rgba(78, 173, 235, 0) 96.59%), #d3e4ff;
+  padding: 20px 20px;
+}
+
+/* {CARD} */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+  padding: 50px 50px;
+  border-radius: 50px;
+  background: #a4e6fc;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.author {
+  color: #545454;
+  font-size: 20px;
+}
+
+.dateAndTime {
+  color: #7c7c7c;
+  padding-bottom: 20px;
+}
+
+.blogHeader {
+  font-size: 36px;
+}
+
+.description {
+  color: #000000;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
+  font-weight: 500px;
+  width: 100%;
+  align-items: center;
+}
+
+.cardimg {
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-fit: cover;
+  border-radius: 3000px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cardcontent {
+  display: flex;
+  flex-direction: column;
+}

@@ -62,3 +62,17 @@ export type IResSolutionDTO = {
     createdAt: number
   }[]
 }
+
+//get review homepage
+export type ICommentDTO = {
+  uid: ObjectId
+  postedBy: IUserDTO
+  username: string
+  picture?: pathURL
+  text: string
+  rating: number
+  createdAt: number
+}
+export type ICommentsDTO = {
+  data: ICommentDTO[]
+}

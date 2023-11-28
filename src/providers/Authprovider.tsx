@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {
-  Auth,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,9 +7,9 @@ import {
   signOut,
 } from 'firebase/auth'
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import { auth } from '../configs/firebase'
 import { BASE_URL } from '../configs/url'
 import { IUserDTO } from '../types'
-import { auth } from '../configs/firebase'
 
 interface IAuthProvider {
   children: ReactNode
@@ -21,8 +20,7 @@ type IAUthContext = {
   signUpWithEmail: (email: string, password: string) => Promise<void>
   signInWithGoogle: () => Promise<void>
   signOutAuth: () => Promise<void>
-  auth: Auth
-  getUserToken: () => Promise<string | undefined>
+  getBearerToken: () => Promise<string | undefined>
   isLoggedIn: boolean
 }
 
@@ -49,21 +47,25 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       }
     })
   }, [])
-
   useEffect(() => {
+    getUser(token)
+  }, [token])
+
+  const getUser = async (token: string | null) => {
     if (!token) {
       setUser(null)
       return
     }
-    axios
+    const userData = await axios
       .get<IUserDTO>(`${BASE_URL}/user/data`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => res.data)
-      .then((userData) => {
-        setUser(userData)
-      })
-  }, [token])
+    console.log(userData)
+
+    setUser(userData)
+    return userData
+  }
 
   const signUpWithEmail = async (email: string, password: string) => {
     const expression: RegExp = /^[A-Z0-9._%+-]+@(apple|gmail|outlook|yahoo|hey|superhuman|hotmail)+\.[A-Z]{2,}$/i
@@ -100,21 +102,22 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     setIsLoggedIn(true)
   }
   const signOutAuth = async () => {
+    await signOut(auth)
+    setUser(null)
     setIsLoggedIn(false)
-    signOut(auth)
   }
-  const getUserToken = async () => {
-    const token = await auth.currentUser?.getIdToken(true)
+  const getBearerToken = async () => {
+    const token = await auth.currentUser?.getIdToken()
     setToken(token || null)
-    return token
+    const BearerToken = token ? `Bearer ${token}` : undefined
+    return BearerToken
   }
   const store: IAUthContext = {
     user,
     signUpWithEmail,
     signInWithGoogle,
     signOutAuth,
-    auth,
-    getUserToken,
+    getBearerToken,
     isLoggedIn,
   }
 
