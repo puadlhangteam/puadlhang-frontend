@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import useReview from '../../hooks/useReview'
+import useReview from '../../hooks/useComment'
 import Review from './Review'
 import classes from './Review.module.css'
 import { REVIEWS } from '../../data/review'
@@ -13,8 +13,8 @@ const Reviews = () => {
   return (
     <section id="ourclasses" className="gap-12 md:pb-0">
       <div className={classes.box}>
-        <div className={classes.container}>
-          <div className="mx-auto w-3/6 items-center justify-center md:flex md:h-5/6">
+        <div className={classes.containers}>
+          <div className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6">
             <motion.div
               className="md:-mt-20"
               initial="hidden"
@@ -26,23 +26,15 @@ const Reviews = () => {
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              <div>
-                <div className={classes.sectionTitle}>
-                  <h1>หลายเรื่องสุขภาพน่ารู้ ที่หมออยากบอก</h1>
-                </div>
+              <div className={classes.sectionTitle}>
+                <h1>เรื่องเล่าของผู้ใช้งานจริง</h1>
               </div>
-            </motion.div>
-
-            <div
-              className="flex basis-5/6 justify-center md:z-10
-              md:ml-40 md:mt-16 md:justify-items-end mt-10 h-[353px] w-full overflow-x-auto overflow-y-hidden"
-            >
-              <div className="whitespace-nowrap">
+              <div className={classes.blogContainer}>
                 {REVIEWS.map((review) => {
                   return <Review key={review.thumbnailUrl} review={review} />
                 })}
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

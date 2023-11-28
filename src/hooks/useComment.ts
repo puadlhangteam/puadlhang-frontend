@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios, { AxiosError } from 'axios'
 import { ICommentsDTO, IReqComment } from '../types'
 
-const useReviews = () => {
+const useComment = () => {
   const [reviews, setReview] = useState<ICommentsDTO | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
@@ -13,7 +13,7 @@ const useReviews = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await axios.get<ICommentsDTO>('http://52.63.27.28:8080/solutions/solution/:solutionId')
+        const res = await axios.get<IReqUserDTO>('http://52.63.27.28:8080/solutions/solution/:solutionId/content')
 
         console.log(res.data)
         setReview(res.data)
@@ -37,7 +37,7 @@ const useReviews = () => {
     setIsSubmitting(true)
     try {
       const res = await axios.post<IReqComment>(
-        'http://52.63.27.28:8080/solutions/solution/:solutionId',
+        'http://52.63.27.28:8080/solutions/solution/:solutionId/content',
         newContentBody,
         {
           headers: {
@@ -58,4 +58,4 @@ const useReviews = () => {
   return { reviews, isLoading, error, isSubmitting, createcomment }
 }
 
-export default useReviews
+export default useComment

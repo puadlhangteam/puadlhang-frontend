@@ -11,14 +11,15 @@ const Review = ({ review }: IReviweDTO) => {
   return (
     <div className={classes.container}>
       <div className={classes.containercardimg}>
-        <div className={classes.cardimg}></div>
-        <img className={classes.img} src={review.thumbnailUrl} />
+        <div className={classes.cardimg}>
+          <img className={classes.img} src={review.thumbnailUrl} />
+        </div>
       </div>
       <p className={classes.author}>{review.username}</p>
-      <h4 className={classes.description}>{review.description}</h4>
       <Stack spacing={1}>
         <Rating name="size-medium" defaultValue={review.rating} />
       </Stack>
+      <h4 className={classes.description}>{review.description}</h4>
     </div>
   )
 }
