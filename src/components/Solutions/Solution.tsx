@@ -10,7 +10,7 @@ const Solution = ({ muscle }: ISolutionProp) => {
   if (!contents || contents.length === 0) return null
   return (
     contents && (
-      <section className="flex flex-col  container mx-auto px-5">
+      <section id={muscle} className="flex flex-col  container mx-auto px-5">
         <div>
           <h1 key={muscle} className="font-kanit text-xl sm:text-3xl text-amber py-5">
             {muscle}
@@ -19,13 +19,11 @@ const Solution = ({ muscle }: ISolutionProp) => {
             {contents &&
               contents.map((content) => {
                 return (
-                  <>
-                    <SolutionCard
-                      key={content.muscle}
-                      content={content}
-                      className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"
-                    />
-                  </>
+                  <SolutionCard
+                    key={content.muscle}
+                    content={content}
+                    className="w-full md:w-[calc(50%-20px)] lg:w-[calc(33.33%-21px)]"
+                  />
                 )
               })}
           </div>
