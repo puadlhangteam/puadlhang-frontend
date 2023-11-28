@@ -7,6 +7,7 @@ import { SelectedPageDTO } from '../../types/home'
 import BlogSpecialists from '../../components/blogspecialists'
 import Bodymain from '../../components/body/Bodymain'
 import Rating from '../../components/rating/Rating'
+import Reviews from '../../components/reviews'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
@@ -30,7 +31,7 @@ function Home() {
       <Bodymain />
       <BlogSpecialists />
       <Rating />
-      {/* <Reviews /> */}
+      <Reviews />
       <Concept />
       <AboutUs />
     </div>
