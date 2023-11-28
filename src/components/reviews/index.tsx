@@ -1,13 +1,9 @@
 import { motion } from 'framer-motion'
-import useReview from '../../hooks/useComment'
+import { REVIEWS } from '../../data/review'
 import Review from './Review'
 import classes from './Review.module.css'
-import { REVIEWS } from '../../data/review'
 
 const Reviews = () => {
-  const { reviews, isLoading } = useReview()
-
-  if (isLoading) return <h1>Loading...</h1>
   return (
     <section id="ourclasses" className="gap-12 md:pb-0">
       <div className={classes.box}>
