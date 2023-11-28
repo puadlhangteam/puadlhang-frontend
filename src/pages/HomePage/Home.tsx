@@ -26,7 +26,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="app bg-gray-20">
+    <div className="app ">
       <IntroWeb />
       <Bodymain />
       <BlogSpecialists />

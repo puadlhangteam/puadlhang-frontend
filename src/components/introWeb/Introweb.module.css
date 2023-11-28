@@ -32,7 +32,7 @@
   font-weight: 400;
   margin-bottom: 20%;
   font-family: 'Kanit';
-  line-height: 75px; /* 120% */
+  line-height: 75px;
 }
 .buttonforCreated:hover {
   width: 200px;

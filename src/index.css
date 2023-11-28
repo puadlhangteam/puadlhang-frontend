@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,200&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,4 +6,18 @@
 
 * {
   margin: 0;
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,200&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
 }
