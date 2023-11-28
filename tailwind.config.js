@@ -10,13 +10,13 @@ export default {
           hard: '#0D2436',
           soft: '#183B56',
         },
-        'amber': '#FF772A',
-        'grenn': '#00FFE0',
-        'green': '#B95BE5',
-        'tail': '#A0D7FF'
+        amber: '#FF772A',
+        grenn: '#00FFE0',
+        green: '#B95BE5',
+        tail: '#A0D7FF',
       },
       backgroundColor: {
-        'taily': "rgba(255, 255, 255, 0.90)",
+        taily: 'rgba(255, 255, 255, 0.90)',
         'gray-20': '#F8F4EB',
         'gray-50': '#FFA76D',
         'gray-100': '#FFA76D',
@@ -34,13 +34,8 @@ export default {
       fontFamily: {
         opensans: ["'Open Sans'", 'sans-serif'],
         roboto: ["'Roboto'", 'sans-serif'],
-        kanit: ["Kanit", 'san-serif'],
+        kanit: ['Kanit', 'san-serif'],
       },
-    },
-    screens: {
-      xs: '480px',
-      sm: '768px',
-      md: '1020px',
     },
     primary: '#1565D8',
     dark: {
