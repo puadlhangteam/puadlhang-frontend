@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import DefaultUserImage from '../../assets/default_profile/images.png'
 import { images } from '../../constants/index'
 import { useAuth } from '../../providers/Authprovider'
-import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [navIsVisible, setNavIsVisible] = useState(false)
@@ -49,7 +48,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to={'/profile'} className="flex items-center justify-center gap-3 mx-5">
-                  {<img src={user.picture || DefaultUserImage} className="rounded-full max-h-10" alt="userProfile" />}
+                  {<img src={user.picture || DefaultUserImage} className="rounded-full h-10 w-10" alt="userProfile" />}
                   <p>{user.username}</p>
                 </Link>
                 <button

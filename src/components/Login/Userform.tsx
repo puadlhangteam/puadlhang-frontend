@@ -1,14 +1,25 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import subtract from '../../assets/icons/Subtract.svg'
 import useUpdate from '../../hooks/useUpdate'
+import { useAuth } from '../../providers/Authprovider'
 
 const Userform = () => {
   const { isSubmitting, updateUser } = useUpdate()
   const [gender, setGender] = useState<'male' | 'female' | null>(null)
   const [age, setAge] = useState<number | null>(null)
   const navigate = useNavigate()
-
+  const { user } = useAuth()
+  useEffect(() => {
+    if (!user) {
+      navigate('/login')
+      return
+    }
+    if (user.age || user.gender) {
+      navigate('/')
+      return
+    }
+  }, [user, navigate])
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!gender || !age) {

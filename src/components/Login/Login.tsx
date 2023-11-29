@@ -1,4 +1,5 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import googleIcon from '../../assets/icons/Google.svg'
 import { useAuth } from '../../providers/Authprovider'
 
@@ -8,7 +9,17 @@ function Login() {
   const { signInWithGoogle, signUpWithEmail } = useAuth()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const { user } = useAuth()
 
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!user) return
+    if (!user.age || !user.gender) {
+      navigate('/login/userform')
+      return
+    }
+    navigate('/')
+  }, [user, navigate])
   const handleSubmitWithEmail = async (e: FormEvent) => {
     e.preventDefault()
     if (!email || !password) return

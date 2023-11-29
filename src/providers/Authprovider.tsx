@@ -61,7 +61,6 @@ const AuthProvider = ({ children }: IAuthProvider) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => res.data)
-    console.log(userData)
 
     setUser(userData)
     return userData

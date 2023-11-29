@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import DefaultUserImg from '../../assets/default_profile/images.png'
 import close from '../../assets/icons/close.svg'
 
 import useUpdate from '../../hooks/useUpdate'
@@ -59,15 +60,15 @@ const EditProfile = ({ user }: IEditProfileProp) => {
         <form action="" onSubmit={handleSubmit} className="mt-6 mx-12">
           <div className="my-5 mx-12 flex justify-center text-black text-[30px] font-bold font-['Epilogue']">
             <img
-              src={profileImg ? URL.createObjectURL(profileImg) : user.picture}
-              className="Ellipse221 w-28 h-40 bg-white rounded-full "
+              src={profileImg ? URL.createObjectURL(profileImg) : user.picture ?? DefaultUserImg}
+              className="w-40 h-40 bg-white rounded-full "
             />
           </div>
           <div className="flex justify-center flex-col items-center">
             <div className="flex gap-5">
               <input
                 type="file"
-                className="col-start-1 col-end-3 w-[4.3rem] overflow-hidden text-black text-[10px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+                className="w-[4.3rem] overflow-hidden text-black text-[10px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
                 onChange={handleFileChange}
               />
               <img
