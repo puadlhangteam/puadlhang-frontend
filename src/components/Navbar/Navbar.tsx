@@ -50,11 +50,13 @@ const Navbar = () => {
               <NavItem key={index} item={item} />
             ))}
           </ul>
-          <div>
+          <div className="flex items-center justify-center">
             {user ? (
               <>
-                <div>
-                  {user && user.picture && user.username && <img src={user.picture} alt={user.username} />}
+                <div className="flex items-center justify-center gap-3 mx-5">
+                  {user && user.picture && user.username && (
+                    <img src={user.picture} className="rounded-full max-h-12" alt={user.username} />
+                  )}
                   {user && user.username && <p>{user.username}</p>}
                 </div>
                 <button
