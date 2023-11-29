@@ -26,10 +26,12 @@ export default {
         'mobile-home': "url('./assets/HomePageGraphic.png')",
       }),
       fontFamily: {
+        opensans: ["'Open Sans'", 'sans-serif'],
+        roboto: ["'Roboto'", 'sans-serif'],
         kanit: ['Kanit', 'san-serif'],
       },
     },
-
+    primary: '#1565D8',
     dark: {
       light: '#5A7184',
       hard: '#0D2436',
