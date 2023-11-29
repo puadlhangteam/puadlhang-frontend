@@ -1,7 +1,7 @@
 import { BsCheckLg } from 'react-icons/bs'
 
-import { images } from '../../constants'
-import { IResSolutionsDTO } from '../../types'
+import { images } from '../../../constants'
+import { IResSolutionsDTO } from '../../../types'
 
 interface Props {
   className?: string

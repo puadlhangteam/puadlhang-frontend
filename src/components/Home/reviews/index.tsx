@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { REVIEWS } from '../../data/review'
+import { REVIEWS } from '../../../data/review'
 import Review from './Review'
 import classes from './Review.module.css'
 

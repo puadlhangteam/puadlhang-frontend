@@ -1,5 +1,5 @@
 import { FaArrowRight } from 'react-icons/fa'
-import { Muscle } from '../../body/componentBody/Model/Model.type'
+import { Muscle } from '../../Utils/Model/Model.type'
 interface IBannerSolutionProps {
   muscles: Muscle[]
 }

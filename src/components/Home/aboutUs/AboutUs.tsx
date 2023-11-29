@@ -1,11 +1,11 @@
-import Logofooter from '../../assets/home/Logofooter.svg'
-import Graphics from '../../assets/home/BlogGraphic.svg'
-import behance from '../../assets/home/behance.svg'
-import dribbble from '../../assets/home/dribbble.svg'
-import facebook from '../../assets/home/facebook.svg'
-import instagram from '../../assets/home/instagram.svg'
+import Graphics from '../../../assets/home/BlogGraphic.svg'
+import Logofooter from '../../../assets/home/Logofooter.svg'
+import behance from '../../../assets/home/behance.svg'
+import dribbble from '../../../assets/home/dribbble.svg'
+import facebook from '../../../assets/home/facebook.svg'
+import instagram from '../../../assets/home/instagram.svg'
+import ActionButton from '../../action/ActionButton'
 import classes from './AboutUs.module.css'
-import ActionButton from '../action/ActionButton'
 
 const AboutUs = () => {
   return (

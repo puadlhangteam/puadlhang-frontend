@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import Joynow from '../../assets/home/Joynow.svg'
+import Joynow from '../../../assets/home/Joynow.svg'
 import classes from './Concept.module.css'
 
 const Concept = () => {

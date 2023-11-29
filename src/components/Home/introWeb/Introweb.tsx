@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import Humanhome from '../../assets/home/Humanhome.svg'
-import Texthome from '../../assets/home/Texthome.svg'
-import { SelectedPageDTO } from '../../types/home'
-import ActionButton from '../action/ActionButton'
+import Humanhome from '../../../assets/home/Humanhome.svg'
+import Texthome from '../../../assets/home/Texthome.svg'
+import { SelectedPageDTO } from '../../../types/home'
+import ActionButton from '../../action/ActionButton'
 import classes from './Introweb.module.css'
 
 const IntroWeb = () => {

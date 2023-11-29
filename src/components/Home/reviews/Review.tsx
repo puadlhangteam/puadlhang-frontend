@@ -1,7 +1,7 @@
-import { ReviewsDTO } from '../../types/home'
-import classes from './Review.module.css'
 import Rating from '@mui/material/Rating'
 import Stack from '@mui/material/Stack'
+import { ReviewsDTO } from '../../../types/home'
+import classes from './Review.module.css'
 
 interface IReviweDTO {
   review: ReviewsDTO

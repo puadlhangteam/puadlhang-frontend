@@ -1,11 +1,11 @@
-import { IResSolutionsDTO } from '../../types'
 import ReactPlayer from 'react-player/youtube'
+import { IResSolutionsDTO } from '../../../types'
 
 interface IContentprops {
   content: IResSolutionsDTO
 }
 
-function SolutionDetailPage({ content }: IContentprops) {
+function SolutionDetail({ content }: IContentprops) {
   return (
     <article className="py-16">
       <div className="flex w-full font-kanit font-light shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] bg-taily rounded-lg p-16">
@@ -56,4 +56,4 @@ function SolutionDetailPage({ content }: IContentprops) {
   )
 }
 
-export default SolutionDetailPage
+export default SolutionDetail
