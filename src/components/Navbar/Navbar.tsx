@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { navItemsInfo } from '../configs/naviteminfo'
-import { images } from '../constants/index'
-import { useAuth } from '../providers/Authprovider'
+import { navItemsInfo } from '../../configs/naviteminfo'
+import { images } from '../../constants/index'
+import { useAuth } from '../../providers/Authprovider'
 import NavItem from './NavItem'
 
 const Navbar = () => {

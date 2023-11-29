@@ -1,6 +1,6 @@
-import classes from './Body.module.css'
 import { motion } from 'framer-motion'
-import Body from './componentBody/Model/body'
+import Body from '../../Utils/Model/body'
+import classes from './Body.module.css'
 
 const Bodymain = () => {
   return (
