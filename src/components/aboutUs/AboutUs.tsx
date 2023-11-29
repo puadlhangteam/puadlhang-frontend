@@ -7,7 +7,7 @@ import ActionButton from '../action/ActionButton'
 
 const AboutUs = () => {
   return (
-    <footer id="aboutus" className="flex flex-col container mx-auto px-5 mb-11">
+    <footer id="aboutus" className="container mx-auto px-5 mb-11">
       <div className="flex flex-row justify-between items-center mb-11">
         <div className="flex flex-col justify-between">
           <div className="flex flex-row justify-between mb-10">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const BlogSpecialists = () => {
   return (
-    <section id="home" className="flex flex-col container mx-auto px-1">
+    <section id="home" className="container mx-auto px-1">
       <div>
         {/* IMAGE AND MAIN HEADER */}
 

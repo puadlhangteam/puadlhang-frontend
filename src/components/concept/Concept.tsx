@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Concept = () => {
   return (
-    <section id="content" className={classes.container}>
+    <section id="content" className="container mx-auto px-5 mb-11">
       <motion.div
         className="mx-auto md:h-5/6"
         initial="hidden"

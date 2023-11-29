@@ -7,7 +7,7 @@ import classes from './Introweb.module.css'
 
 const IntroWeb = () => {
   return (
-    <section id="home" className="flex flex-col container mx-auto px-5 mb-20 mt-10">
+    <section id="home" className="container mx-auto px-5 mb-20 mt-10 items-center">
       {/* IMAGE AND MAIN HEADER */}
 
       <motion.div

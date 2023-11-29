@@ -25,7 +25,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="app ">
+    <div className="app">
       <IntroWeb />
       <Bodymain />
       <BlogSpecialists />

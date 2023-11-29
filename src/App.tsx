@@ -13,8 +13,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<FullPage />}>
-        <Route path='/solution' element={<SolutionPage />} />
-        <Route path='/solutiondetail/' element={<SolutionDetail />} />
+        <Route path="/solution" element={<SolutionPage />} />
+        <Route path="/solutiondetail/" element={<SolutionDetail />} />
         <Route path="/login" element={<LoginPage />}>
           <Route index element={<Login />} />
           <Route path="userform" element={<Userform />} />
