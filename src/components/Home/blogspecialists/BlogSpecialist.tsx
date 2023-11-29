@@ -1,4 +1,4 @@
-import { BlogSpecialistDTO } from '../../types/home'
+import { BlogSpecialistDTO } from '../../../types/home'
 import classes from './BlogSpecialist.module.css'
 
 interface IBlogSpecialistProps {

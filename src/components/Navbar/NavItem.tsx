@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 interface NavItemType {
-  name: string;
-  type: string;
-  items?: string[];
+  name: string
+  type: string
+  items?: string[]
 }
 
-const NavItem = ({ item }: {item: NavItemType}) => {
+const NavItem = ({ item }: { item: NavItemType }) => {
   const [dropdown, setDropdown] = useState(false)
 
   const toggleDropdownHandler = () => {
@@ -28,10 +28,7 @@ const NavItem = ({ item }: {item: NavItemType}) => {
         </>
       ) : (
         <div className="flex flex-col items-center">
-          <button
-            className="px-4 py-2 flex gap-x-1 items-center"
-            onClick={toggleDropdownHandler}
-          >
+          <button className="px-4 py-2 flex gap-x-1 items-center" onClick={toggleDropdownHandler}>
             <span>{item.name}</span>
           </button>
           <div

@@ -1,11 +1,11 @@
-import useContentbymuscle from '../../hooks/useContentbymuscle'
+import useContentbymuscle from '../../../hooks/useContentbymuscle'
 import SolutionCard from './SolutionCard'
 
 interface ISolutionProp {
   muscle: string
 }
 
-const Solution = ({ muscle }: ISolutionProp) => {
+const SolutionSection = ({ muscle }: ISolutionProp) => {
   const { contents } = useContentbymuscle(muscle)
   if (!contents || contents.length === 0) return null
   return (
@@ -33,4 +33,4 @@ const Solution = ({ muscle }: ISolutionProp) => {
   )
 }
 
-export default Solution
+export default SolutionSection

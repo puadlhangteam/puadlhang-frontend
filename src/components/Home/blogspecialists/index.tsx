@@ -1,7 +1,7 @@
+import { motion } from 'framer-motion'
+import { BLOGSPECIAL } from '../../../data/blogspecialist'
 import BlogSpecialist from './BlogSpecialist'
 import classes from './Index.module.css'
-import { BLOGSPECIAL } from '../../data/blogspecialist'
-import { motion } from 'framer-motion'
 
 const BlogSpecialists = () => {
   return (

@@ -6,8 +6,8 @@ import Userform from './components/Login/Userform'
 import FullPage from './layouts/FullPage'
 import LoginPage from './layouts/LoginPage'
 import Home from './pages/HomePage/Home'
-import SolutionDetail from './pages/SolutionDetail'
-import SolutionPage from './pages/SolutionPage'
+import SolutionDetailPage from './pages/SolotuonPages/SolutionDetailPage'
+import SolutionsPage from './pages/SolotuonPages/SolutionsPage'
 import Profile from './components/Login/Profile'
 import EditProfile from './components/Login/EditProfile'
 
@@ -24,8 +24,8 @@ function App() {
           <Route path="editprofile" element={<EditProfile />} />
         </Route>
         <Route path="solutions">
-          <Route index element={<SolutionPage />} />
-          <Route path=":solutionId" element={<SolutionDetail />} />
+          <Route index element={<SolutionsPage />} />
+          <Route path=":solutionId" element={<SolutionDetailPage />} />
         </Route>
 
         <Route element={<GuardRoute />}>{/* Login Required Section */}</Route>
