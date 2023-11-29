@@ -1,13 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../providers/Authprovider'
-import useUpdate from '../../hooks/useUpdate'
+import close from '../../assets/icons/close.svg'
 
-const EditProfile = () => {
-  const { user } = useAuth()
-  const [name, setName] = useState<string>('')
-  const [gender, setGender] = useState<'male' | 'female'>('female')
-  const [age, setAge] = useState<number>(0)
+import useUpdate from '../../hooks/useUpdate'
+import { IUserDTO } from '../../types'
+interface IEditProfileProp {
+  user: IUserDTO
+}
+const EditProfile = ({ user }: IEditProfileProp) => {
+  const [name, setName] = useState<string>(user.username)
+  const [gender, setGender] = useState<'male' | 'female' | undefined>(user.gender)
+  const [age, setAge] = useState<number | undefined>(user.age)
   const [profileImg, setProfileImage] = useState<File | null>(null)
   const { isSubmitting, updateProfile, uploadFileProfile } = useUpdate()
   const navigate = useNavigate()
@@ -16,17 +19,31 @@ const EditProfile = () => {
     e.preventDefault()
     if (e.target.files) {
       setProfileImage(e.target.files[0])
+      e.target.files = null
+      e.target.value = ''
     }
   }
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     try {
-      const profilePic = await uploadFileProfile(profileImg)
-      if (!profilePic) {
-        alert('can not upload image')
+      let picture: string | undefined
+      if (profileImg) {
+        picture = await uploadFileProfile(profileImg)
+        if (!picture) {
+          alert('can not upload image')
+          return
+        }
+      }
+      if (!name) {
+        alert('can not name cant be empty.')
         return
       }
-      await updateProfile(profilePic, name, gender, age)
+      await updateProfile({
+        age,
+        gender,
+        username: name,
+        picture,
+      })
       navigate('/')
     } catch (err) {
       console.log(err)
@@ -41,22 +58,31 @@ const EditProfile = () => {
       <div className="mt-12">
         <form action="" onSubmit={handleSubmit} className="mt-6 mx-12">
           <div className="my-5 mx-12 flex justify-center text-black text-[30px] font-bold font-['Epilogue']">
-            <div className="Ellipse221 w-40 h-40 bg-white rounded-full ">
-              {profileImg && (
-                <img src={URL.createObjectURL(profileImg)} className="Ellipse221 w-40 h-40 bg-white rounded-full " />
-              )}
-            </div>
+            <img
+              src={profileImg ? URL.createObjectURL(profileImg) : user.picture}
+              className="Ellipse221 w-28 h-40 bg-white rounded-full "
+            />
           </div>
           <div className="flex justify-center flex-col items-center">
-            <input
-              type="file"
-              className="col-start-1 col-end-3  text-black text-[10px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
-              onChange={handleFileChange}
-            />
-            <form action="" className="grid grid-cols-2 gap-y-3 w-2/3 text-[24px]">
+            <div className="flex gap-5">
+              <input
+                type="file"
+                className="col-start-1 col-end-3 w-[4.3rem] overflow-hidden text-black text-[10px] font-bold font-['Epilogue']  rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
+                onChange={handleFileChange}
+              />
+              <img
+                src={close}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setProfileImage(null)
+                }}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-y-3 w-2/3 text-[24px]">
               <p className="col-start-1 font-bold">Name :</p>
               <input
                 type="text"
+                defaultValue={name}
                 onChange={(e) => {
                   e.preventDefault()
                   setName(e.target.value)
@@ -94,6 +120,7 @@ const EditProfile = () => {
               </div>
               <p className="col-start-1 font-bold">Age :</p>
               <input
+                defaultValue={age}
                 onChange={(e) => {
                   e.preventDefault()
                   setAge(parseInt(e.target.value))
@@ -102,14 +129,7 @@ const EditProfile = () => {
                 className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-700 dark:focus:border-orange-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-10 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
                 placeholder="Enter your age"
               />
-
-              {user.isSpecialist && (
-                <>
-                  <p className="col-start-1">Role:</p>
-                  <p className="col-start-3">{user.isSpecialist}</p>
-                </>
-              )}
-            </form>
+            </div>
           </div>
           <div className="flex justify-center">
             <div className="mt-12 text-center ">

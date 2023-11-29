@@ -9,19 +9,21 @@ import Home from './pages/HomePage/Home'
 import SolutionDetailPage from './pages/SolotuonPages/SolutionDetailPage'
 import SolutionsPage from './pages/SolotuonPages/SolutionsPage'
 import Profile from './components/Login/Profile'
-import EditProfile from './components/Login/EditProfile'
+import EditUser from './components/Login/EditUser'
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<FullPage />}>
         <Route index element={<Home />} />
+        <Route element={<LoginPage />}>
+          <Route path="profile" element={<Profile />} />
+        </Route>
         <Route path="login" element={<LoginPage />}>
           <Route index element={<Login />} />
           <Route path="userform" element={<Userform />} />
           <Route path="specialist" element={<Specialistform />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="editprofile" element={<EditProfile />} />
+          <Route path="editprofile" element={<EditUser />} />
         </Route>
         <Route path="solutions">
           <Route index element={<SolutionsPage />} />

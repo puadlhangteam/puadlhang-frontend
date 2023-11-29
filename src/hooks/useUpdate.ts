@@ -23,12 +23,11 @@ const useUpdate = () => {
     return
   }
 
-  const updateProfile = async (Newpicture: string, Newname: string, Newgender: 'male' | 'female', Newage: number) => {
-    const newData: IReqUpdateUserDTO = { picture: Newpicture, username: Newname, gender: Newgender, age: Newage }
+  const updateProfile = async (updateData: IReqUpdateUserDTO) => {
     setIsSubmitting(true)
     const token = await getBearerToken()
     if (!token) return
-    await axios.patch(`${BASE_URL}/user/data`, newData, {
+    await axios.patch(`${BASE_URL}/user/data`, updateData, {
       headers: { Authorization: token },
     })
     setIsSubmitting(false)
