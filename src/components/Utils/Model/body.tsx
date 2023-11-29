@@ -14,6 +14,11 @@ export default function Body() {
     localStorage.setItem('selectedBodyPart', JSON.stringify(data))
     navigate('/solutions')
   }
+  const onHandleClear = (e: MouseEvent) => {
+    e.preventDefault()
+    localStorage.setItem('selectedBodyPart', JSON.stringify([]))
+    setData([])
+  }
 
   return (
     <div className={classes.board}>
@@ -33,7 +38,9 @@ export default function Body() {
             ยืนยัน
           </button>
 
-          <button className={classes.buttonforskip}>ไม่ทราบ</button>
+          <button className={classes.buttonforskip} onClick={onHandleClear}>
+            ล้าง
+          </button>
         </div>
       </div>
     </div>
