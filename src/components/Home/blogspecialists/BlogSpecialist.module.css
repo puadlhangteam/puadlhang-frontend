@@ -34,6 +34,13 @@
 }
 
 .cardimg {
+  font-weight: 500px;
+  width: 100%;
+  align-items: center;
+}
+
+.cardimg {
+  align-items: center;
   width: 150px;
   height: 150px;
 }
@@ -45,4 +52,10 @@
   object-fit: cover;
   border-radius: 3000px;
   overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cardcontent {
+  display: flex;
+  flex-direction: column;
 }
