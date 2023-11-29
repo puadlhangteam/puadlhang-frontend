@@ -21,28 +21,33 @@ export default function Body() {
   }
 
   return (
-    <div className={classes.board}>
-      <div className="flex gap-4">
+    <div className={classes.boardbox}>
+      <div className={classes.board}>
         <Model data={data} setData={setData} />
-      </div>
-      <div className={classes.boardtext}>
-        <div className={classes.Created}>
-          <ul>
-            {data.map((v) => (
-              <li key={v}>{v}</li>
-            ))}
-          </ul>
-        </div>
 
-        {/*BUTTON */}
-        <div>
-          <button className={classes.buttonforCreated} onClick={onHandleSubmit}>
-            ยืนยัน
-          </button>
+        <div className={classes.boardtext}>
+          {data.length == 0 ? (
+            <div></div>
+          ) : (
+            <div className={classes.Created}>
+              <ul>
+                {data.map((v) => (
+                  <li key={v}>{v}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-          <button className={classes.buttonforskip} onClick={onHandleClear}>
-            ล้าง
-          </button>
+          {/*BUTTON */}
+          <div>
+            <button className={classes.buttonforCreated} onClick={onHandleSubmit}>
+              ยืนยัน
+            </button>
+
+            <button className={classes.buttonforskip} onClick={onHandleClear}>
+              ล้าง
+            </button>
+          </div>
         </div>
       </div>
     </div>

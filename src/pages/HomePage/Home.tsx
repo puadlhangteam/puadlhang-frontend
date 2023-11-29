@@ -25,9 +25,13 @@ function Home() {
 
   return (
     <div className="app">
-      <IntroWeb />
+      <div>
+        <IntroWeb />
+      </div>
       <Bodymain />
-      <BlogSpecialists />
+      <div>
+        <BlogSpecialists />
+      </div>
       <Reviews />
       <Concept />
       <AboutUs />

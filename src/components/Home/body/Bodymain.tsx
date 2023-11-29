@@ -5,9 +5,9 @@ const Bodymain = () => {
   return (
     <section id="body" className="relative items-center w-full">
       {/*HEADER */}
-      <motion.div className="mx-auto container  items-center justify-center md:flex md:h-9/10 ">
+      <motion.div className="mx-auto  items-center justify-center md:flex md:h-5/6 ">
         {/* MAIN BODY */}
-        <div className="z-10 mt-20 md:basis-5/6">
+        <div className="mt-20 md:basis-5/6">
           {/* BODY */}
           <motion.div
             className="md:-mt-20"
@@ -21,7 +21,7 @@ const Bodymain = () => {
             }}
           >
             <div>
-              <p className='"flex items-center text-5xl text-orange-500 font-normal pb-16"'>
+              <p className='"flex items-center text-5xl text-orange-500 font-normal "'>
                 เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน
               </p>
 

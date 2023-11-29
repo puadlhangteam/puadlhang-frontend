@@ -27,10 +27,10 @@ const Navbar = () => {
   }
 
   return (
-    <section className="sticky top-0 left-0 right-0 z-50 bg-white w-full shadow-[rgba(7,_75,_110,_0.1)_1px_40px_30px] ">
-      <header className="container mx-auto flex justify-between py-4 items-center">
+    <section className="sticky md:h-[7vh] top-0 left-0 right-0 z-50 bg-white w-full shadow-[rgba(7,_75,_110,_0.1)_1px_40px_30px] ">
+      <header className="container mx-auto w-9/12 flex justify-between py-4 items-center">
         <div onClick={() => navigate('/')} className="cursor-pointer">
-          <img className="w-48" src={images.Logo} alt="logo" />
+          <img className="h-[7vh]" src={images.Logo} alt="logo" />
         </div>
         <div className="lg:hidden z-50">
           {navIsVisible ? (

@@ -14,6 +14,11 @@
   align-items: center;
 }
 
+.boardbox {
+  display: flex;
+  margin: 100px;
+}
+
 .boardtext {
   display: flex;
   gap: 10%;
@@ -97,14 +102,3 @@
   font-size: 40px;
   font-weight: 400;
 }
-
-/* @media screen {
-}
-
-.Bodyboard {
-  display: flex;
-  gap: 10%;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-} */
