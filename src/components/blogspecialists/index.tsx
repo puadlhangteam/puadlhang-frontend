@@ -8,9 +8,9 @@ const BlogSpecialists = () => {
       <div>
         {/* IMAGE AND MAIN HEADER */}
 
-        <div className="mx-auto items-center justify-center md:flex md:h-5/6">
+        <div className="mx-auto items-center justify-center md:flex ">
           <motion.div
-            className="md:-mt-20"
+            className="md:-mt-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
