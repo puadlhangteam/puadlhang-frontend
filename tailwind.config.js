@@ -3,9 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      animation: {
-        pulse: 'pulse 10s',
-      },
+      animation: {},
       colors: {
         primary: '#1565D8',
         dark: {

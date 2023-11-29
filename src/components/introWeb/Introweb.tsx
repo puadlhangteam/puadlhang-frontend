@@ -7,11 +7,11 @@ import classes from './Introweb.module.css'
 
 const IntroWeb = () => {
   return (
-    <section id="home" className={classes.container}>
+    <section id="home" className="flex flex-col container mx-auto px-5 mb-20 mt-10">
       {/* IMAGE AND MAIN HEADER */}
 
       <motion.div
-        className="mx-auto items-center justify-center md:flex md:h-5/6"
+        className="mx-auto items-center justify-center md:flex md:h-5/6 mt-20"
         onViewportEnter={() => SelectedPageDTO.IntroWeb}
       >
         {/* MAIN HEADER */}
@@ -29,19 +29,19 @@ const IntroWeb = () => {
             }}
           >
             <div className="relative">
-              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext mt-20">
                 <img alt="home-text" src={Texthome} />
               </div>
             </div>
 
-            <p className="text-lg mt-40 kanit">
+            <p className="text-lg mt-60 kanit mb-10">
               อาการของคุณเป็นยังไงบอกเราได้เลย ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนกันกับคุณ
             </p>
           </motion.div>
 
           {/* ACTIONS */}
           <motion.div
-            className="mt-10 flex items-center gap-8 "
+            className="flex items-center gap-8 animate-pulse"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}

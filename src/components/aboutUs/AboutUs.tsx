@@ -9,7 +9,7 @@ import ActionButton from '../action/ActionButton'
 
 const AboutUs = () => {
   return (
-    <footer id="aboutus" className={classes.container}>
+    <footer id="aboutus" className="flex flex-col  container mx-auto px-5">
       <div className={classes.formcontainer}>
         <div className={classes.containertitle}>
           <div className={classes.button}>
