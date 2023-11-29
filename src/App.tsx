@@ -8,6 +8,8 @@ import LoginPage from './layouts/LoginPage'
 import Home from './pages/HomePage/Home'
 import SolutionDetail from './pages/SolutionDetail'
 import SolutionPage from './pages/SolutionPage'
+import Profile from './components/Login/Profile'
+import EditProfile from './components/Login/EditProfile'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route index element={<Login />} />
           <Route path="userform" element={<Userform />} />
           <Route path="specialist" element={<Specialistform />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="editprofile" element={<EditProfile />} />
         </Route>
         <Route path="solutions">
           <Route index element={<SolutionPage />} />
