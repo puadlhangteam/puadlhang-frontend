@@ -1,33 +1,33 @@
-import Logofooter from '../../assets/home/Logofooter.svg'
-import Graphics from '../../assets/home/BlogGraphic.svg'
+import ABOUTUS from '../../assets/home/AboutUsBG.svg'
 import behance from '../../assets/home/behance.svg'
 import dribbble from '../../assets/home/dribbble.svg'
 import facebook from '../../assets/home/facebook.svg'
 import instagram from '../../assets/home/instagram.svg'
-import classes from './AboutUs.module.css'
 import ActionButton from '../action/ActionButton'
 
 const AboutUs = () => {
   return (
-    <footer id="aboutus" className="flex flex-col  container mx-auto px-5">
-      <div className={classes.formcontainer}>
-        <div className={classes.containertitle}>
-          <div className={classes.button}>
-            <ActionButton location={'body'}>^</ActionButton>
+    <footer id="aboutus" className="flex flex-col container mx-auto px-5 mb-11">
+      <div className="flex flex-row justify-between items-center mb-11">
+        <div className="flex flex-col justify-between">
+          <div className="flex flex-row justify-between mb-10">
+            <div className="w-20 h-20 rounded-full border border-transparent shadow-md bg-gradient-to-br from-orange-300 to-red-600 text-white text-center text-lg font-normal ">
+              <ActionButton location={'body'}>^</ActionButton>
+            </div>
+            <h1 className=" text-orange-500 text-6xl font-normal font-['Kanit']  leading-10 ">About Us</h1>
           </div>
-          <img alt="logo" src={Logofooter} />
 
-          <div className={classes.description}>
+          <div className="flex flex-col justify-between text-2xl font-['Kanit'] ">
             <p>
-              พวกเราจัดทำเว็บไซต์ขึ้นเพราะอยากเห็นคนไทยสุขภาพดี <br></br> พร้อมทำงานหาเงินต่อไป
-              หวังว่าเราจะช่วยให้คุณหาวิธี <br></br>บรรเทาอาการความปวดกายได้สะดวกขึ้นหากอาการไม่ดีขึ้น <br></br>
-              เราแนะนำให้คุณหาหมอด่วน
+              พวกเราจัดทำเว็บไซต์ขึ้นเพราะอยากให้คุณสุขภาพดี <br></br> พร้อมทำงานหาเงินต่อไป หวังว่าเราจะช่วยให้คุณ
+              <br></br>บรรเทาอาการความปวดกายได้สะดวกขึ้นหากอาการ<br></br>
+              ไม่ดีขึ้น เราแนะนำให้คุณหาหมอด่วน
             </p>
-            <h1>©Puadlhang</h1>
+            <h1 className="flex flex-col justify-between text-2xl mt-5 font-['Kanit'] ">©Puadlhang</h1>
           </div>
         </div>
-        <div className={classes.containerso}>
-          <div className={classes.containersocial}>
+        <div className="flex flex-row justify-between">
+          <div className="flex flex-col justify-between">
             <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
               <img src={facebook} alt="facebook" />
             </a>
@@ -45,7 +45,7 @@ const AboutUs = () => {
             </a>
           </div>
 
-          <img alt="graphic" src={Graphics} />
+          <img alt="graphic" src={ABOUTUS} />
         </div>
       </div>
     </footer>

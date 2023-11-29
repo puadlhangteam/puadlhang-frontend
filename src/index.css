@@ -23,23 +23,3 @@
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
 }
-
-@media screen and (max-width: 920px) {
-  .driver {
-    grid-template-columns: 1fr;
-  }
-
-  .driver img {
-    max-width: 80%;
-    margin: auto;
-  }
-
-  .driver .left {
-    display: flex;
-    justify-content: center;
-  }
-
-  .driver h2 {
-    padding-top: 10%;
-  }
-}
