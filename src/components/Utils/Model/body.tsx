@@ -22,7 +22,9 @@ export default function Body() {
 
   return (
     <div className={classes.board}>
-      <Model data={data} setData={setData} />
+      <div className="flex gap-4">
+        <Model data={data} setData={setData} />
+      </div>
       <div className={classes.boardtext}>
         <div className={classes.Created}>
           <ul>

@@ -8,7 +8,7 @@ const BlogSpecialists = () => {
       <div>
         {/* IMAGE AND MAIN HEADER */}
 
-        <div className="mx-auto items-center justify-center md:flex ">
+        <div className="mx-auto container items-center justify-center md:flex ">
           <motion.div
             className="md:-mt-10"
             initial="hidden"
