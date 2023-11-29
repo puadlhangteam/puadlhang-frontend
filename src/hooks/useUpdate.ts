@@ -23,6 +23,17 @@ const useUpdate = () => {
     return
   }
 
+  const updateProfile = async (updateData: IReqUpdateUserDTO) => {
+    setIsSubmitting(true)
+    const token = await getBearerToken()
+    if (!token) return
+    await axios.patch(`${BASE_URL}/user/data`, updateData, {
+      headers: { Authorization: token },
+    })
+    setIsSubmitting(false)
+    return
+  }
+
   const sendSpecialist = async (Newcertificate: string, Newdescription: string) => {
     if (Newdescription == undefined) return
     const newData: IReqSpecialistFormDTO = { certificate: Newcertificate, description: Newdescription }
@@ -39,7 +50,15 @@ const useUpdate = () => {
     const url = await getDownloadURL(snapshot.ref)
     return url
   }
-  return { isSubmitting, updateUser, sendSpecialist, uploadFile }
+  const uploadFileProfile = async (image: File | null) => {
+    if (!image) return
+    const imageRef = ref(storage, `images/profile/${image.name + v4()}`)
+    const snapshot = await uploadBytes(imageRef, image)
+    const url = await getDownloadURL(snapshot.ref)
+    return url
+  }
+
+  return { isSubmitting, updateUser, sendSpecialist, uploadFile, updateProfile, uploadFileProfile }
 }
 
 export default useUpdate

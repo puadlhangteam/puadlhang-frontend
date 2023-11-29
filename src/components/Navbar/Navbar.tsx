@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import DefaultUserImage from '../../assets/default_profile/images.png'
 import { images } from '../../constants/index'
 import { useAuth } from '../../providers/Authprovider'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [navIsVisible, setNavIsVisible] = useState(false)
@@ -47,10 +48,10 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {user ? (
               <>
-                <div className="flex items-center justify-center gap-3 mx-5">
+                <Link to={'/profile'} className="flex items-center justify-center gap-3 mx-5">
                   {<img src={user.picture || DefaultUserImage} className="rounded-full max-h-10" alt="userProfile" />}
                   <p>{user.username}</p>
-                </div>
+                </Link>
                 <button
                   onClick={handleSignOut}
                   className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
