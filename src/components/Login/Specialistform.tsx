@@ -41,8 +41,6 @@ const Specialistform = () => {
         return
       }
       if (!certificateImg) {
-        console.log(certificateImg)
-
         alert('Certificate required')
         return
       }

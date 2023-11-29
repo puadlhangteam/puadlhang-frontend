@@ -6,7 +6,6 @@ import { useAuth } from '../providers/Authprovider'
 const LoginPage = () => {
   const { user } = useAuth()
   const { pathname } = useLocation()
-  console.log(pathname)
 
   const navigate = useNavigate()
   useEffect(() => {
