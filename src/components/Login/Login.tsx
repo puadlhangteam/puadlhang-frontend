@@ -1,10 +1,11 @@
 import { FormEvent, useState } from 'react'
+import googleIcon from '../../assets/icons/Google.svg'
 import { useAuth } from '../../providers/Authprovider'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { signInWithGoogle, signUpWithEmail, signOutAuth } = useAuth()
+  const { signInWithGoogle, signUpWithEmail } = useAuth()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
@@ -72,12 +73,6 @@ function Login() {
             >
               Sign in
             </button>
-            <button
-              onClick={signOutAuth}
-              className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
-            >
-              Sign out
-            </button>
           </div>
         </form>
         <div className="mt-8 gap-2 flex justify-center items-center">
@@ -94,12 +89,8 @@ function Login() {
             onClick={handleSubmitWithGmail}
             className="flex rounded-xl px-3 py-3 border-2 border-gray-500 items-center justify-center gap-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
           >
-            <img src="src/assets/icons/Google.svg" alt="Google" className="w-10 h-10" />
+            <img src={googleIcon} alt="Google" className="w-10 h-10" />
             Continue with Google
-          </button>
-          <button className="flex rounded-xl px-3 py-3 border-2 border-gray-500 items-center justify-center gap-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-            <img src="src/assets/icons/GitHub.svg" alt="GitHub" className="w-10 h-10" />
-            Continue with Github
           </button>
         </div>
       </div>
