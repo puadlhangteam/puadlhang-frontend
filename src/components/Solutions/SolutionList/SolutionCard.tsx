@@ -1,5 +1,6 @@
 import { BsCheckLg } from 'react-icons/bs'
 
+import { Link } from 'react-router-dom'
 import { images } from '../../../constants'
 import { IResSolutionsDTO } from '../../../types'
 
@@ -10,7 +11,10 @@ interface Props {
 
 const SolutionCard = ({ className, content }: Props) => {
   return (
-    <div className={`rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className}`}>
+    <Link
+      to={`/solutions/${content.solutionId}`}
+      className={`rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className}`}
+    >
       <img
         src={content.pictures[0]}
         alt="title"
@@ -37,7 +41,7 @@ const SolutionCard = ({ className, content }: Props) => {
           <span className="font-bold text-dark-light italic text-sm md:text-base">verificated</span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
