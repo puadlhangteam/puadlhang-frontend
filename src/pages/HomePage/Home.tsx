@@ -24,7 +24,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="app">
+    <div className="app w-4/5 mx-auto">
       <div>
         <IntroWeb />
       </div>

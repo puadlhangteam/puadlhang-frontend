@@ -8,7 +8,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 8vh;
+  scroll-padding-top: 10vh;
 }
 
 * {
@@ -17,4 +17,9 @@ html {
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
   justify-items: center;
+}
+
+.app {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50vh;
 }

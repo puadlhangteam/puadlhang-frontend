@@ -6,27 +6,6 @@
   align-items: center;
 }
 
-.board {
-  display: flex;
-  gap: 10%;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-}
-
-.boardbox {
-  display: flex;
-  margin: 100px;
-}
-
-.boardtext {
-  display: flex;
-  gap: 10%;
-  width: 300px;
-  flex-direction: column;
-  align-items: center;
-}
-
 .selected {
   transition: fill 1s;
   stroke-width: 2px;
@@ -36,20 +15,6 @@
   transition: fill 1s;
   fill: rgb(255, 255, 255);
   stroke-width: 3px;
-}
-
-.Created {
-  padding: 20px;
-  width: 100%;
-  height: auto;
-  border-radius: 30px;
-  border: 1px solid rgba(8, 8, 8, 0);
-  background: rgb(255, 152, 93);
-  color: #fff;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 20%;
 }
 
 .buttonforCreated {
@@ -63,7 +28,7 @@
   text-align: center;
   font-size: 40px;
   font-weight: 400;
-  margin-bottom: 20%;
+  margin-bottom: 8%;
 }
 .buttonforCreated:hover {
   width: 100%;
@@ -89,6 +54,7 @@
   text-align: center;
   font-size: 40px;
   font-weight: 400;
+  margin-bottom: 8%;
 }
 .buttonforskip:hover {
   width: 100%;

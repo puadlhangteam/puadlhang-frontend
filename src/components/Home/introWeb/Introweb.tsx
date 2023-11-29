@@ -1,19 +1,15 @@
 import { motion } from 'framer-motion'
 import Humanhome from '../../../assets/home/Humanhome.svg'
 import Texthome from '../../../assets/home/Texthome.svg'
-import { SelectedPageDTO } from '../../../types/home'
 import ActionButton from '../../action/ActionButton'
 import classes from './Introweb.module.css'
 
 const IntroWeb = () => {
   return (
-    <section id="home" className="container mx-auto px-5 mb-20 mt-10 items-center">
+    <section id="home" className=" mx-auto px-5 mb-32  mt-20 items-center ">
       {/* IMAGE AND MAIN HEADER */}
 
-      <motion.div
-        className="mx-auto items-center justify-center md:flex md:h-5/6 mt-20"
-        onViewportEnter={() => SelectedPageDTO.IntroWeb}
-      >
+      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 mt-20 mb-5">
         {/* MAIN HEADER */}
         <div className="z-10 mt-20 md:basis-5/6">
           {/* HEADINGS */}
@@ -33,7 +29,6 @@ const IntroWeb = () => {
                 <img alt="home-text" src={Texthome} />
               </div>
             </div>
-
             <p className="text-lg mt-60 kanit mb-10">
               อาการของคุณเป็นยังไงบอกเราได้เลย ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนกันกับคุณ
             </p>
