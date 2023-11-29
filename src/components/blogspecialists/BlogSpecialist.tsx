@@ -7,17 +7,15 @@ interface IBlogSpecialistProps {
 
 const BlogSpecialist = ({ specialist }: IBlogSpecialistProps) => {
   return (
-    <div className={classes.container}>
-      <div className={classes.containercardimg}>
-        <div className={classes.cardimg}>
-          <img className={classes.img} src={specialist.thumbnailUrl} />
-        </div>
+    <div className={classes.containers}>
+      <div className={classes.cardimg}>
+        <img className={classes.img} src={specialist.thumbnailUrl} />
+      </div>
 
-        <div className={classes.cardcontent}>
-          <p className={classes.author}>{specialist.user}</p>
-          <p className={classes.dateAndTime}>{specialist.date}</p>
-          <p className={classes.description}>{specialist.description}</p>
-        </div>
+      <div className={classes.cardcontent}>
+        <p className={classes.author}>{specialist.user}</p>
+        <p className={classes.dateAndTime}>{specialist.date}</p>
+        <p className={classes.description}>{specialist.description}</p>
       </div>
     </div>
   )
