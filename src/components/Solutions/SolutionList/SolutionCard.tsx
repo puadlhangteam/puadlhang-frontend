@@ -13,7 +13,7 @@ const SolutionCard = ({ className, content }: Props) => {
   return (
     <Link
       to={`/solutions/${content.solutionId}`}
-      className={`rounded-xl overflow-hidden shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className}`}
+      className={`rounded-xl overflow-hidden  bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ${className}`}
     >
       <img
         src={content.pictures[0]}

@@ -7,8 +7,8 @@ interface IContentprops {
 
 function SolutionDetail({ content }: IContentprops) {
   return (
-    <article className="py-16">
-      <div className="grid md:grid-cols-5  w-full font-kanit font-light shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] bg-taily rounded-lg p-16">
+    <article className=" py-16  ">
+      <div className="grid md:grid-cols-5 gap-20 w-full font-kanit font-light shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] bg-taily rounded-lg p-16">
         <div className={`md:col-span-2 rounded-md grid ${content.pictures.length > 1 ? 'grid-cols-2' : ''} gap-2`}>
           {content.pictures.map((pic: string, idx: number) => (
             <div key={idx} className="relative">
