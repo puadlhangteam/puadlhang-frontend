@@ -8,10 +8,12 @@ function SolutionDetailPage() {
   const { content } = useContentbysolutionId(solutionId)
   return (
     content && (
-      <div className="appBg flex flex-col container mx-auto px-5 py-10">
-        {<SolutionDetail key={content.solutionId} content={content} />}
-        {/* <CommentsContainer className="mt-28" logginedUserId="a" /> */}
-      </div>
+      <section className="appBg ">
+        <div className="flex flex-col container mx-auto px-5 py-10">
+          {<SolutionDetail key={content.solutionId} content={content} />}
+          {/* <CommentsContainer className="mt-28" logginedUserId="a" /> */}
+        </div>
+      </section>
     )
   )
 }
