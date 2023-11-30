@@ -48,7 +48,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     })
   }, [])
   useEffect(() => {
-    getUser(token)
+    getUser(token).catch((err: Error) => alert(err.message))
   }, [token])
 
   const getUser = async (token: string | null) => {

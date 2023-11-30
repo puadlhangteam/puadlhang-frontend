@@ -66,17 +66,7 @@ function Login() {
               placeholder="Enter your password..."
             />
           </div>
-          <div className="mt-8 flex justify-between items-center">
-            <div>
-              <input type="checkbox" id="remember" />
-              <label className="ml-2 font-medium text-base active:scale-[0.98] active:deration-75" htmlFor="remember">
-                Remember
-              </label>
-            </div>
-            <button className="font-medium text-base text-violet-500 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-              Forgot Password
-            </button>
-          </div>
+
           <div className="mt-8 text-center">
             <button
               onClick={handleSubmitWithEmail}
@@ -86,14 +76,6 @@ function Login() {
             </button>
           </div>
         </form>
-        <div className="mt-8 gap-2 flex justify-center items-center">
-          <button className="font-medium active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-            No account?
-          </button>
-          <button className="text-violet-500 text-base font-medium ml-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-            Create one
-          </button>
-        </div>
         <div className="mt-8 flex justify-center items-center text-gray-400 font-medium">———————— OR ————————</div>
         <div className="mt-8 flex justify-center items-center gap-3">
           <button
