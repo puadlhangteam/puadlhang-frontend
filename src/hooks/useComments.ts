@@ -16,14 +16,12 @@ const useComments = () => {
 
     setIsSubmitting(true)
     try {
-      const res = await axios.post<IReqComment>(`${BASE_URL}/solutions/solution/:solutionId/comments`, newContentBody, {
+      await axios.post<IReqComment>(`${BASE_URL}/solutions/solution/:solutionId/comments`, newContentBody, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
       })
-
-      console.log(res.data)
     } catch (err) {
       if (err instanceof AxiosError) throw new Error(err.response?.data.message)
     } finally {

@@ -1,16 +1,28 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import googleIcon from '../../assets/icons/Google.svg'
 import { useAuth } from '../../providers/Authprovider'
 
 export interface ILoginPageProps {}
 
 function Login() {
-  const { signInWithGoogle, signUpWithEmail } = useAuth()
+  const { signInWithGoogle, signUpWithEmail, isSubmitting } = useAuth()
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const { user } = useAuth()
 
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!user) return
+    if (!user.age || !user.gender) {
+      navigate('/login/userform')
+      return
+    }
+    navigate('/')
+  }, [user, navigate])
   const handleSubmitWithEmail = async (e: FormEvent) => {
     e.preventDefault()
+
     if (!email || !password) return
     try {
       await signUpWithEmail(email, password)
@@ -24,6 +36,8 @@ function Login() {
 
     await signInWithGoogle()
   }
+
+  const submitingtext = (text: string) => (isSubmitting ? 'submiting' : text)
 
   return (
     <div className=" flex-col top-36 sm:right-24 md:right-44 lg:right-20 xl:right-40 2xl:right-64">
@@ -55,42 +69,26 @@ function Login() {
               placeholder="Enter your password..."
             />
           </div>
-          <div className="mt-8 flex justify-between items-center">
-            <div>
-              <input type="checkbox" id="remember" />
-              <label className="ml-2 font-medium text-base active:scale-[0.98] active:deration-75" htmlFor="remember">
-                Remember
-              </label>
-            </div>
-            <button className="font-medium text-base text-violet-500 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-              Forgot Password
-            </button>
-          </div>
+
           <div className="mt-8 text-center">
             <button
               onClick={handleSubmitWithEmail}
+              disabled={isSubmitting}
               className="w-48 bg-violet-500 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
             >
-              Sign in
+              {submitingtext('Sign in')}
             </button>
           </div>
         </form>
-        <div className="mt-8 gap-2 flex justify-center items-center">
-          <button className="font-medium active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-            No account?
-          </button>
-          <button className="text-violet-500 text-base font-medium ml-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all">
-            Create one
-          </button>
-        </div>
         <div className="mt-8 flex justify-center items-center text-gray-400 font-medium">———————— OR ————————</div>
         <div className="mt-8 flex justify-center items-center gap-3">
           <button
             onClick={handleSubmitWithGmail}
+            disabled={isSubmitting}
             className="flex rounded-xl px-3 py-3 border-2 border-gray-500 items-center justify-center gap-2 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
           >
             <img src={googleIcon} alt="Google" className="w-10 h-10" />
-            Continue with Google
+            {submitingtext('Continue with Google')}
           </button>
         </div>
       </div>

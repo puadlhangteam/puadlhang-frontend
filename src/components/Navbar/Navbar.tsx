@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import DefaultUserImage from '../../assets/default_profile/images.png'
 import { useAuth } from '../../providers/Authprovider'
 import Logo from '../../assets/home/Logo.svg'
@@ -47,10 +47,10 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             {user ? (
               <>
-                <div className="flex items-center justify-center gap-3 mx-5 ">
-                  {<img src={user.picture || DefaultUserImage} className="rounded-full max-h-10" alt="userProfile" />}
+                <Link to={'/profile'} className="flex items-center justify-center gap-3 mx-5">
+                  {<img src={user.picture || DefaultUserImage} className="rounded-full h-10 w-10" alt="userProfile" />}
                   <p>{user.username}</p>
-                </div>
+                </Link>
                 <button
                   onClick={handleSignOut}
                   className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 text-3xl rounded-full text-orange-500  hover:bg-orange-500 hover:text-white transition-all duration-300"
