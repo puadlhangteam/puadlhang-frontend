@@ -22,4 +22,5 @@ html {
 .app {
   scroll-behavior: smooth;
   scroll-padding-top: 50vh;
+  background-color: rgb(252, 244, 235);
 }

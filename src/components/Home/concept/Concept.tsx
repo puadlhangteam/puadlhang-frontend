@@ -5,7 +5,7 @@ import classes from './Concept.module.css'
 
 const Concept = () => {
   return (
-    <section id="content" className="container mx-auto px-5 mb-11">
+    <section id="content" className="container mx-auto px-5 mb-11 w-4/5">
       <motion.div
         className="mx-auto md:h-5/6"
         initial="hidden"
@@ -18,7 +18,7 @@ const Concept = () => {
         }}
       >
         {/* GRAPHICS AND TEXT */}
-        <div className="mt-6 items-center justify-between gap-20 md:mt-38 md:flex">
+        <div className="mt-6 items-center justify-between gap-20 md:mt-38 pb-10 pt-20 md:flex">
           <img className="mx-auto" alt="benefits-page-graphic" src={Joynow} />
 
           <div>

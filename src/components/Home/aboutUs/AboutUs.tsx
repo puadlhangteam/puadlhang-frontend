@@ -6,8 +6,8 @@ import ActionButton from '../../action/ActionButton'
 import ABOUTUS from '../../../assets/home/AboutUsBG.svg'
 const AboutUs = () => {
   return (
-    <footer id="aboutus" className="container mx-auto px-5 mb-11">
-      <div className="flex flex-row  justify-between items-center mb-11">
+    <footer id="aboutus" className="container mx-auto px-5  w-4/5">
+      <div className="flex flex-row  justify-between items-center pb-20 pt-40">
         <div className="flex flex-col justify-between">
           <div className="flex flex-row justify-between mb-10">
             <div className="w-20 h-20 rounded-full border border-transparent shadow-md bg-gradient-to-br from-orange-300 to-red-600 text-white text-center text-lg font-normal ">

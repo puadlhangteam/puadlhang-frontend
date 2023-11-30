@@ -1,0 +1,7 @@
+.gradientintro {
+  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #f8f4eb 87.2%);
+}
+
+.gradientabout {
+  background: linear-gradient(356deg, #d2cdff 1%, #c4e7ff 61%, #fff8ee 100%);
+}

@@ -14,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<FullPage />}>
         <Route index element={<Home />} />
+
         <Route path="login" element={<LoginPage />}>
           <Route index element={<Login />} />
           <Route path="userform" element={<Userform />} />

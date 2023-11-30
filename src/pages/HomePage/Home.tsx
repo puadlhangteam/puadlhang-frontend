@@ -6,6 +6,7 @@ import { SelectedPageDTO } from '../../types/home'
 import BlogSpecialists from '../../components/Home/blogspecialists'
 import Bodymain from '../../components/Home/body/Bodymain'
 import Reviews from '../../components/Home/reviews'
+import classes from './Home.module.css'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
@@ -24,17 +25,19 @@ function Home() {
   }, [])
 
   return (
-    <div className="app w-4/5 mx-auto">
-      <div>
+    <div className="app mx-auto">
+      <div className={classes.gradientintro}>
         <IntroWeb />
       </div>
       <Bodymain />
-      <div>
-        <BlogSpecialists />
-      </div>
+      <BlogSpecialists />
+
       <Reviews />
       <Concept />
-      <AboutUs />
+
+      <div className={classes.gradientabout}>
+        <AboutUs />
+      </div>
     </div>
   )
 }
