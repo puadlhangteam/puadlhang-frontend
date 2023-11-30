@@ -3,11 +3,11 @@ import Body from '../../Utils/Model/body'
 
 const Bodymain = () => {
   return (
-    <section id="body" className="relative items-center w-full">
+    <section id="body" className=" container mx-auto px-5 mb-32 mt-20 items-center ">
       {/*HEADER */}
-      <motion.div className="mx-auto items-center justify-center md:flex ">
+      <motion.div className="mx-auto items-center justify-center  md:h-5/6 mt-20 mb-5">
         {/* MAIN BODY */}
-        <div className="mt-20 md:basis-4/5">
+        <div className="mt-20 md:basis-5/6">
           {/* BODY */}
           <motion.div
             className="md:-mt-20"
@@ -21,13 +21,7 @@ const Bodymain = () => {
             }}
           >
             <div>
-              <p className="flex items-center my-20 md:text-5xl text-2xl text-orange-500 font-normal pb-4">
-                เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน
-              </p>
-
-              <div>
-                <Body />
-              </div>
+              <Body />
             </div>
           </motion.div>
         </div>

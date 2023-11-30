@@ -6,7 +6,7 @@ import classes from './Introweb.module.css'
 
 const IntroWeb = () => {
   return (
-    <section id="home" className=" mx-auto px-5 mb-32  mt-20 items-center ">
+    <section id="home" className=" container mx-auto px-5 mb-32 mt-20 items-center ">
       {/* IMAGE AND MAIN HEADER */}
 
       <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 mt-20 mb-5">
@@ -60,6 +60,11 @@ const IntroWeb = () => {
           <img alt="home-humanhome" src={Humanhome} />
         </div>
       </motion.div>
+      <div>
+        <p className="flex items-center my-20 md:text-5xl text-3xl   text-orange-500 font-normal pb-4">
+          เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน
+        </p>
+      </div>
     </section>
   )
 }

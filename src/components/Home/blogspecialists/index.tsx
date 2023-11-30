@@ -4,11 +4,11 @@ import { BLOGSPECIAL } from '../../../data/blogspecialist'
 
 const BlogSpecialists = () => {
   return (
-    <section id="home" className="container mx-auto px-1">
+    <section id="home" className=" mx-auto px-1 ">
       <div>
         {/* IMAGE AND MAIN HEADER */}
 
-        <div className="mx-auto container items-center justify-center md:flex ">
+        <div className="mx-auto items-center justify-center md:flex container ">
           <motion.div
             className="md:-mt-10"
             initial="hidden"
@@ -21,11 +21,11 @@ const BlogSpecialists = () => {
             }}
           >
             <div>
-              <div className=" text-orange-500 text-5xl font-normal font-['Kanit'] mt-20 leading-10">
+              <div className=" text-orange-500 text-5xl font-normal font-['Kanit'] mt-20  grid  pb-10 col-span-2">
                 <h1>หลายเรื่องสุขภาพน่ารู้ ที่หมออยากบอก</h1>
               </div>
 
-              <div className="w-full pt-20 flex justify-between gap-8">
+              <div className=" grid md:grid-cols-4  md:gap-x-10 gap-y-5 pb-10 col-span-2">
                 {BLOGSPECIAL.map((specialist) => {
                   return <BlogSpecialist key={specialist.thumbnailUrl} specialist={specialist} />
                 })}

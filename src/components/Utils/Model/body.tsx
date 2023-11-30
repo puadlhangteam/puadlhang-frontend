@@ -28,10 +28,12 @@ export default function Body() {
         {data.length == 0 ? (
           <div></div>
         ) : (
-          <div className="flex flex-wrap gap-3 bg-orange-500 p-8 rounded-xl border text-white text-lg m-2 mb-8">
+          <div className="flex flex-col gap-3 bg-orange-500 rounded-xl border text-white text-2xl px-20 py-3 mb-8">
             <>
               {data.map((v) => (
-                <span key={v}>{v}</span>
+                <p className=" w-full mx-5 my-3" key={v}>
+                  {v}
+                </p>
               ))}
             </>
           </div>
