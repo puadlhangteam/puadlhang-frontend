@@ -22,6 +22,7 @@ type IAUthContext = {
   signOutAuth: () => Promise<void>
   getBearerToken: () => Promise<string | undefined>
   isLoggedIn: boolean
+  isSubmitting: boolean
 }
 
 const AuthContext = createContext<IAUthContext | null>(null)
@@ -36,6 +37,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [user, setUser] = useState<IUserDTO | null>(null)
   const [token, setToken] = useState<string | null>(null)
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
 
   useEffect(() => {
     auth.onAuthStateChanged(async (userCredential) => {
@@ -48,7 +50,10 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     })
   }, [])
   useEffect(() => {
-    getUser(token).catch((err: Error) => alert(err.message))
+    setIsSubmitting(true)
+    getUser(token)
+      .catch((err: Error) => alert(err.message))
+      .finally(() => setIsSubmitting(false))
   }, [token])
 
   const getUser = async (token: string | null) => {
@@ -85,19 +90,24 @@ const AuthProvider = ({ children }: IAuthProvider) => {
       alert('Please enter correct password.')
       return
     }
-
-    signInWithEmailAndPassword(auth, email, password).catch(() => {
-      createUserWithEmailAndPassword(auth, email, password).catch((error) => {
-        if (error instanceof Error) alert('Email already in use')
+    setIsSubmitting(true)
+    signInWithEmailAndPassword(auth, email, password)
+      .catch(() => {
+        createUserWithEmailAndPassword(auth, email, password).catch((error) => {
+          if (error instanceof Error) alert('Email already in use')
+        })
       })
-    })
+      .finally(() => setIsSubmitting(false))
     setIsLoggedIn(true)
   }
 
   const signInWithGoogle = async () => {
-    await signInWithPopup(auth, new GoogleAuthProvider()).catch((error) => {
-      if (error instanceof Error) alert('Failed to log in')
-    })
+    setIsSubmitting(true)
+    await signInWithPopup(auth, new GoogleAuthProvider())
+      .catch((error) => {
+        if (error instanceof Error) alert('Failed to log in')
+      })
+      .finally(() => setIsSubmitting(false))
     setIsLoggedIn(true)
   }
   const signOutAuth = async () => {
@@ -118,6 +128,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
     signOutAuth,
     getBearerToken,
     isLoggedIn,
+    isSubmitting,
   }
 
   return <AuthContext.Provider value={store}>{children}</AuthContext.Provider>

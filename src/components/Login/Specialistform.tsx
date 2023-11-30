@@ -117,7 +117,7 @@ const Specialistform = () => {
               disabled={isSubmitting}
               className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
             >
-              CONFRIM
+              {isSubmitting ? 'CONFRIM' : 'checking'}
             </button>
           </div>
         </form>
