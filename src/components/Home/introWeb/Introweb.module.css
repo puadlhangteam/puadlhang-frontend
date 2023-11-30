@@ -11,14 +11,6 @@
   }
 }
 
-.container {
-  position: relative;
-  align-items: center;
-  width: 100%;
-  padding: 140px 280px;
-  background: linear-gradient(198deg, #ecd6fb 18.34%, #e2e5fd 30.39%, #d3f5ff 49.04%, #d8eefc 66.38%, #f8f4eb 87.2%);
-}
-
 .buttonforCreated {
   width: 200px;
   height: 80px;
@@ -32,7 +24,7 @@
   font-weight: 400;
   margin-bottom: 20%;
   font-family: 'Kanit';
-  line-height: 75px; /* 120% */
+  line-height: 75px;
 }
 .buttonforCreated:hover {
   width: 200px;
@@ -48,10 +40,4 @@
   margin-bottom: 20%;
   font-family: 'Kanit';
   line-height: 75px; /* 120% */
-}
-
-.formcontainer {
-  position: absolute;
-  top: 340px; /* จัดตำแหน่งของ form ให้อยู่ที่กลางด้านบนของภาพ */
-  left: 484px; /* จัดตำแหน่งของ form ให้อยู่ที่กลางด้านซ้ายของภาพ */
 }

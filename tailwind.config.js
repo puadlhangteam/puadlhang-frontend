@@ -3,6 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      animation: {},
       colors: {
         primary: '#1565D8',
         dark: {
@@ -19,13 +20,6 @@ export default {
         taily: 'rgba(255, 255, 255, 0.90)',
         'gray-20': '#F8F4EB',
         'gray-50': '#FFA76D',
-        'gray-100': '#FFA76D',
-        'gray-500': '#FFA76D',
-        'primary-100': '#FFA76D',
-        'primary-300': '#FFA76D',
-        'primary-500': '#FFA76D',
-        'secondary-400': '#FFA76D',
-        'secondary-500': '#FFA76D',
       },
       backgroundImage: () => ({
         'gradient-yellowred': 'linear-gradient(90deg, #FF616A 0%, #FFC837 100%)',

@@ -1,7 +1,6 @@
-import Rating from '@mui/material/Rating'
-import Stack from '@mui/material/Stack'
 import { ReviewsDTO } from '../../../types/home'
 import classes from './Review.module.css'
+import Github from '../../../assets/icons/GitHub.svg'
 
 interface IReviweDTO {
   review: ReviewsDTO
@@ -16,9 +15,9 @@ const Review = ({ review }: IReviweDTO) => {
         </div>
       </div>
       <p className={classes.author}>{review.username}</p>
-      <Stack spacing={1}>
-        <Rating name="size-medium" defaultValue={review.rating} />
-      </Stack>
+      <a href={review.github} target="_blank" rel="noopener noreferrer">
+        <img src={Github} alt="github" />
+      </a>
       <h4 className={classes.description}>{review.description}</h4>
     </div>
   )

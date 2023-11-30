@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { Link, useNavigate } from 'react-router-dom'
 import DefaultUserImage from '../../assets/default_profile/images.png'
-import { images } from '../../constants/index'
 import { useAuth } from '../../providers/Authprovider'
+import Logo from '../../assets/home/Logo.svg'
 
 const Navbar = () => {
   const [navIsVisible, setNavIsVisible] = useState(false)
@@ -27,10 +27,10 @@ const Navbar = () => {
   }
 
   return (
-    <section className="sticky top-0 left-0 right-0 z-50 bg-orange-300 w-full shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-      <header className="container mx-auto px-5 flex justify-between py-4 items-center">
+    <section className="sticky h-[10vh] top-0 left-0 right-0 z-50 bg-white w-full shadow-[rgba(7,_75,_110,_0.1)_1px_40px_30px] ">
+      <header className="container mx-auto w-4/5 flex justify-between py-4 items-center">
         <div onClick={() => navigate('/')} className="cursor-pointer">
-          <img className="w-48" src={images.Logo} alt="logo" />
+          <img className="h-[7vh]" src={Logo} alt="logo" />
         </div>
         <div className="lg:hidden z-50">
           {navIsVisible ? (
@@ -53,7 +53,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={handleSignOut}
-                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
+                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 text-3xl rounded-full text-orange-500  hover:bg-orange-500 hover:text-white transition-all duration-300"
                 >
                   Sign out
                 </button>
@@ -62,7 +62,7 @@ const Navbar = () => {
               <>
                 <button
                   onClick={handleSignIn}
-                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 rounded-full text-orange-500 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300"
+                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 text-3xl rounded-full text-orange-500  hover:bg-orange-500 hover:text-white transition-all duration-300"
                 >
                   Sign in
                 </button>

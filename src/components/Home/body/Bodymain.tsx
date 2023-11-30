@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion'
 import Body from '../../Utils/Model/body'
-import classes from './Body.module.css'
 
 const Bodymain = () => {
   return (
-    <section id="body" className={classes.container}>
+    <section id="body" className=" container mx-auto py-10 mb-32 mt-32 items-center ">
       {/*HEADER */}
-      <motion.div className="mx-auto items-center justify-center md:flex md:h-5/6 ">
+      <motion.div className="mx-auto items-center justify-center  md:h-5/6 mt-20 mb-5">
         {/* MAIN BODY */}
-        <div className="z-10 mt-20 md:basis-5/6">
+        <div className="mt-20 md:basis-5/6">
           {/* BODY */}
           <motion.div
             className="md:-mt-20"
@@ -22,11 +21,7 @@ const Bodymain = () => {
             }}
           >
             <div>
-              <p className={classes.sectionTitle}>เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน</p>
-
-              <div>
-                <Body />
-              </div>
+              <Body />
             </div>
           </motion.div>
         </div>

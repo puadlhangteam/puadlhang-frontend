@@ -48,9 +48,9 @@ export default function Model({ data = [], setData, Front = true, Back = true }:
   }
 
   return (
-    <div className={classes.Bodyboard}>
+    <>
       {Front && (
-        <svg viewBox="0 0 424 770" width="50%" fill="none">
+        <svg viewBox="0 0 424 770" width={Front && Back ? '50%' : '100%'} fill="none">
           {anterior.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
@@ -86,7 +86,7 @@ export default function Model({ data = [], setData, Front = true, Back = true }:
       )}
 
       {Back && (
-        <svg viewBox="0 0 424 770" width="50%" fill="none">
+        <svg viewBox="0 0 424 770" width={Front && Back ? '50%' : '100%'} fill="none">
           {posterior.map(({ components, muscle, selected }) =>
             components.map((C) => {
               if (C.type === 'path')
@@ -120,6 +120,6 @@ export default function Model({ data = [], setData, Front = true, Back = true }:
           )}
         </svg>
       )}
-    </div>
+    </>
   )
 }

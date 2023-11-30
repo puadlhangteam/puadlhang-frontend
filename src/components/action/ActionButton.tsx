@@ -1,5 +1,4 @@
 import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 type Props = {
   children: React.ReactNode
@@ -9,7 +8,7 @@ type Props = {
 const ActionButton = ({ children, location }: Props) => {
   return (
     <div>
-      <AnchorLink href={`#${location}`}>{children}</AnchorLink>
+      <a href={`#${location}`}>{children}</a>
     </div>
   )
 }

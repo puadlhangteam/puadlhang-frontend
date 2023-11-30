@@ -19,5 +19,5 @@ export interface ReviewsDTO {
   thumbnailUrl: string
   description: string
   username: string
-  rating: number
+  github: string
 }

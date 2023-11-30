@@ -9,7 +9,7 @@ function BannerSolution({ muscles }: IBannerSolutionProps) {
       <div className="text-3xl sm:text-5xl">
         <h1 className="font-kanit  text-amber">Exercise that Work!</h1>
       </div>
-      <div className="flex flex-col md:flex-row gap-x-5">
+      <div className="flex flex-wrap md:flex-row gap-x-5">
         {muscles.map((muscle) => (
           <a
             key={muscle + 'Banner'}

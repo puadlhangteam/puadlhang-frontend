@@ -5,7 +5,7 @@ import classes from './Concept.module.css'
 
 const Concept = () => {
   return (
-    <section id="content" className={classes.container}>
+    <section id="content" className="container mx-auto px-5 mb-11 w-4/5">
       <motion.div
         className="mx-auto md:h-5/6"
         initial="hidden"
@@ -18,7 +18,7 @@ const Concept = () => {
         }}
       >
         {/* GRAPHICS AND TEXT */}
-        <div className="mt-6 items-center justify-between gap-20 md:mt-38 md:flex">
+        <div className="mt-6 items-center justify-between gap-20 md:mt-38 pb-10 pt-20 md:flex">
           <img className="mx-auto" alt="benefits-page-graphic" src={Joynow} />
 
           <div>
@@ -42,12 +42,10 @@ const Concept = () => {
             </motion.div>
 
             {/* BUTTON */}
-            <div className="relative mt-16">
-              <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-                <Link to="/login" className={classes.buttonforCreated}>
-                  Join Now
-                </Link>
-              </div>
+            <div className=" mt-16 ">
+              <Link to="/login" className={classes.buttonforCreated}>
+                Join Now
+              </Link>
             </div>
           </div>
         </div>

@@ -3,10 +3,10 @@ import AboutUs from '../../components/Home/aboutUs/AboutUs'
 import Concept from '../../components/Home/concept/Concept'
 import IntroWeb from '../../components/Home/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
-
 import BlogSpecialists from '../../components/Home/blogspecialists'
 import Bodymain from '../../components/Home/body/Bodymain'
-import Rating from '../../components/Home/rating/Rating'
+import Reviews from '../../components/Home/reviews'
+import classes from './Home.module.css'
 
 function Home() {
   const [, setSelectedPage] = useState<SelectedPageDTO>(SelectedPageDTO.IntroWeb)
@@ -25,14 +25,19 @@ function Home() {
   }, [])
 
   return (
-    <div className="app bg-gray-20">
-      <IntroWeb />
+    <div className="app mx-auto">
+      <div className={classes.gradientintro}>
+        <IntroWeb />
+      </div>
       <Bodymain />
       <BlogSpecialists />
-      <Rating />
-      {/* <Reviews /> */}
+
+      <Reviews />
       <Concept />
-      <AboutUs />
+
+      <div className={classes.gradientabout}>
+        <AboutUs />
+      </div>
     </div>
   )
 }
