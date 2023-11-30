@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import DefaultUserImage from '../../assets/default_profile/images.png'
-import { useAuth } from '../../providers/Authprovider'
 import Logo from '../../assets/home/Logo.svg'
+import { useAuth } from '../../providers/Authprovider'
 
 const Navbar = () => {
   const [navIsVisible, setNavIsVisible] = useState(false)
   const { user, signOutAuth } = useAuth()
+  const { pathname } = useLocation()
 
   const navigate = useNavigate()
 
@@ -60,12 +61,14 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <button
-                  onClick={handleSignIn}
-                  className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 text-3xl rounded-full text-orange-500  hover:bg-orange-500 hover:text-white transition-all duration-300"
-                >
-                  Sign in
-                </button>
+                {!pathname.startsWith('/login') && (
+                  <button
+                    onClick={handleSignIn}
+                    className="mt-5 lg:mt-0 border-2 border-orange-500 px-6 py-2 text-3xl rounded-full text-orange-500  hover:bg-orange-500 hover:text-white transition-all duration-300"
+                  >
+                    Sign in
+                  </button>
+                )}
               </>
             )}
           </div>
