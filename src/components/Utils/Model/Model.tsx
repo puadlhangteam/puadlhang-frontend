@@ -8,9 +8,11 @@ interface IModelProp {
   setData?: (data: Muscle[]) => void
   Front?: boolean
   Back?: boolean
+  clear?: boolean
+  setClear?: (data: boolean) => void
 }
 
-export default function Model({ data = [], setData, Front = true, Back = true }: IModelProp) {
+export default function Model({ data = [], setData, clear = false, setClear, Front = true, Back = true }: IModelProp) {
   const anterior = anteriorData.map(({ muscle, components }) => {
     return { components, selected: data.includes(muscle), muscle }
   })
@@ -27,15 +29,23 @@ export default function Model({ data = [], setData, Front = true, Back = true }:
   }
 
   useEffect(() => {
+    if (clear) {
+      setMuscledataFront(anterior)
+      setMuscledataBack(posterior)
+      setClear && setClear(false)
+    }
+  }, [clear, anterior, posterior, setClear])
+
+  useEffect(() => {
     const getData = () => {
       return [...MuscledataFront, ...MuscledataBack]
         .filter((v) => v.selected)
         .filter((v, i, self) => i === self.map((v) => v.muscle).indexOf(v.muscle))
         .map((v) => v.muscle)
     }
-    const data = getData()
-
-    setData && setData(data)
+    const resultData = getData()
+    localStorage.setItem('selectedBodyPart', JSON.stringify(resultData))
+    setData && setData(resultData)
   }, [MuscledataFront, MuscledataBack, setData])
 
   const onClickBodyPart = (e: React.MouseEvent) => {
