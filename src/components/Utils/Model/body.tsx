@@ -6,23 +6,24 @@ import { Muscle } from './Model.type'
 
 export default function Body() {
   const [data, setData] = useState<Muscle[]>(JSON.parse(localStorage.getItem('selectedBodyPart') || '[]') as Muscle[])
+  const [clear, setClear] = useState<boolean>(false)
   const navigate = useNavigate()
 
   const onHandleSubmit = (e: MouseEvent) => {
     e.preventDefault()
     if (!data) return
-    localStorage.setItem('selectedBodyPart', JSON.stringify(data))
     navigate('/solutions')
   }
   const onHandleClear = (e: MouseEvent) => {
     e.preventDefault()
     localStorage.setItem('selectedBodyPart', JSON.stringify([]))
+    setClear(true)
     setData([])
   }
 
   return (
     <div className="flex flex-col  items-center gap-10 md:flex-row w-full">
-      <Model data={data} setData={setData} />
+      <Model data={data} setData={setData} clear={clear} setClear={setClear} />
 
       <div>
         {data.length == 0 ? (
