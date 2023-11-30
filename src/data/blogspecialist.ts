@@ -26,8 +26,7 @@ export const BLOGSPECIAL: BlogSpecialistDTO[] = [
   {
     thumbnailUrl:
       'https://scontent.fbkk22-8.fna.fbcdn.net/v/t39.30808-6/313064137_3351820978477183_907762994162051876_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFtJJCsQmBRskWK22qEqIrmIri9i-WwrOQiuL2L5bCs5GpBgfC9BHflnaFWngDEaS2g5gnXoEg_YZmWvcxmkch3&_nc_ohc=Ikvwlo45VUwAX9lNEz4&_nc_ht=scontent.fbkk22-8.fna&oh=00_AfBjzw-dY1UeDIbYx30fjbcOEFJZ8wGLr_Yo18UghOz8BQ&oe=656CA9E7',
-    description:
-      'อยากให้ทุกคนดูแลร่างกายตัวเอง และกายภาพตัวเองอยู่เสมอในช่วงเวลาที่ทำงานอยู่เว็บไซต์ของเราจะช่วยคุณเอง',
+    description: 'อยากให้ทุกคนดูแลร่างกายตัวเอง หาทางแก้ไข ไม่งั้นผมจะไปดูแลคุณครับ',
     user: 'Dr.Peet',
     date: 'นักกายภาพบำบัด',
   },

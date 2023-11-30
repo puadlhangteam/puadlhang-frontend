@@ -11,7 +11,7 @@ const Bodymain = () => {
           {/* BODY */}
           <motion.div
             className="md:-mt-20"
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
