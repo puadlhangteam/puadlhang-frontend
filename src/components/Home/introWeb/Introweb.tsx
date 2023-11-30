@@ -29,8 +29,8 @@ const IntroWeb = () => {
                 <img alt="home-text" src={Texthome} />
               </div>
             </div>
-            <p className="text-lg mt-60 kanit mb-10">
-              อาการของคุณเป็นยังไงบอกเราได้เลย ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนกันกับคุณ
+            <p className="text-xl mt-60 kanit mb-10 ">
+              อาการของคุณเป็นยังไงบอกเราได้เลย<br></br> ด้วยความห่วงใยจากคนที่เคยเป็นเหมือนคุณ
             </p>
           </motion.div>
 

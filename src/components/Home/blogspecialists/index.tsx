@@ -8,10 +8,10 @@ const BlogSpecialists = () => {
       <div>
         {/* IMAGE AND MAIN HEADER */}
 
-        <div className="mx-auto items-center justify-center md:flex container w-4/5 pt-10 ">
+        <div className="mx-auto items-center justify-center md:flex container w-4/5  pt-10 ">
           <motion.div
             className="md:-mt-10"
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
@@ -21,11 +21,11 @@ const BlogSpecialists = () => {
             }}
           >
             <div>
-              <div className=" text-orange-500 text-5xl font-normal font-['Kanit'] mt-20  grid  pb-20 col-span-2">
+              <div className=" text-orange-500 md:text-5xl text-3xl font-normal font-['Kanit'] mt-20  grid  pb-20 col-span-2">
                 <h1>หลายเรื่องสุขภาพน่ารู้ ที่หมออยากบอก</h1>
               </div>
 
-              <div className=" grid md:grid-cols-4  md:gap-x-10 gap-y-5 pb-10 col-span-2">
+              <div className=" grid md:grid-cols-4 md:gap-x-10 gap-y-5 pb-10 col-span-2">
                 {BLOGSPECIAL.map((specialist) => {
                   return <BlogSpecialist key={specialist.thumbnailUrl} specialist={specialist} />
                 })}

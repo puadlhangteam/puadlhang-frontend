@@ -9,7 +9,7 @@ const Reviews = () => {
         <div className="mx-auto items-center justify-center md:flex ">
           <motion.div
             className="md:-mt-30 "
-            initial="hidden"
+            // initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}

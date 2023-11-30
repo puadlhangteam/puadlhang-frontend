@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import AboutUs from '../../components/Home/aboutUs/AboutUs'
-import Concept from '../../components/Home/concept/Concept'
 import IntroWeb from '../../components/Home/introWeb/Introweb'
 import { SelectedPageDTO } from '../../types/home'
 import BlogSpecialists from '../../components/Home/blogspecialists'
@@ -33,7 +32,6 @@ function Home() {
       <BlogSpecialists />
 
       <Reviews />
-      <Concept />
 
       <div className={classes.gradientabout}>
         <AboutUs />

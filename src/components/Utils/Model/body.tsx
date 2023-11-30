@@ -29,10 +29,10 @@ export default function Body() {
         {data.length == 0 ? (
           <div></div>
         ) : (
-          <div className="flex flex-col gap-3 bg-orange-500 rounded-xl border text-white text-2xl px-20 py-3 mb-8">
+          <div className="  m-5 gap-3 bg-orange-500 rounded-xl border text-white text-2xl px-20 py-3 mb-8">
             <>
               {data.map((v) => (
-                <p className=" w-full mx-5 my-3" key={v}>
+                <p className="  w-full mx-5 my-3 flex flex-wrap md:flex-row   " key={v}>
                   {v}
                 </p>
               ))}
@@ -40,9 +40,8 @@ export default function Body() {
           </div>
         )}
 
-        {/*BUTTON */}
-        <div>
-          <p className="flex items-center my-20 md:text-5xl text-3xl pt-16 text-orange-500 font-normal pb-4">
+        <div className=" m-5 justify-center ">
+          <p className=" animate-pulse   my-20 md:text-5xl  text-2xl pt-16 text-orange-500 font-normal pb-4">
             เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน
           </p>
           <button className={classes.buttonforCreated} onClick={onHandleSubmit}>
