@@ -57,6 +57,10 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }, [token])
 
   const getUser = async (token: string | null) => {
+    axios.defaults.headers.common = {
+      Authorization: token ? `Bearer ${token}` : undefined,
+      'Content-Type': 'application/json',
+    }
     if (!token) {
       setUser(null)
       return
