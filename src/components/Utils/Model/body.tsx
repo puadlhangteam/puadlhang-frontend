@@ -41,6 +41,9 @@ export default function Body() {
 
         {/*BUTTON */}
         <div>
+          <p className="flex items-center my-20 md:text-5xl text-3xl pt-16 text-orange-500 font-normal pb-4">
+            เลือกบริเวณที่คุณปวด แค่คลิ๊ก ชีวิตก็เปลี่ยน
+          </p>
           <button className={classes.buttonforCreated} onClick={onHandleSubmit}>
             ยืนยัน
           </button>

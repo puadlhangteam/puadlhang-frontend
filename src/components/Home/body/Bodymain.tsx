@@ -3,7 +3,7 @@ import Body from '../../Utils/Model/body'
 
 const Bodymain = () => {
   return (
-    <section id="body" className=" container mx-auto px-5 mb-32 mt-20 items-center ">
+    <section id="body" className=" container mx-auto py-10 mb-32 mt-32 items-center ">
       {/*HEADER */}
       <motion.div className="mx-auto items-center justify-center  md:h-5/6 mt-20 mb-5">
         {/* MAIN BODY */}
