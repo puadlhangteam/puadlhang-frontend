@@ -11,7 +11,7 @@ const Specialistform = () => {
   const [certificateImg, setCertificateImage] = useState<File | null>(null)
   const [description, setDescription] = useState<string>('')
 
-  const handleDescriptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleDescriptionChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault()
     setDescription(event.target.value)
   }
@@ -56,8 +56,8 @@ const Specialistform = () => {
     }
   }
   return (
-    <div className="flex-col justify-center items-center flex-1 top-36 sm:right-24 md:right-44 lg:right-20 xl:right-40 2xl:right-64 w-4/5  h-4/5 mx-auto">
-      <div className="text-neutral-800 text-[31.25px] text-center font-bold font-['Zen Kaku Gothic Antique'] leading-9 flex justify-self-center">
+    <div className="flex flex-col justify-start items-center w-4/5 h-4/5 mx-auto">
+      <div className="text-neutral-800 text-[31.25px] text-center font-bold  flex justify-self-center mx-auto">
         Join & Connect the Fastest Growing Online Community
       </div>
 
@@ -99,14 +99,13 @@ const Specialistform = () => {
                 <img src={subtract} />
               </div>
               <div className="mt-8 mx-12 flex justify-between items-center">
-                <div>
-                  <input
-                    type="text"
-                    onChange={handleDescriptionChange}
-                    className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-10 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
-                    placeholder="Enter your description..."
-                  />
-                </div>
+                <textarea
+                  rows={5}
+                  cols={33}
+                  onChange={handleDescriptionChange}
+                  className="text-gray-600 dark:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 bg-transparent font-normal w-full h-20 flex items-center pl-3 p-4 mt-1 text-sm border-gray-500 rounded-xl border shadow"
+                  placeholder="Enter your description..."
+                />
               </div>
             </div>
           )}
@@ -117,7 +116,7 @@ const Specialistform = () => {
               disabled={isSubmitting}
               className="w-48 bg-orange-600 text-white text-lg font-bold rounded-3xl py-3 active:scale-[0.98] active:deration-75 hover:scale-[1.01] ease-in-out transition-all"
             >
-              {isSubmitting ? 'CONFRIM' : 'checking'}
+              {!isSubmitting ? 'CONFRIM' : 'checking'}
             </button>
           </div>
         </form>
